@@ -1,0 +1,439 @@
+﻿/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+   MOTEN & ARENOR | NYKOPINGSGUIDEN 
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+body.ma                         { }
+
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   GLOBAL
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+a:hover h1, a:hover h2, a:hover h3, 
+a:hover h4, a:hover h5          { color:#fc0; }
+
+
+.btn-text                       { background:#1a1a1a; }																																															 
+.btn-text:hover                 { background:#fc0; }	
+.btn-text.large                 { }
+
+.scroll-up-btn                  { background:#fc0; }
+
+.page-nav .nr.active,
+.page-nav .nr.active:hover      { background:#fc0; border:1px solid #fc0; }
+
+.form label .asterix            { color:#fc0; }	
+
+
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   LAYOUT
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+											 
+/* ========================================================================== 
+   HEADER  
+================================|========================================= */
+
+body.ma #header                 { background:#1a1a1a; }
+
+body.ma .header-logo a  		  { padding:10px 0 12px; background:#1a1a1a; }
+
+body.ma .header-port-menu-btn   { border-color:#333; }
+
+body.ma .header-port-menu-btn:hover { background-color:#000; }
+
+body.ma .header-search-btn      { border-color:#333; }
+body.ma .header-search-btn div  { position:absolute; overflow:hidden; height:0; width:0; }
+body.ma .header-search-btn:hover { background-color:#000; }
+
+/* --------------------------------------------------------------------------  
+   LB SEARCH
+--------------------------------|----------------------------------------- */
+
+body.ma #lb-search .search-btn  { color:#1a1a1a; }
+body.ma #lb-search .search-btn:hover { color:#fc0; }
+
+
+/* --------------------------------------------------------------------------  
+   MAIN MENU
+--------------------------------|----------------------------------------- */
+
+body.ma .main-menu .btn         { color:#fc0; }
+body.ma .main-menu .btn:hover   { background:#555; color:#fff; }
+									 
+body.ma .main-menu .btn         { border-left:1px solid #333; } 													 
+body.ma .main-menu .btn:first-child { border-left:none !important; }							 
+
+body.ma .main-menu .btn-1       { width:24%; } 	
+body.ma .main-menu .btn-2       { width:30%; } 	
+body.ma .main-menu .btn-3       { width:28%; } 	
+body.ma .main-menu .btn-4       { width:18%; } 			
+
+
+/* HEADER | MAIN MENU ======== */
+body.ma.sub .main-menu          { height:50px; border-left:1px solid #333; border-right:1px solid #333; }
+
+body.ma.sub .main-menu .btn     { height:50px; border-top:1px solid #333; font:19px/50px 'BertholdAGMedium'; } 
+
+body.ma.sub .main-menu .btn.active        { background:#fc0; color:#fff; }
+body.ma.sub .main-menu .btn .arrow:before { background:#fc0; }
+
+
+/* HOME | MAIN MENU ========== */
+body.ma.home .main-menu         { height:60px; margin:-60px 0 0; }
+body.ma.home .main-menu .inner-wrap { background:#1a1a1a; }
+body.ma.home .main-menu .btn    { height:60px; font:27px/60px 'BertholdAGMedium'; }
+
+
+
+/* ========================================================================== 
+   FULL WIDE SLIDER (FWS)
+================================|========================================= */
+
+body.ma .fullwide-slider .text  { bottom:50%; 
+											 -webkit-transform: translate0, 50%) !important;
+                                  -ms-transform: translate(0, 50%) !important;
+                                  transform: translate(0, 50%) !important; }
+body.ma .fullwide-slider .text .box       { width:92%; max-width:900px; text-align:center; background:transparent\9; background:transparent; }	
+body.ma .fullwide-slider .text .box:hover { background:transparent\9; background:transparent; }
+
+body.ma .fullwide-slider .text .box h1,
+body.ma .fullwide-slider .text .box h2    { margin:0; line-height:68px; }
+
+body.ma .fullwide-slider .text .box span  { display:inline; padding:0 15px;
+                                            background:#1a1a1a\9; background:rgba(0,0,0,0.5);
+                                            box-decoration-break:clone; -webkit-box-decoration-break:clone; 
+                                            transition:background 0.3s; -moz-transition:background 0.3s; -webkit-transition:background 0.3s; }
+body.ma .fullwide-slider .text .box:hover span { background:#1a1a1a\9; background:rgba(0,0,0,0.8); }
+
+
+
+/* ========================================================================== 
+   CONTENT SECTION (CS)
+================================|========================================= */
+
+body.ma .push-section           { padding:45px 0; }
+
+body.ma .push-section:nth-child(even),
+body.ma .push-section:nth-child(even) .slider.carousel .slick-prev,
+body.ma .push-section:nth-child(even) .slider.carousel .slick-next { background:#f6f6f6; }
+
+
+
+/* ========================================================================== 
+   PUSHES
+================================|========================================= */
+
+body.ma [class*="push"] .icon   { color:#fc0; background:#555\9; background:rgba(255,252,255,0.3); }									 								 
+
+body.ma .main-push .text .meta  { background:#1a1a1a; color:#fc0; }
+
+body.ma .slider .main-push .text .more   { padding:5px 0 20px; }
+body.ma .main-push .text .more .btn-text { display:none !important; }
+
+body.ma [class*="push"] .icon   { color:#fc0; }
+body.ma [class*="push"] .text .meta,
+body.ma [class*="push"]:hover .text .meta { background:#1a1a1a; color:#fff; }
+
+body.ma [class*="push"].event .icon             { color:#fc0; }
+body.ma [class*="push"].event .text .meta,
+body.ma [class*="push"].event:hover .text .meta { background:#1a1a1a; color:#fff; }
+
+
+
+/* ========================================================================== 
+   PS | CONTACT | PS INFO
+================================|========================================= */
+
+body.ma #ps-contact             { padding:50px 0; }
+
+
+
+/* ========================================================================== 
+   GUIDEBOX
+================================|========================================= */
+
+body.ma .guidebox-head .menu ul li a:hover,
+body.ma .guidebox-head .menu ul.iconmenu a:after,
+body.ma .guidebox-foot a:hover,
+body.ma #eventguide .guidebox-head .menu ul.iconmenu a:after,
+body.ma #eventguide .guidebox-head .menu ul.iconmenu a:hover,
+body.ma #eventguide .guidebox-head .menu ul.linkmenu a:hover,
+body.ma #eventguide .guidebox-foot a:hover,
+body.ma .main-push .icon,
+body.ma [class*="push"] .arrow          { color:#fc0 !important; }
+
+body.ma .guidebox .main-push .text .meta { background:#1a1a1a; color:#fc0; }
+
+body.ma .guidebox .main-push:hover .text .meta { background:#fc0; background:#000; }
+
+body.ma .guidebox .main-push .text .meta .category { text-transform:uppercase; }
+
+
+
+/* ========================================================================== 
+   CS | EVENEMANGSGUIDEN (GUIDEBOX)
+================================|========================================= */
+
+body.ma #ps-arenor-lokaler.push-section { }
+
+
+
+/* ========================================================================== 
+   BREADCRUMB NAV (BN)
+================================|========================================= */
+
+body.ma #breadcrumb-nav li a.parent .arrow:before { background:#fc0; }
+
+body.ma #breadcrumb-nav li li a:hover { color:#fc0; }
+
+
+
+/* ========================================================================== 
+   ARTICLE PAGE
+================================|========================================= */
+						 
+body.ma .main-article-info      { background:#1a1a1a; }
+
+body.ma .main-article-info a.btn-text { background:#fc0; color:#fff; }
+body.ma .main-article-info a.btn-text:hover { background:#fff; color:#fc0; }
+
+
+body.ma .side-column .side-section h4 { background:#1a1a1a; }
+
+
+/* ========================================================================== 
+   SUB HEADER IMAGE
+================================|========================================= */
+
+body.ma #sub-header-image       { background:#1a1a1a; } 
+
+
+
+/* ========================================================================== 
+   SUB MAIN
+================================|========================================= */
+
+body.ma .sub-main a             { color:#1a1a1a; text-decoration:underline; }
+body.ma .sub-main a:hover       { color:#fc0; }
+
+body.ma .sub-main ul li:before  { color:#1a1a1a; }
+											 
+
+
+/* ========================================================================== 
+   SUB CONTENT FOOTER (SCF)
+================================|========================================= */
+
+body.ma .sub-content-footer .icon:hove  { background:#fc0; }
+
+body.ma.article .sub-content-footer .icon { background:rgba(0,0,0,0.5); }
+body.ma.article .sub-content-footer .icon:hover { background:#fc0; }
+
+
+
+/* ========================================================================== 
+   SEARCH RESULT (SR)
+================================|========================================= */
+
+body.ma .search-result ol li a:hover h2,
+body.ma .search-result ol li a:hover h2 strong { color:#fc0 !important; }
+
+body.ma .search-result .search-form .search-btn { color:#1a1a1a; }
+body.ma .search-result .search-form .search-btn:hover { color:#fc0; }
+
+
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+   LIGHTBOX (LB)
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+body.ma .lb-box                 { background:#1a1a1a; }
+
+body.ma .lb-close:hover         { color:#fc0 !important; }
+
+body.ma .lb-box a               { color:#fc0; }
+
+body.ma .lb-box .btn-text       { background:#fc0; }
+body.ma .lb-box .btn-text:hover { color:#fc0; }
+
+
+
+/* ========================================================================== 
+   PORTABLE MENU
+================================|========================================= */
+
+body.ma #port-menu .port-menu-box { background:#1a1a1a; }
+
+body.ma .port-main-menu-a a:hover,
+body.ma .port-main-menu .current-menu-item > a,
+body.ma .port-main-menu .current-menu-item > .toggle-row a { border-left:8px solid #fc0; }
+
+body.ma .port-main-menu-b a     { font:300 22px/28px 'Open Sans'; }
+body.ma .port-main-menu-b a:hover { color:#fc0; border-left:8px solid transparent !important; }
+
+body.ma .port-plus-menu li a:hover { color:#fc0; }
+
+body.ma .port-main-menu .toggle:hover:before { color:#fc0; }	
+
+
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+	RESPONSIVE
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+
+@media screen and (max-width: 1296px) { 
+
+body.ma.sub .main-menu          { border-right:none; }
+
+}
+
+@media screen and (max-width: 1280px) { }
+
+@media screen and (max-width: 1200px) { 
+
+body.ma.sub .header-menu        { width:73.5%; }
+
+body.ma.home .main-menu .btn    { font:24px/60px 'BertholdAGMedium'; }
+
+body.ma.sub .main-menu .btn     { font:600 16px/48px 'Open Sans'; } 
+
+body.ma .fullwide-slider .text .box h1,
+body.ma .fullwide-slider .text .box h2    { line-height:63px; }
+
+}
+
+@media screen and (max-width: 1120px) { 
+
+body.ma .push-section           { padding:30px 0; }
+
+}
+
+@media screen and (max-width: 1040px) { 
+
+body.ma.home .main-menu         { height:50px; }
+body.ma.home .main-menu .btn    { height:50px; font:22px/50px 'BertholdAGMedium'; }
+
+body.ma.sub .main-menu .btn     { font:400 16px/48px 'Open Sans'; } 
+
+}
+
+@media screen and (max-width: 960px) { 
+
+body.ma .fullwide-slider .text .box h1,
+body.ma .fullwide-slider .text .box h2    { line-height:57px; }
+body.ma .fullwide-slider .text .box span  { padding:0 12px; }
+
+body.ma.home .main-menu .btn    { font:22px/50px 'BertholdAGRegular'; }
+
+body.ma.sub .main-menu          { height:45px; } 
+body.ma.sub .main-menu .btn     { height:45px; font:400 15px/44px 'Open Sans'; } 
+
+}
+
+@media screen and (max-width: 880px) { 
+
+body.ma.home .main-menu .btn    { font:20px/50px 'BertholdAGRegular'; }
+
+body.ma.sub ul.header-top-menu  { margin:0 0 34px; }
+body.ma.sub .header-menu        { width:100%; }
+body.ma.sub .main-menu          { border-left:none; }
+body.ma.sub .main-menu .btn     { font:19px/44px 'BertholdAGMedium';  } 
+
+body.ma .guidebox-head .heading { padding-right:10px; }
+
+}
+
+@media screen and (max-width: 800px) { 
+
+body.ma .fullwide-slider .text .box h1,
+body.ma .fullwide-slider .text .box h2    { line-height:50px; }
+body.ma .fullwide-slider .text .box span  { padding:0 10px; }
+
+body.ma.home .main-menu .btn    { font:600 16px/50px 'Open Sans'; }
+
+body.ma.sub ul.header-top-menu  { margin:0 0 30px; }
+body.ma.sub .main-menu .btn     { font:600 16px/44px 'Open Sans'; } 
+
+body.ma .guidebox-head .heading { padding-right:0; }
+
+}
+
+@media screen and (max-width: 720px) { 
+
+body.ma .header-logo a  		  { margin:12px 0 0 4px; padding:0; }
+body.ma .header-logo a img      { margin-top:-35px; }
+
+body.ma.sub ul.header-top-menu  { margin:0; }
+
+body.ma .fullwide-slider .text  { bottom:45%; }
+body.ma .fullwide-slider .text .box h1,
+body.ma .fullwide-slider .text .box h2   { line-height:45px; }
+body.ma .fullwide-slider .text .box span { padding:0 9px; }
+
+body.ma .main-menu              { height:auto !important; }
+body.ma .main-menu .btn         { width:50% !important; font:22px/44px 'BertholdAGMedium' !important; }
+body.ma .main-menu .btn-3       { border-top:1px solid #333 !important; border-left:none !important; } 	
+body.ma .main-menu .btn-4       { border-top:1px solid #333 !important; } 	
+body.ma .main-menu .btn .arrow  { display:none !important; }
+
+}
+
+@media screen and (max-width: 640px) { 
+
+body.ma .fullwide-slider .text .box h1,
+body.ma .fullwide-slider .text .box h2    { line-height:40px; }
+body.ma .fullwide-slider .text .box span  { padding:0 8px; }
+
+}
+
+@media screen and (max-width: 560px) { 
+
+body.ma .fullwide-slider .text  { bottom:30%; }
+body.ma .fullwide-slider .text .box h1,
+body.ma .fullwide-slider .text .box h2    { line-height:35px; }
+body.ma .fullwide-slider .text .box span  { padding:0 7px; }
+
+body.ma .main-menu .btn         { height:40px !important; font:20px/38px 'BertholdAGMedium' !important; }	
+
+}
+
+@media screen and (max-width: 500px) { 
+
+body.ma .main-menu .btn    { font:600 17px/38px 'Open Sans' !important; }	
+
+}
+
+@media screen and (max-width: 480px) { 
+
+body.ma .fullwide-slider .text .box h1,
+body.ma .fullwide-slider .text .box h2    { line-height:31px; }
+body.ma .fullwide-slider .text .box span  { padding:0 6px; }
+
+}
+
+@media screen and (max-width: 440px) { 
+
+body.ma .main-menu         { display:none !important; }	
+
+}
+
+@media screen and (max-width: 400px) { 
+
+body.ma .fullwide-slider .text  { bottom:25%; }
+
+body.ma .fullwide-slider .text .box h1,
+body.ma .fullwide-slider .text .box h2    { line-height:28px; }
+body.ma .fullwide-slider .text .box span  { padding:0 5px; }
+
+}
+
+@media screen and (max-width: 360px) { 
+
+body.ma .fullwide-slider .text .box h1,
+body.ma .fullwide-slider .text .box h2    { line-height:26px; }
+body.ma .fullwide-slider .text .box span  { padding:0 4px; }
+
+}

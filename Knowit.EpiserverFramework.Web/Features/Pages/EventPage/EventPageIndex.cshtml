@@ -1,0 +1,333 @@
+﻿@using EPiServer
+@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.DataAbstraction
+@using EPiServer.ServiceLocation
+@using Knowit.EpiserverFramework.Web.Features.Pages.EventPage
+
+@model EventPageViewModel
+
+@{
+    Layout = "~/Features/Layouts/_Layout.cshtml";
+}
+<style>
+    #karta {
+        width: 864px;
+        height: 432px;
+    }
+</style>
+<div id="content">
+
+@Html.Partial("~/Features/Shared/Nykopingsguiden/_breadcrumbs-menu.cshtml")
+
+    <div id="sub-content">
+
+        <section class="sub-content-section">
+
+            <div class="inner-wrap">
+
+                <main class="main-column">
+
+                    <div class="slider main-slider">
+                        <div><img src="@Url.ContentUrl(Model.CurrentPage.Image1)" alt=""></div>
+                    </div>
+
+                    <div class="main-article-info">
+                        <ul>
+                            @if (Model.CurrentPage.Category.Count > 0)
+                            {
+                                CategoryRepository categoryRepository = ServiceLocator.Current.GetInstance<CategoryRepository>();
+                                <li><span>Kategori:</span>
+                                    @foreach (var category in Model.CurrentPage.Category)
+                                    {
+                                        Category cat = categoryRepository.Get(category);
+                                        if(cat.Parent.Name =="Evenemangskategorier")
+                                        { 
+                                            if (category.Equals(Model.CurrentPage.Category.Last()))
+                                            {
+                                                @cat.Name
+                                            }
+                                            else
+                                            {
+                                                        var o = cat.Name + ", ";
+                                                        @o
+                                            }
+                                        }
+                                    } 
+                                </li> 
+                            }
+                            <li><span>Period:</span> 2016-12-15 – 2016-12-18</li>
+                            <li><span>Tid:</span> Tid: 09:00 – 20:00</li>
+                            @if (Model.CurrentPage.Place != null)
+                            {
+                                var contentRepository = ServiceLocator.Current.GetInstance<IContentRepository>();
+                                var placePage = contentRepository.Get<PageData>(Model.CurrentPage.Place);
+                                <li>
+                                    <span>Plats: </span><a href="@Url.ContentUrl(placePage.ContentLink)"> @placePage.Name</a>
+                                </li>
+                            }
+                            else
+                            {
+                                if (!string.IsNullOrEmpty(Model.CurrentPage.OtherPlace))
+                                {
+                                    <li><span>Plats:</span> @Model.CurrentPage.OtherPlace</li> 
+                                }
+                            }
+                            @if (Model.CurrentPage.Price != null ) { <li><span> Pris:</span> @Model.CurrentPage.Price </li> }
+                            </ul>
+
+                        <div class="row">
+                            @if(!string.IsNullOrEmpty(Model.CurrentPage.BookingUrl))
+                            {
+                                <div class="button"><a class="btn-text large" href="@Model.CurrentPage.BookingUrl" target="_blank">Köp eller boka</a></div>
+                            }
+
+                            <div id = "main-article-info-calendar">
+                                <a class="show">Visa kalender</a>
+                                 <a class="hide">Stäng kalender</a>
+                                 <div class="calendar">
+                                    <h4>Kalender</h4>
+                                    <div class="calendarbox">
+                                        <div class="month"><a class="prev"></a><a class="next"></a>December</div>
+                                        <div class="week cc">
+                                            <div class="day">Mån</div>
+                                            <div class="day">Tis</div>
+                                            <div class="day">Ons</div>
+                                            <div class="day">Tor</div>
+                                            <div class="day">Fre</div>
+                                            <div class="day">Lör</div>
+                                            <div class="day">Sön</div>
+                                        </div>
+                                        <div class="days cc">
+                                            <a class="date passive">28</a>
+                                            <a class="date passive">29</a>
+                                            <a class="date passive">30</a>
+                                            <a class="date">1</a>
+                                            <a class="date">2</a>
+                                            <a class="date">3</a>
+                                            <a class="date">4</a>
+                                            <a class="date">5</a>
+                                            <a class="date">6</a>
+                                            <a class="date">7</a>
+                                            <a class="date">8</a>
+                                            <a class="date">9</a>
+                                            <a class="date">10</a>
+                                            <a class="date">11</a>
+                                            <a class="date">12</a>
+                                            <a class="date">13</a>
+                                            <a class="date">14</a>
+                                            <a class="date active">15</a>
+                                            <a class="date active">16</a>
+                                            <a class="date active">17</a>
+                                            <a class="date active">18</a>
+                                            <a class="date">19</a>
+                                            <a class="date">20</a>
+                                            <a class="date">21</a>
+                                            <a class="date">22</a>
+                                            <a class="date">23</a>
+                                            <a class="date">24</a>
+                                            <a class="date">25</a>
+                                            <a class="date">26</a>
+                                            <a class="date">27</a>
+                                            <a class="date">28</a>
+                                            <a class="date">29</a>
+                                            <a class="date">30</a>
+                                            <a class="date">31</a>
+                                            <a class="date passive">1</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sub-main">
+
+                        <h1>@Model.CurrentPage.Header</h1>
+
+                        <h5>@Model.CurrentPage.Extract</h5>
+
+                        <p>@Model.CurrentPage.MainBody</p>
+                        <hr>
+
+                        <h3>Kontakt</h3>
+
+                        
+                        <p>Adress: </p>
+                        <p>Telefon: 0155 - 45 40 30</p>
+                        @if(!string.IsNullOrEmpty(Model.CurrentPage.Email)) { <p>E-post: <a href = "mailto:@Model.CurrentPage.Email" > @Model.CurrentPage.Email </a></p> }
+                        @if(!string.IsNullOrEmpty(Model.CurrentPage.OrganizerUrl)) { <p> Webbplats: <a href = "@Model.CurrentPage.OrganizerUrl" target = "_blank" > @Model.CurrentPage.OrganizerUrl</a></p> }
+                        @if(!string.IsNullOrEmpty(Model.CurrentPage.FacebookPage)) { <p> Facebook: <a href = "@Model.CurrentPage.FacebookPage" target = "_blank" > @Model.CurrentPage.FacebookPage</a></p> }
+                </div>
+
+                 <div class="map">
+                    <div id = "karta" ></div>
+                    @*<iframe src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d8274.3137549563!2d17.0098798690096!3d58.77070267786552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d58.771561!2d17.0148032!4m5!1s0x465f2d98562ceeab%3A0xdbff96cdb07c9bbc!2selixir+fitness+nyk%C3%B6ping!3m2!1d58.771035!2d17.0147753!5e0!3m2!1ssv!2sse!4v1467643307784" width="864" height="432" frameborder="0" style="border:0" allowfullscreen></iframe>*@
+                </div>
+
+                <div class="tripadvisor">
+                    <div class="responsivebox">
+                        @*<div id="TA_selfserveprop472" class="TA_selfserveprop"><ul id="1o7YI0mKmn" class="TA_links ZgzdDl1Hfn"><li id="Y2Fmzk8DFK" class="Qj7Eqw"><a target="_blank" href="https://www.tripadvisor.se/"><img src="https://www.tripadvisor.se/img/cdsi/img2/branding/150_logo-11900-2.png" alt="TripAdvisor" /></a></li></ul></div>
+                        <script src="https://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=472&amp;locationId=231816&amp;lang=sv&amp;rating=true&amp;nreviews=4&amp;writereviewlink=true&amp;popIdx=true&amp;iswide=true&amp;border=false&amp;display_version=2"></script>*@
+                    </div>
+                </div>
+
+                <div class="sub-content-footer">
+                    <ul class="icons">
+                        <li><a class="addthis_button_facebook" href="#" title="Dela sidan på Facebook"><div class="icon facebook"></div></a></li>
+                        <li><a class="addthis_button_twitter" href="#" title="Dela sidan på Twitter"><div class="icon twitter"></div></a></li>
+                        <li><a class="addthis_button_email" href="#" title="Dela sidan via mail"><div class="icon email"></div></a></li>
+                        <li><a class="addthis addthis_button" href="#" title="Dela sidan"><div class="icon addthis"></div></a></li>
+                        <li><a class="print-button" onclick="printContent(&#39;sub-content&#39;)" title="Skriv ut"><div class="icon print"></div></a></li>
+                    </ul>
+                    <script type="text/javascript">var addthis_config = { "data_track_addressbar": false, ui_click: true, ui_offset_top: 40 };</script>
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e123d080fe1776d"></script>
+                </div>
+
+            </main>
+
+                @*<aside class="side-column">
+
+                    <div id="side-calendar" class="side-section">
+                        <div class="calendar">
+                            <h4>Kalender</h4>
+                            <div class="calendarbox">
+                                <div class="month"><a class="prev"></a><a class="next"></a>December</div>
+                                <div class="week cc">
+                                    <div class="day">Mån</div>
+                                    <div class="day">Tis</div>
+                                    <div class="day">Ons</div>
+                                    <div class="day">Tor</div>
+                                    <div class="day">Fre</div>
+                                    <div class="day">Lör</div>
+                                    <div class="day">Sön</div>
+                                </div>
+                                <div class="days cc">
+                                    <a class="date passive">28</a>
+                                    <a class="date passive">29</a>
+                                    <a class="date passive">30</a>
+                                    <a class="date">1</a>
+                                    <a class="date">2</a>
+                                    <a class="date">3</a>
+                                    <a class="date">4</a>
+                                    <a class="date">5</a>
+                                    <a class="date">6</a>
+                                    <a class="date">7</a>
+                                    <a class="date">8</a>
+                                    <a class="date">9</a>
+                                    <a class="date">10</a>
+                                    <a class="date">11</a>
+                                    <a class="date">12</a>
+                                    <a class="date">13</a>
+                                    <a class="date">14</a>
+                                    <a class="date active">15</a>
+                                    <a class="date active">16</a>
+                                    <a class="date active">17</a>
+                                    <a class="date active">18</a>
+                                    <a class="date">19</a>
+                                    <a class="date">20</a>
+                                    <a class="date">21</a>
+                                    <a class="date">22</a>
+                                    <a class="date">23</a>
+                                    <a class="date">24</a>
+                                    <a class="date">25</a>
+                                    <a class="date">26</a>
+                                    <a class="date">27</a>
+                                    <a class="date">28</a>
+                                    <a class="date">29</a>
+                                    <a class="date">30</a>
+                                    <a class="date">31</a>
+                                    <a class="date passive">1</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="side-tips" class="side-section">
+
+                        <h4>Många gillar också</h4>
+
+                        <div class="side-pushes">
+
+                            <a class="main-push segora" href="segora-elixir.aspx">
+                                <div class="icons"><div class="icon play"></div></div>
+                                <div class="text">
+                                    <div class="meta"><div class="location">Elixir Fitness</div></div>
+                                    <div class="box">
+                                        <h3>Kom i form i sommar</h3>
+                                        <div class="more">
+                                            <p>
+                                                <!-- 200 tecken -->
+                                                Duis autem veleum iriure dolor in hendrerit in velit esse melina consequat. Dolores eu feugiat ellam facilisis at vero eros et accumsan et iusto odio dignisim qui blandit. Lorum ipsum dolores delenida.
+                                            </p>
+                                            <div class="arrow"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <img src="img/content/864x486-elixir-fitness.jpg" alt="">
+                            </a>                           <a class="main-push event" href="#">
+                                <div class="text">
+                                    <div class="meta"><div class="date">11/6</div><div class="location">Uppsa Kulle</div></div>
+                                    <div class="box">
+                                        <h3>Mindfulness på Uppsa Kulle</h3>
+                                        <div class="more">
+                                            <p>
+                                                <!-- 200 tecken -->
+                                                Duis autem veleum iriure dolor in hendrerit in velit esse melina consequat. Dolores eu feugiat ellam facilisis at vero eros et accumsan et iusto odio dignisim qui blandit. Lorum ipsum dolores delenida.
+                                            </p>
+                                            <div class="arrow"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <img src="img/content/864x486-mindfulness.jpg" alt="">
+                            </a>                           <a class="main-push event" href="#">
+                                <div class="icons"><div class="icon pod"></div></div>
+                                <div class="text">
+                                    <div class="meta"><div class="date">14/6</div><div class="location">Rosvalla stadion</div></div>
+                                    <div class="box">
+                                        <h3>Nyköpings BIS - IK Sleipner</h3>
+                                        <div class="more">
+                                            <p>
+                                                <!-- 200 tecken -->
+                                                Duis autem veleum iriure dolor in hendrerit in velit esse melina consequat. Dolores eu feugiat ellam facilisis at vero eros et accumsan et iusto odio dignisim qui blandit. Lorum ipsum dolores delenida.
+                                            </p>
+                                            <div class="arrow"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <img src="img/content/864x486-fotboll-nykoping-bis.jpg" alt="">
+                            </a>
+
+                        </div>
+
+                </aside>*@
+
+            </div>
+
+        </section>
+
+    </div>
+    @if (!string.IsNullOrEmpty(Model.CurrentPage.Latitude) && !string.IsNullOrEmpty(Model.CurrentPage.Longitude))
+    {
+        <script>
+            function initMap() {
+                var marker = { lat: @Model.CurrentPage.Latitude, lng: @Model.CurrentPage.Longitude };
+
+                var map = new google.maps.Map(document.getElementById('karta'), {
+                    zoom: 14,
+                    center: marker
+                });
+
+                marker = new google.maps.Marker({
+                    position: marker,
+                    map: map
+                });
+            }
+        </script>
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBMQqXaCB6RZXhJMnHleQb9vMJtOK0lZWE&callback=initMap"></script>
+    }
+</div>

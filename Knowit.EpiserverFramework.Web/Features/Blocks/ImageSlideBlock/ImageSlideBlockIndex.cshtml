@@ -1,0 +1,29 @@
+﻿@using EPiServer.Editor
+@using EPiServer.Web.Mvc.Html
+@using Knowit.EpiserverFramework.Web.Features.Blocks.ImageSlideBlock
+
+@model ImageSlideBlockViewModel
+
+@if (PageEditing.PageIsInEditMode)
+{
+    <img src="@Url.ContentUrl(Model.ImageSlideBlock.SlideImage.Image)" alt="" style="width:300px!important;margin-bottom:2px;margin-right:2px;">
+}
+else
+{
+    <img src="@Url.ContentUrl(Model.ImageSlideBlock.SlideImage.Image)" alt="">
+    if (Model.ImageSlideBlock.Link.LinkUrl != null)
+    {
+        <div class="text">
+            <a class="box" href="@Url.ContentUrl(Model.ImageSlideBlock.Link.LinkUrl)">
+                <h1>@Model.ImageSlideBlock.Link.LinkText</h1>
+                @if (!string.IsNullOrEmpty(Model.ImageSlideBlock.MainIntro))
+                {
+                    <p>
+                        @Model.ImageSlideBlock.MainIntro
+                    </p>
+                    <div class="arrow"></div>
+                }
+            </a>
+        </div>
+    }
+}

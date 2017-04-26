@@ -1,0 +1,16 @@
+﻿@using EPiServer.Web.Mvc.Html
+
+@model Knowit.EpiserverFramework.Web.Features.Media.ExcelMedia.ExcelMediaViewModel
+
+<div>
+    @if (Model.ExcelMedia.Image != null)
+    {
+        <img src="@Url.ContentUrl(Model.ExcelMedia.Image)" alt="@Model.ExcelMedia.Heading" title="@Model.ExcelMedia.Heading" class="" />
+    }
+
+    @Model.ExcelMedia.Heading
+    @Model.ExcelMedia.Description
+    @Model.ExcelMedia.MainIntro
+    @Model.ExcelMedia.Publisher
+    @Model.ExcelMedia.Copyright
+</div>

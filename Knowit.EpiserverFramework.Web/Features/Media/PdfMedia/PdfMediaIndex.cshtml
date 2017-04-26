@@ -1,0 +1,16 @@
+﻿@model Knowit.EpiserverFramework.Web.Features.Media.PdfMedia.PdfMediaViewModel
+
+<div>
+    @if (Model.PdfMedia.Image != null)
+    {
+        <img src="@Url.ContentUrl(Model.PdfMedia.Image)" alt="@Model.PdfMedia.Heading" title="@Model.PdfMedia.Heading" class="" />
+    }
+
+    <p>
+        @Model.PdfMedia.Heading
+        @Model.PdfMedia.Description
+        @Model.PdfMedia.MainIntro
+        @Model.PdfMedia.Publisher
+        @Model.PdfMedia.Copyright
+    </p>
+</div>

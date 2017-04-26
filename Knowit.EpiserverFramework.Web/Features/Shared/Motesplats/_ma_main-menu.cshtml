@@ -1,0 +1,55 @@
+﻿@using EPiServer.Core
+@using EPiServer.ServiceLocation
+@using EPiServer.Web.Routing
+@using Knowit.EpiserverFramework.Utilities.EpiserverUtilities
+@model Knowit.EpiserverFramework.Models.ViewModels.IPageViewModel<Knowit.EpiserverFramework.Models.Core.SitePageData>
+
+@{
+    IPageRouteHelper pageRouteHelper = ServiceLocator.Current.GetInstance<IPageRouteHelper>();
+    PageData currentPage = pageRouteHelper.Page;
+
+    if (Model.CurrentPage.Settings != null)
+    {
+        <nav class="main-menu">
+            <div class="inner-wrap">
+            @{
+                var _1Active = string.Empty;
+
+                if (Model.CurrentPage.Settings.MNMainMenuItem1 == currentPage.PageLink)
+                {
+                    _1Active = "active";
+                }
+
+                <a class="btn btn-1 @_1Active" href="@UrlResolver.Current.GetUrl(Model.CurrentPage.Settings.MNMainMenuItem1)"><div class="arrow"></div>@Model.CurrentPage.Settings.MNMainMenuItem1.GetPage().PageName</a>
+
+                var _2Active = string.Empty;
+
+                if (Model.CurrentPage.Settings.MNMainMenuItem2 == currentPage.PageLink)
+                {
+                    _2Active = "active";
+                }
+
+                <a class="btn btn-2 @_2Active" href="@UrlResolver.Current.GetUrl(Model.CurrentPage.Settings.MNMainMenuItem2)"><div class="arrow"></div>@Model.CurrentPage.Settings.MNMainMenuItem2.GetPage().PageName</a>
+
+                var _3Active = string.Empty;
+
+                if (Model.CurrentPage.Settings.MNMainMenuItem3 == currentPage.PageLink)
+                {
+                    _3Active = "active";
+                }
+
+                <a class="btn btn-3 @_3Active" href="@UrlResolver.Current.GetUrl(Model.CurrentPage.Settings.MNMainMenuItem3)"><div class="arrow"></div>@Model.CurrentPage.Settings.MNMainMenuItem3.GetPage().PageName</a>
+
+                var _4Active = string.Empty;
+
+                if (Model.CurrentPage.Settings.MNMainMenuItem4 == currentPage.PageLink)
+                {
+                    _4Active = "active";
+                }
+
+                <a class="btn btn-4 @_4Active" href="@UrlResolver.Current.GetUrl(Model.CurrentPage.Settings.MNMainMenuItem4)"><div class="arrow"></div>@Model.CurrentPage.Settings.MNMainMenuItem4.GetPage().PageName</a>
+            }
+            </div>
+        </nav>
+    }
+}

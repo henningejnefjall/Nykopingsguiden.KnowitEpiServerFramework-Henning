@@ -1,0 +1,36 @@
+﻿@using EPiServer
+@using EPiServer.Editor
+@using EPiServer.ServiceLocation
+@using EPiServer.Web.Mvc.Html
+@using Knowit.EpiserverFramework.Models.Blocks
+@using Knowit.EpiserverFramework.Web.Features.Blocks.ImageSlideLinkBlock;
+
+@model ImageSlideLinkBlockViewModel
+
+@{
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+}
+
+@if (PageEditing.PageIsInEditMode)
+{
+    if (Model.ImageSlideLinkBlock.ImageSlides != null)
+    {
+        for (var i = 0; i < Model.ImageSlideLinkBlock.ImageSlides.Count; i++)
+        {
+            var imageSlideBlock = contentLoader.Get<ImageSlideBlockModel>(Model.ImageSlideLinkBlock.ImageSlides.Items[i].ContentLink);
+
+            var image = imageSlideBlock.SlideImage?.Image;
+
+        <img src="@Url.ContentUrl(image)" alt="" style="width: 300px !important; margin-bottom: 2px; margin-right: 2px;" />
+        }
+    }
+}
+else
+{
+    if (Model.ImageSlideLinkBlock.ImageSlides != null && Model.ImageSlideLinkBlock.ImageSlides.Count > 0)
+    {
+        <section class="slider big-slider big-slider-wrapper header-slider" data-sliderautoplayinterval=@Model.ImageSlideLinkBlock.SlideInterval>
+            @Html.PropertyFor(m => m.ImageSlideLinkBlock.ImageSlides, new { CssClass = "not", ChildrenCssClass = "push" })
+        </section>
+    }
+}

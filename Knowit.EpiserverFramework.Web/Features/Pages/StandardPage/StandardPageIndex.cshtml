@@ -1,0 +1,11 @@
+﻿@using EPiServer.Web.Mvc.Html
+@using Knowit.EpiserverFramework.Web.Features.Pages.StandardPage
+
+@model StandardPageViewModel
+@{
+    Layout = "~/Features/Layouts/_Layout.cshtml";
+}
+
+<div>
+  @Html.PropertyFor(m => m.CurrentPage.MainBody)
+</div>

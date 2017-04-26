@@ -1,0 +1,37 @@
+footer {
+    margin-top:50px;
+
+    section {
+        padding: 30px 0px !important;
+        border-top: 1px solid #dfdede;
+    }
+
+    .language-menu-container {
+        border-bottom: 2px solid $vad-red;
+    }
+
+    .company-info {
+        h3 {
+            margin-top: 0px;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .link-list {
+            float:left;
+            width: 44%;
+            padding-right: 2%;
+            padding-left: 0;
+        }
+        .social{
+            display:inline-block;
+            width:100%;
+            a{
+                font-size:20px;
+                margin-right:10px;
+            }
+        }
+    }
+}

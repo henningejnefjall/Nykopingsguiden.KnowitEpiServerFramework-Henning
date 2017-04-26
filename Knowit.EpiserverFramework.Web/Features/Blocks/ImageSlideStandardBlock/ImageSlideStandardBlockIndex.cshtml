@@ -1,0 +1,55 @@
+﻿@using EPiServer
+@using EPiServer.Core
+@using EPiServer.Editor
+@using EPiServer.ServiceLocation
+@using EPiServer.Web.Mvc.Html
+@using Knowit.EpiserverFramework.Models.Media
+
+@model Knowit.EpiserverFramework.Web.Features.Blocks.ImageSlideStandardBlock.ImageSlideStandardBlockViewModel
+
+@{
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+}
+
+@if (PageEditing.PageIsInEditMode)
+{
+    for (var i = 0; i < Model.ImageSlideStandardBlock.ImageSlides.Count; i++)
+    {
+        var image = contentLoader.Get<IContentData>(Model.ImageSlideStandardBlock.ImageSlides.Items[i].ContentLink) as ImageMediaModel;
+
+        <img src="@Url.ContentUrl(image.ContentLink)" alt="@image.Alt" style="width: 300px !important; margin-bottom: 2px; margin-right: 2px;" />
+    }
+}
+else
+{
+    if (Model.ImageSlideStandardBlock.ImageSlides != null && Model.ImageSlideStandardBlock.ImageSlides.Count > 0)
+    {
+        <section id="ps-themes" class="push-section">
+            <div class="inner-wrap">
+                <div id="theme-slider" class="slider big-slider wide-slider" data-sliderautoplayinterval=@Model.ImageSlideStandardBlock.SlideInterval>
+
+                    @for (var i = 0; i < Model.ImageSlideStandardBlock.ImageSlides.Count; i++)
+                    {
+                        var image = contentLoader.Get<IContentData>(Model.ImageSlideStandardBlock.ImageSlides.Items[i].ContentLink) as ImageMediaModel;
+
+                        <div class="push segora">
+                            <div class="text @Model.ImageSlideStandardBlock.Position">
+                                <div class="box @Model.ImageSlideStandardBlock.Position">
+                                    <h2>@Model.ImageSlideStandardBlock.Heading</h2>
+                                    @if (!string.IsNullOrEmpty(Model.ImageSlideStandardBlock.MainIntro))
+                                    {
+                                        <p>
+                                            @Model.ImageSlideStandardBlock.MainIntro
+                                        </p>
+                                        <div class="arrow"></div>
+                                    }
+                                </div>
+                            </div>
+                            <img src="@Url.ContentUrl(image.ContentLink)" alt="@image.Alt" @(PageEditing.PageIsInEditMode ? "style=width:300px!important;" : string.Empty) />
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+    }
+}

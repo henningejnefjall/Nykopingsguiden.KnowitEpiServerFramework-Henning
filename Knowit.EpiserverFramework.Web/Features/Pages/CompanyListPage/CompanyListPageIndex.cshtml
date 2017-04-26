@@ -1,0 +1,150 @@
+﻿@using EPiServer
+@using EPiServer.Core
+@using EPiServer.Filters
+@using EPiServer.Web.Routing
+@using Knowit.EpiserverFramework.Models.Pages
+@using Knowit.EpiserverFramework.Web.Features.Pages.CompanyListPage
+
+@model CompanyListPageViewModel
+
+@{
+    Layout = "~/Features/Layouts/_LayoutAdmin.cshtml";
+}
+
+@section xtrahead{
+    <link href="@Url.Content("~/Frontend/css/adminstyles.css")" rel="stylesheet" />
+}
+<section id="content">
+
+    <section id="firstRow" class="section">
+        <div class="inner-wrap">
+            <div>
+        @*--- ADMIN MENY ---*@
+        @*@Html.Partial("~/Features/Shared/_admin-menu.cshtml")*@
+
+                <h1>@Model.CurrentPage.PageName</h1>
+
+                
+                <div style="margin:8px 0 0 3px">@Model.CurrentPage.MainBody</div>
+                
+                <div class="admin-sek">
+                    <h3>Dina verksamheter</h3>
+                    <div></div>
+                    <div class="admin-btn" title="Lägg till verksamhet">
+                        <a href="@UrlResolver.Current.GetUrl(Model.CurrentPage.CompanyCreateContainer)">
+                            <div class="sign">+</div>
+                            <div class="text">Lägg till verksamhet</div>
+                        </a>
+                    </div>
+
+                    <ul class="companyList">
+                        @{
+                            IEnumerable<PageData> filteredChildren = new List<PageData>();
+
+                            if (Model.CurrentPage.Settings.CompanyContainerPage != null)
+                            {
+                                PageDataCollection allChildren = DataFactory.Instance.GetChildren(Model.CurrentPage.Settings.CompanyContainerPage);
+                                if (allChildren.Count != 0)
+                                {
+                                    filteredChildren = FilterForVisitor.Filter(allChildren).Where(p => p.IsVisibleOnSite() && p.Property["SuperInactive"].Value as bool? != true && p.Property["Owner"].Value as string == EPiServer.Personalization.EPiServerProfile.Current.UserName);
+                                }
+                            }
+
+                        }
+                        @foreach (CompanyPageModel item in filteredChildren)
+                        {
+                            <li>
+                                @if (@UrlResolver.Current.GetUrl(item.Image1) != null)
+                                {
+                                    <img src="@UrlResolver.Current.GetUrl(item.Image1)" alt="@item.Header" class="companyListImage" />
+                                }
+                                else
+                                {
+                                    @Html.Raw("<div class='noListImage'>[Bild saknas]</div>")
+                                }
+                                <div class="companyListText">
+                                    <a href="@UrlResolver.Current.GetUrl(Model.CurrentPage.Settings.CompanyCreateContainer)?companyid=@item.ContentLink.ID">
+                                        @item.Name
+                                    </a>
+
+                                    @*@item.CompanyCategories*@
+                                    <br />
+                                    Senast uppdaterad: @item.Saved.ToShortDateString()
+                                </div>
+                                <div class="category-tags">
+                                    @{
+                                        EPiServer.DataAbstraction.CategoryRepository _categoryRepository = EPiServer.ServiceLocation.ServiceLocator.Current.GetInstance<EPiServer.DataAbstraction.CategoryRepository>();
+                                        foreach (int cat in item.Category)
+                                        {
+                                            EPiServer.DataAbstraction.Category thisCat = _categoryRepository.Get(cat);
+                                            @Html.Raw("<span class=cat-tag>" + thisCat.Name + "</span>");
+
+                                        }
+
+                                    }
+                                </div>
+
+                            </li>
+                                        }
+                    </ul>
+                </div>
+
+                <div class="admin-sek">
+                    <h3>Dina evenemang</h3>
+
+                    Möjlighet att lägga till evenemang lanseras senare
+
+                    <div></div>
+                    <div class="admin-btn" title="Lägg till evenemang">
+                        <a href="@UrlResolver.Current.GetUrl(Model.CurrentPage.Settings.EventCreateContainer)">
+                            <div class="sign">+</div>
+                            <div class="text">Lägg till evenemang</div>
+                        </a>
+                    </div>
+
+                    @*<a href="./CreateEvent">Skapa evenemang</a>*@
+                    @{
+                        PageDataCollection eventChildren = DataFactory.Instance.GetChildren(Model.CurrentPage.Settings.EventContainerPage, LanguageSelector.AutoDetect(true));
+                        if (eventChildren.Count != 0)
+                        {
+                            filteredChildren = eventChildren.Where(p => p.Property["Owner"].Value as string == EPiServer.Personalization.EPiServerProfile.Current.UserName);
+
+                            foreach (EventPageModel eventPage in filteredChildren)
+                            {
+                                if (eventPage.PageTypeName == typeof(EventPageModel).Name)
+                                {
+                                    <ul class="eventList">
+                                        <li>
+                                            <img src="@UrlResolver.Current.GetUrl(eventPage.Image1)" alt="@eventPage.Header" class="eventListImage" />
+                                            <div class="eventListText">
+                                                <a href="@UrlResolver.Current.GetUrl(Model.CurrentPage.Settings.EventCreateContainer)?eventid=@eventPage.ContentLink.ID">
+                                                    @eventPage.Name
+                                                </a>
+                                                <br />
+                                                Senast uppdaterad: @eventPage.Saved.ToShortDateString()
+                                                <br />
+                                                @if (eventPage.StartPublish == null)
+                                                {
+                                                    <b>Opublicerad</b>
+                                                }
+                                            </div>
+                                        </li>
+                                    </ul>
+                                }
+                            }
+                        }
+                    }
+
+                </div>
+
+
+                @*KNOWIT*@
+                
+                <div class="eventsHolder">
+                    @Model.CurrentPage.MainBody
+                </div>
+            </div>
+        </div>
+    </section>
+
+</section>

@@ -1,0 +1,81 @@
+/*
+This CSS resource incorporates links to font software which is the valuable copyrighted
+property of Monotype Imaging and/or its suppliers. You may not attempt to copy, install,
+redistribute, convert, modify or reverse engineer this font software. Please contact Monotype
+Imaging with any questions regarding Web Fonts:  http://www.fonts.com
+*/
+
+@font-face {
+    font-family: "Cheltenham ITC W01 Book";
+    src: url("../fonts/cheltenham/c35f2fff-f27e-47cd-b30a-09022f6ec7aa.eot");
+    src: url("../fonts/cheltenham/c35f2fff-f27e-47cd-b30a-09022f6ec7aa.eot?#iefix") format("eot"), url("../fonts/cheltenham/abfa7e51-eafa-49da-83a5-f312d180ae9f.woff2") format("woff2"), url("../fonts/cheltenham/752b69e4-ed24-4e00-9010-f90d7434f2fd.woff") format("woff"), url("../fonts/cheltenham/9f1453ce-f03d-41c4-a0da-8d5faa454a04.ttf") format("truetype"), url("../fonts/cheltenham/6add7c53-c9bc-4823-b5cc-67b2f9b9f34f.svg#6add7c53-c9bc-4823-b5cc-67b2f9b9f34f") format("svg");
+}
+
+@font-face {
+    font-family: "CheltenhamITCW01-BookIt";
+    src: url("../fonts/cheltenham/32fe07c8-9786-4096-8d06-38a665da3dff.eot?#iefix");
+    src: url("../fonts/cheltenham/32fe07c8-9786-4096-8d06-38a665da3dff.eot?#iefix") format("eot"), url("../fonts/cheltenham/6cf01e5f-5a7b-46d4-8f3a-3610bf72830b.woff2") format("woff2"), url("../fonts/cheltenham/6ccae496-9431-49e7-86eb-00a586419e1f.woff") format("woff"), url("../fonts/cheltenham/042564ec-5d9c-4240-8c4c-a62c4722b5b0.ttf") format("truetype"), url("../fonts/cheltenham/712b0cb7-33a8-4c9c-8022-1f2eeda16afc.svg#712b0cb7-33a8-4c9c-8022-1f2eeda16afc") format("svg");
+}
+
+@font-face {
+    font-family: "Cheltenham ITC W01 Bold";
+    src: url("../fonts/cheltenham/18159394-5fab-4a98-b56e-c3782bedcd09.eot?#iefix");
+    src: url("../fonts/cheltenham/18159394-5fab-4a98-b56e-c3782bedcd09.eot?#iefix") format("eot"), url("../fonts/cheltenham/bf50a540-d293-45f3-ba44-1d93d8e10786.woff2") format("woff2"), url("../fonts/cheltenham/54c84dc7-e31e-42d3-8809-d67a58ec3167.woff") format("woff"), url("../fonts/cheltenham/41affff8-d1ef-4385-99c4-bf28f14562bd.ttf") format("truetype"), url("../fonts/cheltenham/c51b12df-5a5a-4f0e-af6c-ce600dbdedb7.svg#c51b12df-5a5a-4f0e-af6c-ce600dbdedb7") format("svg");
+}
+
+@font-face {
+    font-family: "CheltenhamITCW01-BoldIt";
+    src: url("../fonts/cheltenham/8cb4f1fc-3c0c-41c4-8876-451b7ea3f9f1.eot?#iefix");
+    src: url("../fonts/cheltenham/8cb4f1fc-3c0c-41c4-8876-451b7ea3f9f1.eot?#iefix") format("eot"), url("../fonts/cheltenham/9c6a93c6-0eb7-4626-86d2-26ed7a2a816e.woff2") format("woff2"), url("../fonts/cheltenham/1ead8dda-aa82-4a9e-9196-8f4520797f13.woff") format("woff"), url("../fonts/cheltenham/e0d59d07-a75a-487a-8bcb-8481c48e0059.ttf") format("truetype"), url("../fonts/cheltenham/e6d3c3b1-f208-4694-b6ab-e24287ad4604.svg#e6d3c3b1-f208-4694-b6ab-e24287ad4604") format("svg");
+}
+
+body {
+    font-family: $font-family-serif;
+    font-size: $font-size-base;
+}
+
+h1, h2 {
+    font-family: $font-family-serif;
+    letter-spacing: -1px;
+}
+
+h3, h4, h5 {
+    font-family: $font-family-serif-bold;
+}
+
+caption, .caption {
+    font-family: "CheltenhamITCW01-BookIt";
+    font-size: $font-size-small;
+}
+
+h1 {
+    font-size: floor(($font-size-h1 * 0.7));
+
+    @include respond-to(medium) {
+        font-size: $font-size-h1;
+    }
+}
+
+h2 {
+    font-size: floor(($font-size-h2 * 0.75));
+
+    @include respond-to(medium) {
+        font-size: $font-size-h2;
+    }
+}
+
+h3 {
+    font-size: floor(($font-size-h3 * 0.8));
+
+    @include respond-to(medium) {
+        font-size: $font-size-h3;
+    }
+}
+
+h4 {
+    font-size: $font-size-h4;
+}
+
+h5 {
+    font-size: $font-size-h5;
+}

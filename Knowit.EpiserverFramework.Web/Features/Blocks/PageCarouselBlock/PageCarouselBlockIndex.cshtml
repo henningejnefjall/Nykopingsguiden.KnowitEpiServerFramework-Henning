@@ -1,0 +1,21 @@
+﻿@using EPiServer.Core
+@using Knowit.EpiserverFramework.Models.Blocks
+@using Knowit.EpiserverFramework.Web.Features.Blocks.PageCarouselBlock
+
+@model PageCarouselBlockViewModel
+
+<section id="ps-themes" class="push-section">
+    <div class="inner-wrap">
+        <div id="theme-slider" class="slider big-slider wide-slider">
+            @if (Model.PageCarouselBlock.Pages.Count > 0)
+            {
+                foreach (var item in Model.PageCarouselBlock.Pages.FilteredItems)
+                {
+                    var page = (PagesBlockModel)item.GetContent();
+
+                    Html.RenderPartial("~/Features/Blocks/PagesBlock/PagesBlockIndex.cshtml", page);
+                }
+            }
+        </div>
+    </div>
+</section>

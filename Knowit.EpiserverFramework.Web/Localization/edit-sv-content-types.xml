@@ -1,0 +1,305 @@
+﻿<languages>
+  <language name="Svenska" id="sv">
+    <contenttypes>
+      
+      <!--PAGES-->
+      <!--Campaign page-->
+      <CampaignPageModel>
+        <name>Kampanjsida</name>
+        <description>Kampanjsida</description>
+      </CampaignPageModel>
+      <!--Category image page-->
+      <CategoryImageModel>
+        <name>Kategoribild</name>
+        <description>Sida för att sätta kategoribild</description>
+      </CategoryImageModel>
+      <!--Container page-->
+      <containerpagemodel>
+        <name>Container, behållare</name>
+        <description>Sida för att gruppera andra sidor</description>
+      </containerpagemodel>
+      <!--General page-->
+      <generalpagemodel>
+        <name>Generell artikelsida</name>
+        <description>Generell artikelsida för det vanligaste innehållet</description>
+      </generalpagemodel>
+      <!--Global settingspage-->
+      <globalsettingspagemodel>
+        <name>Global inställningssida</name>
+        <description>Inställningssida som gäller för alla delstrukturer</description>
+      </globalsettingspagemodel>
+      <!--iFrame page-->
+      <iframepagemodel>
+        <name>Iframesida</name>
+        <description>Sida för att lyfta in externt innehåll, bör dock unvikas då dette igenltigen inte är en bra lösning</description>
+      </iframepagemodel>
+      <!--Landing page-->
+      <landingpagemodel>
+        <name>Landningsida, kategorisida</name>
+        <description>Sida som beskriver en kategori</description>
+      </landingpagemodel>
+      <!--News page-->
+      <newspagemodel>
+        <name>Nyhetssida</name>
+        <description>Sida för nyheter</description>
+      </newspagemodel>
+      <!--News room page-->
+      <newsroompagemodel>
+        <name>Nyhetsrum, nyhetsarkiv</name>
+        <description>Sida för att visa samtliga nyheter</description>
+      </newsroompagemodel>
+      <!--RSS feed page-->
+      <rssfeedpagemodel>
+        <name>RSS feed</name>
+        <description>Sida för att skapa ett RSS flöde, baseras på nyheter och generlla sidor</description>
+      </rssfeedpagemodel>
+      <!--Search EPiServer Find page-->
+      <searchepiserverfindpagemodel>
+        <name>Söksida - Find</name>
+        <description>Söksida baserad på Find</description>
+      </searchepiserverfindpagemodel>
+      <!--Search EPiServer page-->
+      <searchepiserverpagemodel>
+        <name>Söksida - EPiServer</name>
+        <description>Söksida baserad på EPiServer Search</description>
+      </searchepiserverpagemodel>
+      <!--Settings page-->
+      <settingspage>
+        <name>Inställningssida</name>
+        <description>Sida för inställningar för en sajt</description>
+      </settingspage>
+      <!--Start page-->
+      <startpagemodel>
+        <name>Startsida</name>
+        <description>Startsida för en sajt</description>
+      </startpagemodel>
+      <!--Sub page list page-->
+      <subpagelistpagemodel>
+        <name>Undersida med undermeny</name>
+        <description>Undersida som listar undersidor i en undermeny</description>
+      </subpagelistpagemodel>
+      <!--Sub page-->
+      <SubPageCategoryPageModel>
+        <name>Undersida med listning av kategori</name>
+        <description>Undersida som listar sidor i en vald kategori</description>
+      </SubPageCategoryPageModel>
+      <!--Test page-->
+      <testpagemodel>
+        <name>Testsida</name>
+        <description>Här kan de samlas buggar :)</description>
+      </testpagemodel>
+      <!--Concept page-->
+      <conceptpagemodel>
+        <name>Konceptsida</name>
+        <description>Sida för att beskriva koncept</description>
+      </conceptpagemodel>
+      <!--Product page-->
+      <productpagemodel>
+        <name>Produktsida</name>
+        <description>Sida för att beskriva produkter</description>
+      </productpagemodel>
+      <!--Theme page-->
+      <ThemePageModel>
+        <name>Temasida</name>
+        <description>Temasida</description>
+      </ThemePageModel>
+      <!-- Standard page -->
+      <standardpage>
+        <name>Standardsida</name>
+        <description>Standardsida</description>
+      </standardpage>
+      <!-- Company list page -->
+      <companylistpage>
+        <name>Verksamhetslista</name>
+        <description>Verksamhetslista</description>
+      </companylistpage>
+      <!-- Event create page -->
+      <eventcreatepage>
+        <name>Skapa evenemangssida</name>
+        <description>Skapa evenemangssida</description>
+      </eventcreatepage>
+      <!-- Company create page -->
+      <companycreatepage>
+        <name>Skapa verksamhetssida</name>
+        <description>Skapa verksamhetssida</description>
+      </companycreatepage>
+      <!-- Login page-->
+      <loginpage>
+        <name>Inloggningssida</name>
+        <description>Inloggningssida</description>
+      </loginpage>
+      <!-- Användarprofil -->
+      <profilepage>
+        <name>Användarprofilsida</name>
+        <description>Sida för att hantera användarprofil</description>
+      </profilepage>
+      <!-- Change password page -->
+      <changepasswordpage>
+        <name>Byta lösenordssida</name>
+        <description>Byta lösenordssida</description>
+      </changepasswordpage>
+      <!-- Register page -->
+      <registerpage>
+        <name>Användarregistrering</name>
+        <description>Användarregistreringssida</description>
+      </registerpage>
+      <!-- Company page -->
+      <companypage>
+        <name>Verksamhetssida</name>
+        <description>Verksamhetssida</description>
+      </companypage>
+      <!-- Article page -->
+      <articlepage>
+        <name>Artikelsida</name>
+        <description>Artikelsida en-spalt</description>
+      </articlepage>
+      
+      <!-- Mötesplats Nyköping pages -->
+      <!-- Mötesplats Nyköping start page -->
+      <meetinnykgstartpagemodel>
+        <name>Mötesplats Nyköping Startsida</name>
+        <description>Mötesplats Nyköping Startsida</description>
+      </meetinnykgstartpagemodel>
+      <!-- Mötesplats Nyköping article page -->
+      <meetinnykgarticlepagemodel>
+        <name>Mötesplats Nyköping Artikelsida</name>
+        <description>Mötesplats Nyköping Artikelsida</description>
+      </meetinnykgarticlepagemodel>
+      <!-- Mötesplats Nyköping facility page -->
+      <meetinnykgfacilitypagemodel>
+        <name>Mötesplats Nyköping Lokalsida</name>
+        <description>Mötesplats Nyköping Lokalsida</description>
+      </meetinnykgfacilitypagemodel>
+      <!-- Mötesplats Nyköping sub category page -->
+      <meetinnykgsubpagecategorypagemodel>
+        <name>Mötesplats Nyköping Undersida kategorisida</name>
+        <description>Mötesplats Nyköping Undersida kategorisida</description>
+      </meetinnykgsubpagecategorypagemodel>
+      <!-- Mötesplats Nyköping sub page list page -->
+      <meetinnykgsubpagelistpagemodel>
+        <name>Mötesplats Nyköping Undersida listningssida</name>
+        <description>Mötesplats Nyköping Undersida listningssida</description>
+      </meetinnykgsubpagelistpagemodel>
+      
+      <!--Media-->
+      
+      <defaultmediamodel>
+        <name>Generell fil</name>
+        <description>Används för media som inte är av en speciell typ</description>
+      </defaultmediamodel>
+      <documentmediamodel>
+        <name>Dokument fil</name>
+        <description>Används för dokument som inte är av en speciell typ</description>
+      </documentmediamodel>
+      <excelmediamodel>
+        <name>Exceldokument</name>
+        <description>Används för excelfiler (XLS, XLSX)</description>
+      </excelmediamodel>
+      <imagemediamodel>
+        <name>Bild</name>
+        <description>Används för bildfiler (BMP, GIF, ICO, JPEG, PNG, SVG)</description>
+      </imagemediamodel>
+      <powerpointmediamodel>
+        <name>Powerpoint</name>
+        <description>Används för powerpointfiler (PPT, PPTX)</description>
+      </powerpointmediamodel>
+      <pdfmediamodel>
+        <name>PDF-dokument</name>
+        <description>Används för PDF-filer (PDF)</description>
+      </pdfmediamodel>
+      <textmediamodel>
+        <name>Textfil</name>
+        <description>Används för textfiler (TXT)</description>
+      </textmediamodel>
+      <videomediamodel>
+        <name>Video</name>
+        <description>Används för videofiler (FLV, MP4, WEBM)</description>
+      </videomediamodel>
+      <wordmediamodel>
+        <name>Worddokument</name>
+        <description>Används för wordfiler (DOC, DOCX)</description>
+      </wordmediamodel>
+      
+      <!--BLOCKS-->
+      <!--General block-->
+      <generalblockmodel>
+        <name>Generellt block</name>
+        <description>Används för all typ av information</description>
+      </generalblockmodel>
+
+      <imagelinkblockmodel>
+        <name>Bildlänksblock</name>
+        <description>Används för att lägga till bildlänkar</description>
+      </imagelinkblockmodel>
+      
+      <!-- Mötesplats Nyköping Aktiviteter och upplevelser -->
+      <meetinnykgtipscontainerblockmodel>
+        <name>Aktiviteter och upplevelser</name>
+        <description>Används för aktivitetspuffar</description>
+      </meetinnykgtipscontainerblockmodel>
+      
+      <!-- Mötesplats Nyköping Kontaktblock -->
+      <meetinnykgcontactblockmodel>
+        <name>Kontakt</name>
+        <description>Används som kontaktväg till person</description>
+      </meetinnykgcontactblockmodel>
+      
+      <!-- Pages block-->
+      <pagesblockmodel>
+        <name>Sidblock</name>
+        <description>Sidblock</description>
+      </pagesblockmodel>
+      
+      <!-- Page carousel block -->
+      <pagecarouselblockmodel>
+        <name>Sidkarusellblock</name>
+        <description>Sidkarusellblock</description>
+      </pagecarouselblockmodel>
+      
+      <!-- Related info block -->
+      <relatedinfoblockmodel>
+        <name>Relaterad info-block</name>
+        <description>Relaterad info-block</description>
+      </relatedinfoblockmodel>
+      
+      <!--Google maps block-->
+      <googlemapsblockmodel>
+        <name>Google maps block</name>
+        <description>Används för att presentera en karta</description>
+      </googlemapsblockmodel>
+      <!--Google maps coordinates block-->
+      <googlemapscoordinatesblockmodel>
+        <name>Google maps coordinates</name>
+        <description>Används för att skapa kartpunkter</description>
+      </googlemapscoordinatesblockmodel>
+      <!--Icon block-->
+      <iconblockmodel>
+        <name>Ikonblock</name>
+        <description>Används för att skapa en ikon</description>
+      </iconblockmodel>
+      
+      <!--Image slide link block-->
+      <imageslidelinkblockmodel>
+        <name>Bildspel, länkar</name>
+        <description>Block som används för att visa upp ett bildspel med länkar</description>
+      </imageslidelinkblockmodel>
+
+      <imageslideblockmodel>
+        <name>Bildspelsblock</name>
+        <description>Används för att visa upp en bild med länkar i ett bildspelsblock</description>
+      </imageslideblockmodel>
+      
+      <!--Image slide standard block-->
+      <imageslidestandardblockmodel>
+        <name>Bildspel, standard</name>
+        <description>Block som används för att visa upp ett bildspel med bilder</description>
+      </imageslidestandardblockmodel>
+      
+      <!--RSS reader block-->
+      <rssreaderblockmodel>
+        <name>RSS läsar block</name>
+        <description>Används för att lyfta in externa RSS flöden</description>
+      </rssreaderblockmodel>
+    </contenttypes>
+  </language>
+</languages>

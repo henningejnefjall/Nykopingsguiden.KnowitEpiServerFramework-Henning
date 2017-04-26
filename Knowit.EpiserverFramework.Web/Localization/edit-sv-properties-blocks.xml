@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<languages>
+  <language name="Svenska" id="sv">
+    <contenttypes>
+      <!--Local blocks properties-->
+      <footerblockmodel>
+        <properties>
+          <iconcontentarea>
+            <caption>Sociala medier ikoner</caption>
+          </iconcontentarea>
+          <footercontentarea>
+            <caption>Huvudinnehåll</caption>
+          </footercontentarea>
+          <hidesitemap>
+            <caption>Dölj sitekartan</caption>
+          </hidesitemap>
+          <linkcollection>
+            <caption>Övriga länkar</caption>
+          </linkcollection>
+          <footerheader>
+            <caption>Rubrik</caption>
+          </footerheader>
+          <footerbody>
+            <caption>Brödtext</caption>
+          </footerbody>
+        </properties>
+      </footerblockmodel>
+
+      <!--Image link block model-->
+      <imagelinkblockmodel>
+        <properties>
+          <image>
+            <caption>Bild</caption>
+          </image>
+          <linkurl>
+            <caption>Länk url</caption>
+          </linkurl>
+          <linktitle>
+            <caption>Länk titel</caption>
+          </linktitle>
+        </properties>
+      </imagelinkblockmodel>
+      
+      <!--Image slide link block model-->
+      <imageslidelinkblockmodel>
+        <properties>
+          <slideinterval>
+            <caption>Intervall</caption>
+          </slideinterval>
+          <imageslides>
+            <caption>Bildspel</caption>
+          </imageslides>
+        </properties>
+      </imageslidelinkblockmodel>
+      
+      <!--Image slide block model-->
+      <imageslideblockmodel>
+        <properties>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+          <link>
+            <caption>Länk</caption>
+          </link>
+          <image>
+            <caption>Bild</caption>
+          </image>
+        </properties>
+      </imageslideblockmodel>
+      
+      <!--Image slide standard block model-->
+      <imageslidestandardblockmodel>
+        <properties>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+          <imageslides>
+            <caption>Bilder</caption>
+          </imageslides>
+          <slideinterval>
+            <caption>Intervall</caption>
+          </slideinterval>
+          <position>
+            <caption>Position</caption>
+          </position>
+        </properties>
+      </imageslidestandardblockmodel>
+      
+      <!--Image block model-->
+      <imageblockmodel>
+        <properties>
+          <image>
+            <caption>Bild</caption>
+          </image>
+          <alt>
+            <caption>Alt</caption>
+          </alt>
+          <title>
+            <caption>Titel</caption>
+          </title>
+        </properties>
+      </imageblockmodel>
+
+      <!--Search engine optimization block model-->
+      <searchengineoptimizationblockmodel>
+        <properties>
+          <metatitle>
+            <caption>Metatitel</caption>
+          </metatitle>
+          <metadescription>
+            <caption>Metabeskrivning</caption>
+          </metadescription>
+          <metakeywords>
+            <caption>Metanyckelord</caption>
+          </metakeywords>
+          <metaauthor>
+            <caption>Metaförfattare</caption>
+          </metaauthor>
+          <metacopyright>
+            <caption>Metacopyright</caption>
+          </metacopyright>
+          <noindex>
+            <caption>Indexera inte</caption>
+          </noindex>
+          <nofollow>
+            <caption>Följ inte</caption>
+          </nofollow>
+        </properties>
+      </searchengineoptimizationblockmodel>
+
+      <!--Site block data-->
+      <siteblockdata>
+        <properties>
+          <heading>
+            <caption>Rubrik</caption>
+          </heading>
+        </properties>
+      </siteblockdata>
+      
+      <!--General block model-->
+      <generalblockmodel>
+        <properties>
+          <hideheading>
+            <caption>Dölj rubrik</caption>
+          </hideheading>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+          <mainbody>
+            <caption>Brödtext</caption>
+          </mainbody>
+          <video>
+            <caption>Video</caption>
+          </video>
+          <autoplayvideo>
+            <caption>Spela upp automatiskt</caption>
+          </autoplayvideo>
+          <readmore>
+            <caption>Läs mer, peka mot sida med mer information</caption>
+          </readmore>
+          <ReadMoreLinkText>
+            <caption>Länktext för Läs mer, måste anges för att länken ska visas</caption>
+          </ReadMoreLinkText>
+          <links>
+            <caption>Länklista</caption>
+          </links>
+          <mobileimage>
+            <caption>Bild för mobilläge</caption>
+          </mobileimage>
+          <image>
+            <caption>Bild</caption>
+          </image>
+        </properties>
+      </generalblockmodel>
+
+      <!--Link block model-->
+      <linkblockmodel>
+        <properties>
+          <linktext>
+            <caption>Länktext</caption>
+          </linktext>
+          <linktitle>
+            <caption>Länktitel</caption>
+          </linktitle>
+          <linkurl>
+            <caption>Länk-URL</caption>
+          </linkurl>
+          <newwindow>
+            <caption>Öppna i nytt fönster</caption>
+          </newwindow>
+        </properties>
+      </linkblockmodel>
+
+      <!--Icon block model-->
+      <iconblockmodel>
+        <properties>
+          <icon>
+            <caption>Ikon</caption>
+          </icon>
+          <title>
+            <caption>Titel</caption>
+          </title>
+          <icontext>
+            <caption>Ikontext</caption>
+          </icontext>
+        </properties>
+      </iconblockmodel>
+
+      <!--Image block model-->
+      <responsiveimageblockmodel>
+        <properties>
+          <image>
+            <caption>Bild</caption>
+          </image>
+          <mobileimage>
+            <caption>Mobilbild</caption>
+          </mobileimage>
+          <alt>
+            <caption>Alt</caption>
+          </alt>
+          <title>
+            <caption>Titel</caption>
+          </title>
+        </properties>
+      </responsiveimageblockmodel>
+     <!-- MeetInNykgTipsContainerBlockModel-->
+    <meetinnykgtipscontainerblockmodel>
+      <properties>
+        <pagecarousel>
+          <caption>Sidkarusell</caption>
+        </pagecarousel>
+      </properties>
+    </meetinnykgtipscontainerblockmodel>
+    
+    </contenttypes>
+  </language>
+</languages>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+  <language name="English" id="en">
+    <blocks>
+      <defaultblockcontrol>
+        <message>
+          The block can not be displayed in this content area
+        </message>
+      </defaultblockcontrol>
+    </blocks>
+
+    <!--Display options for block-->
+    <displayoptions>
+      <full>Full width</full>
+      <threequarters>Three quarters</threequarters>
+      <twothirds>Two thirds</twothirds>
+      <half>Half</half>
+      <third>Third</third>
+      <quarter>Quarter</quarter>
+      <sixth>Sixth</sixth>
+    </displayoptions>
+
+    <preview>
+      <heading>The block '{0}' displayed as {1}</heading>
+      <norenderer>The block '{0}' can not be displayed as {1}</norenderer>
+      <norendereratall>No renderer found for '{0}'</norendereratall>
+    </preview>
+  </language>
+</languages>

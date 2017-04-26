@@ -1,0 +1,176 @@
+﻿@using EPiServer;
+@using EPiServer.Core
+@using EPiServer.Web
+@using EPiServer.Web.Routing
+@using EPiServer.ServiceLocation
+@using Knowit.EpiserverFramework.Utilities.EpiserverUtilities
+@using Knowit.EpiserverFramework.Web.Features.Pages.MeetInNykgPages.MeetInNykgStartPage
+
+@model MeetInNykgStartPageViewModel
+@{
+    Layout = "~/Features/Layouts/_MeetInNykg.cshtml";
+}
+@if (Model.CurrentPage.ImageSlider != null)
+{
+    if (Model.CurrentPage.ImageSlider.Count > 0)
+    {
+        @Html.PropertyFor(m => m.CurrentPage.ImageSlider, new { ChildrenCustomTagName = "section", ChildrenCssClass = "slider big-slider header-slider fullwide-slider" })
+    }
+}
+@Html.Partial("Motesplats/_ma_main-menu")
+<div id="content">
+    <section id="ps-contact" class="push-section">
+        <div class="inner-wrap">
+            @Html.PropertyFor(m => m.CurrentPage.PageCarousel)
+        </div>
+    </section>
+    @if (Model.CurrentPage.ActivitiesAndExperiences != null)
+{
+        <section id="ps-tips" class="push-section">
+            <div class="inner-wrap">
+
+                <div class="push-section-head"><a href="#"><h2>Aktiviteter och upplevelser</h2></a></div>
+
+                <div id="tips-slider" class="slider carousel">
+                    @foreach (var pstips in Model.CurrentPage.ActivitiesAndExperiences.FilteredItems)
+                    {
+                        var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+
+                        PageData psTipsPage = contentLoader.Get<PageData>(pstips.ContentLink);
+
+                        var guid = PermanentLinkUtility.GetGuid(psTipsPage.LinkURL);
+                        var image = ContentExtensions.GetImageFromLink(guid);
+                        <div>
+                            <a class="main-push" href="@Url.ContentUrl(pstips.ContentLink)">
+                                <div class="icons"></div>
+                                <div class="text">
+                                    <div class="meta"><div class="location">@psTipsPage.Name</div></div>
+                                    <div class="box">
+                                        <h3>@psTipsPage.Property["Heading"]</h3>
+                                        <div class="more">
+                                            <p>
+                                                @psTipsPage.Property["Extract"]
+                                            </p>
+                                            <div class="arrow"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <img src="@UrlResolver.Current.GetUrl(image)" alt="@psTipsPage.Name">
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+    }
+    @if (Model.CurrentPage.ThemePages != null)
+    {
+    <section id="ps-themes" class="push-section">
+        <div class="inner-wrap">
+                <div id="theme-slider" class="slider big-slider wide-slider">
+                    @foreach (var pstheme in Model.CurrentPage.ThemePages.FilteredItems)
+                    {
+                        var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+
+                        PageData psThemePage = contentLoader.Get<PageData>(pstheme.ContentLink);
+
+                        //var guid = PermanentLinkUtility.GetGuid(psThemePage.LinkURL);
+                        //var image = ContentExtensions.GetImageFromLink(guid);
+
+                        <div>
+                            <a class="push" href="@Url.ContentUrl(pstheme.ContentLink)">
+                                <div class="text">
+                                    <div class="box">
+                                        <h2>@psThemePage.Property["Heading"]</h2>
+
+                                        <div class="more">
+                                            <p>@psThemePage.Property["Extract"]</p>
+                                            <div class="arrow"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @if (psThemePage.Property["Thumbnail"] != null)
+                                {
+                                    <img src="@Url.ContentUrl(psThemePage.Property["Thumbnail"].Value as ContentReference)" alt="@psThemePage.Name">
+                                }
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+    }
+
+    <section id="ps-eventguide" class="push-section">
+        <div class="inner-wrap">
+
+            <div id="eventguide" class="guidebox">
+
+                <div class="guidebox-head">
+                    <div class="heading"><h2>Evenemangsguiden</h2></div>
+                    <div class="menu">
+                        <ul class="iconmenu">
+                            <li><a class="all" onclick="switchID('map','pushes');"><span>Bildvy</span></a></li>
+                            <li><a class="search"><span>Sök</span></a></li>
+                            <li><a class="filter"><span>Filtrera</span></a></li>
+                            @*<li><a class="map" onclick="switchID('pushes','map');loadMap('https://www.google.com/maps/d/embed?mid=1ED70CeeuyDaYP9FpD2qeuzwW-_Y');"><span>Kartvy</span></a></li>*@
+                        </ul>
+                        <ul class="linkmenu">
+                            <li><a>Idag</a></li>
+                            <li><a>I morgon</a></li>
+                            <li><a>Nästa vecka</a></li>
+                            <li><a class="active">Alla <span>evenemang</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="guidebox-body">
+
+                    <div id="pushes">
+
+                        <div class="col w_1-3 w10_1-2 w5_1">
+                            <a class="main-push event" href="#">
+                                <div class="text">
+                                    <div class="meta"><div class="date">30/10</div><div class="location">Rosvalla</div></div>
+                                    <div class="box">
+                                        <h3>Diggiloo</h3>
+                                        <div class="more">
+                                            <p>
+                                                <!-- 200 tecken -->
+                                                Duis autem veleum iriure dolor in hendrerit in velit esse melina consequat. Dolores eu feugiat ellam facilisis at vero eros et accumsan et iusto odio dignisim qui blandit. Lorum ipsum dolores delenida.
+                                            </p>
+                                            <div class="arrow"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <img src="/secret/CMS/Content/globalassets/640x360-diggiloo.jpg" alt="">
+                            </a>
+                        </div>
+
+                        <div class="col w_1-3 w10_1-2 w5_1">
+                            <a class="main-push event" href="#">
+                                <div class="text">
+                                    <div class="meta"><div class="date">22/11 - 27/11</div><div class="location">Källan Restaurang och Café</div></div>
+                                    <div class="box">
+                                        <h3>Lorum ipsum dolores</h3>
+                                        <div class="more">
+                                            <p>
+                                                <!-- 200 tecken -->
+                                                Duis autem veleum iriure dolor in hendrerit in velit esse melina consequat. Dolores eu feugiat ellam facilisis at vero eros et accumsan et iusto odio dignisim qui blandit. Lorum ipsum dolores delenida.
+                                            </p>
+                                            <div class="arrow"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <img src="/secret/CMS/Content/globalassets/640x360-nykoping-ata.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

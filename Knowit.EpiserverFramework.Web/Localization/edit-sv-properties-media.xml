@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+  <language name="Svenska" id="sv">
+    <contenttypes>
+      <!--Media-->
+      
+      <!--Default media-->
+      <defaultmediamodel>
+        <properties>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+        </properties>
+      </defaultmediamodel>
+      
+      <!--Video media-->
+      <videomediamodel>
+        <properties>
+          <heading>
+            <caption>Rubrik</caption>
+          </heading>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+          <previewimage>
+            <caption>Bild för förhandsvisning</caption>
+          </previewimage>
+          <copyright>
+            <caption>Copyright</caption>
+          </copyright>
+        </properties>
+      </videomediamodel>
+      
+      <!--Site media data-->
+      <sitemediadata>
+        <properties>
+          <heading>
+            <caption>Rubrik</caption>
+          </heading>
+          <description>
+            <caption>Beskrivning</caption>
+          </description>
+          <image>
+            <caption>Bild</caption>
+          </image>
+          <publisher>
+            <caption>Utgivare</caption>
+          </publisher>
+          <copyright>
+            <caption>Upphovsrätt</caption>
+          </copyright>
+        </properties>
+      </sitemediadata>
+      
+      <!-- Image Media-->
+      <imagemediamodel>
+        <properties>
+          <heading>
+            <caption>Rubrik</caption>
+          </heading>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+          <title>
+            <caption>Titel</caption>
+          </title>
+          <alt>
+            <caption>Alternativ text</caption>
+          </alt>
+          <copyright>
+            <caption>Copyright</caption>
+          </copyright>
+        </properties>
+      </imagemediamodel>
+      
+      <!--PDF media-->
+      <pdfmediamodel>
+        <properties>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+        </properties>
+      </pdfmediamodel>
+
+      <!--Excel media-->
+      <excelmediamodel>
+        <properties>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+        </properties>
+      </excelmediamodel>
+    </contenttypes>
+  </language>
+</languages>

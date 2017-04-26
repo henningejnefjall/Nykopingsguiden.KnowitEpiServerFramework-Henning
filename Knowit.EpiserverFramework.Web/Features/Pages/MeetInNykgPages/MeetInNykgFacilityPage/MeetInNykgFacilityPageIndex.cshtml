@@ -1,0 +1,221 @@
+﻿@using Castle.Core.Internal
+@using EPiServer
+@using EPiServer.Core
+@using EPiServer.ServiceLocation
+@using EPiServer.Web
+@using EPiServer.Web.Routing
+@using Knowit.EpiserverFramework.Models.Blocks
+@using Knowit.EpiserverFramework.Models.Pages.MeetInNykgPages
+@using Knowit.EpiserverFramework.Utilities.EpiserverUtilities
+@using Knowit.EpiserverFramework.Web.Features.Pages.MeetInNykgPages.MeetInNykgFacilityPage
+
+@model MeetInNykgFacilityPageViewModel
+
+@{
+    Layout = "~/Features/Layouts/_MeetInNykg.cshtml";
+}
+<div id="content">
+
+    @Html.Partial("Motesplats/_ma_breadcrumbs-menu")
+
+    @{
+        var repository = ServiceLocator.Current.GetInstance<IContentRepository>();
+        var currentPage = repository.Get<MeetInNykgFacilityPageModel>(Request.RequestContext.GetContentLink());
+        var image = new ContentReference();
+        var guid = PermanentLinkUtility.GetGuid(currentPage.LinkURL);
+        image = ContentExtensions.GetImageFromLink(guid);
+
+    }
+    <div id="sub-content">
+
+        <section class="sub-content-section">
+
+            <div class="inner-wrap">
+
+                <main class="col main-column">
+
+                    @if (Model.CurrentPage.ImageSlider != null)
+                    {
+                        <div class="slider main-slider">
+                            @if (Model.CurrentPage.ImageSlider.Count > 0)
+                            {
+                                foreach (var item in Model.CurrentPage.ImageSlider.FilteredItems)
+                                {
+                                    var slideLink = (ContentReference) item.ContentLink;
+                                    if (Url.ContentUrl(slideLink).IsNullOrEmpty())
+                                    {
+                                        var slider = (ImageSlideStandardBlockModel) item.GetContent();
+                                        if (slider != null)
+                                        {
+                                            if (slider.ImageSlides != null)
+                                            {
+                                                foreach (var slide in slider.ImageSlides.FilteredItems)
+                                                {
+                                                    <div><img src="@Url.ContentUrl(slide.ContentLink)" alt="@Model.CurrentPage.PageName">
+                                                    </div>
+                                                }
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <div>
+                                            <img src="@Url.ContentUrl(slideLink)" alt="@Model.CurrentPage.PageName">
+                                        </div>
+                                    }
+                                }
+                            }
+                        </div>
+                    }
+
+                    <div class="main-article-info">
+                        <ul class="facilityInfo">
+                            @if (!string.IsNullOrEmpty(Model.CurrentPage.Address))
+                            {
+                                <li><span>Adress:</span> @Model.CurrentPage.Address</li>
+                            }
+                            @if (!string.IsNullOrEmpty(Model.CurrentPage.Phone))
+                            {
+                                <li><span>Telefon:</span> @Model.CurrentPage.Phone</li>
+                            }
+
+                            @if (!string.IsNullOrEmpty(Model.CurrentPage.WebPage))
+                            {
+                                <li><span>Webbsida:</span> <a href="@Model.CurrentPage.WebPage" target="_blank">@Model.CurrentPage.WebPage.Replace("http://", "")</a></li>
+                            }
+                        </ul>
+                        @if (!string.IsNullOrEmpty(Model.CurrentPage.BookingPage))
+                        {
+                            <div class="booking-button"><a class="btn-text large" href="@Model.CurrentPage.BookingPage" target="_blank">Boka arena</a>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="sub-main">
+
+                        <h1>@Model.CurrentPage.Name</h1>
+                        <h5>@Model.CurrentPage.Extract</h5>
+                        @if (Model.CurrentPage.MainBody != null)
+                        {
+                            @Html.Raw(Model.CurrentPage.MainBody.ToHtmlString().Replace("\r\n", "<br/>"))
+                            ;
+                        }
+
+                        @if (Model.CurrentPage.Access != null)
+                        {
+                            <h3>Tillgänglighet</h3>
+                            @Html.Raw(Model.CurrentPage.Access.ToHtmlString().Replace("\r\n", "<br/>"))
+                            ;
+                        }
+                    </div>
+
+                    <div class="map">
+                        <div id="karta"></div>
+                    </div>
+
+                    <div>
+                        @Html.PropertyFor(m => m.CurrentPage.MainColumnBottom)
+                    </div>
+
+                    <div class="sub-content-footer">
+                        <ul class="icons">
+                            <li>
+                                <a class="addthis_button_facebook" href="#" title="Dela sidan på Facebook">
+                                    <div class="icon facebook"></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="addthis_button_twitter" href="#" title="Dela sidan på Twitter">
+                                    <div class="icon twitter"></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="addthis_button_email" href="#" title="Dela sidan via mail">
+                                    <div class="icon email"></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="addthis addthis_button" href="#" title="Dela sidan">
+                                    <div class="icon addthis"></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="print-button" onclick="printContent(&#39;sub-content&#39;)" title="Skriv ut">
+                                    <div class="icon print"></div>
+                                </a>
+                            </li>
+                        </ul>
+                        <script type="text/javascript"> var addthis_config = { "data_track_addressbar": false, ui_click: true, ui_offset_top: 40 };</script>
+                        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e123d080fe1776d"></script>
+                    </div>
+
+                </main>
+                <aside class="side-column">
+                    <div class="side-section">
+                        @{if (Model.EventPages.Count() > 0) { 
+                        <h4>@Model.CurrentPage.Activities</h4>
+                        
+                            foreach (PageData item in Model.EventPages)
+                            {
+                                <a class="main-push" href="@UrlResolver.Current.GetUrl(item.LinkURL)">
+                                    <div class="text">
+                                        <div class="meta"><div class="location">@item.PageName</div></div>
+                                        <div class="box">
+                                            <h3>@item["Header"]</h3>
+                                            <div class="more">
+                                                <p>
+                                                    <!-- 200 tecken -->
+                                                    @item["Extract"]
+                                                </p>
+                                                <div class="arrow"></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    @if (item["Thumbnail"] != null)
+                                    {
+                                        <img src="@UrlResolver.Current.GetUrl(item["Thumbnail"] as ContentReference)" alt="@item.PageName">
+                                    }
+                                    else if (item["Image1"] != null)
+                                    {
+                                        <img src="@UrlResolver.Current.GetUrl(item["Image1"] as ContentReference)" alt="@item.PageName">
+                                    }
+                                    else if (image != null)
+                                    {
+                                        <img src="@UrlResolver.Current.GetUrl(image)" alt="@item.PageName">
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Frontend/images/company.jpg" alt="No image">
+                                    }
+                                </a>
+                                }
+                            }
+                        }
+                    </div>  
+                    @Html.PropertyFor(m => m.CurrentPage.RightColumn)
+                </aside>
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+@if (!String.IsNullOrEmpty(Model.CurrentPage.Latitude) && !String.IsNullOrEmpty(Model.CurrentPage.Longitude))
+{
+    <script>
+            function initMap() {
+                var marker = { lat: @Model.CurrentPage.Latitude, lng: @Model.CurrentPage.Longitude };
+                var map = new google.maps.Map(document.getElementById('karta'), {
+                    zoom: 14,
+                    center: marker
+                });
+                var marker = new google.maps.Marker({
+                    position: marker,
+                    map: map
+                });
+            }
+    </script>
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBMQqXaCB6RZXhJMnHleQb9vMJtOK0lZWE&callback=initMap"></script>
+}

@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+  <language name="Svenska" id="sv">
+    <contenttypes>
+      <!--Pages-->
+      
+      <!--Campaign page-->
+      <campaignpagemodel>
+        <properties>
+          <sitesection>
+            <caption>Sektion</caption>
+          </sitesection>
+          <thumbnail>
+            <caption>Tumnagel</caption>
+          </thumbnail>
+          <imageslidesarea>
+            <caption>Bilder till bildspel</caption>
+          </imageslidesarea>
+          <rightcolumn>
+            <caption>Innehållsyta till höger</caption>
+          </rightcolumn>
+          <extract>
+            <caption>Ingress</caption>
+          </extract>
+          <mainbody>
+            <caption>Brödtext</caption>
+          </mainbody>
+          <maincolumn>
+            <caption>Yta för huvudinnehåll</caption>
+          </maincolumn>
+          <menu>
+            <caption>Meny</caption>
+          </menu>
+        </properties>
+      </campaignpagemodel>
+      
+      <!--ConceptPage-->
+      <conceptpagemodel>
+        <properties>
+          <secondaryheading>
+            <caption>Sekundär rubrik</caption>
+          </secondaryheading>
+          <mainbody>
+            <caption>Brödtext</caption>
+          </mainbody>
+          <maincontentarea>
+            <caption>Blockyta, huvudinnehåll</caption>
+          </maincontentarea>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+          <image>
+            <caption>Bild</caption>
+          </image>
+          <mobileimage>
+            <caption>Mobilbild</caption>
+          </mobileimage>
+          <video>
+            <caption>Video</caption>
+          </video>
+          <autoplayvideo>
+            <caption>Spela upp automatiskt</caption>
+          </autoplayvideo>
+          <productcontentarea>
+            <caption>Innehållsyta för produktsidor</caption>
+          </productcontentarea>
+          <bottomcontentarea>
+            <caption>Innehållsyta botten</caption>
+          </bottomcontentarea>
+        </properties>
+      </conceptpagemodel>
+      
+      <!--SitePageData-->
+      <sitepagedata>
+        <properties>
+          <heading>
+            <caption>Rubrik</caption>
+          </heading>
+          <hidesiteheader>
+            <caption>Dölj sidhuvud</caption>
+          </hidesiteheader>
+          <hidesitefooter>
+            <caption>Dölj sidfot</caption>
+          </hidesitefooter>
+          <hidesubmenu>
+            <caption>Dölj submeny</caption>
+          </hidesubmenu>
+          <showsubmenuasproduct>
+            <caption>Visa underliggande menynivå som produkt</caption>
+          </showsubmenuasproduct>
+          <searchengineoptimization>
+            <caption>Sökmotoroptimering</caption>
+          </searchengineoptimization>
+          <metatitle>
+            <caption>Metatagg för sidtitel</caption>
+          </metatitle>
+          <metadescription>
+            <caption>Metatagg för innehållsbeskrivning</caption>
+          </metadescription>
+          <metakeywords>
+            <caption>Metatagg för nyckelord</caption>
+          </metakeywords>
+          <metaauthor>
+            <caption>Metatagg för utgivare</caption>
+          </metaauthor>
+          <metacopyright>
+            <caption>Metatagg för copyright</caption>
+          </metacopyright>
+          <noindex>
+            <caption>Sidan ska inte indexeras</caption>
+          </noindex>
+          <nofollow>
+            <caption>Inga länkar ska följas eller indexeras på sidan</caption>
+          </nofollow>
+        </properties>
+      </sitepagedata>
+      
+      <!--General page-->
+      <generalpagemodel>
+        <properties>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+          <mainbody>
+            <caption>Brödtext</caption>
+          </mainbody>
+          <video>
+            <caption>Video</caption>
+          </video>
+          <links>
+            <caption>Länklista</caption>
+          </links>
+          <image>
+            <caption>Bild</caption>
+          </image>
+          <mobileimage>
+            <caption>Bild för mobilläge</caption>
+          </mobileimage>
+        </properties>
+      </generalpagemodel>
+
+    <!--Settings page-->
+      <settingspagemodel>
+        <properties>
+          <!--General tab-->
+          <generalsettings>
+            <caption>Allmänna inställningar</caption>
+          </generalsettings>
+          <notfoundpage>
+            <caption>404-felsida, denna sida visas då en sida saknas</caption>
+          </notfoundpage>
+          <errorpage>
+            <caption>500-felsida, denna sida visas då ett fel returneras</caption>
+          </errorpage>
+          <favicon>
+            <caption>Favicon, visas i titelfältet i browsern</caption>
+          </favicon>
+          <showloginbutton>
+            <caption>Visa inloggningslänk till redaktörsläge</caption>
+          </showloginbutton>
+          <!--Header-->
+          <header>
+            <caption>Inställningar för sidhuvud</caption>
+          </header>
+          <mainnavigationroot>
+            <caption>Rotsida för huvudnavigering</caption>
+          </mainnavigationroot>
+          <searchpagelink>
+            <caption>Sök, sida för sökresultat</caption>
+          </searchpagelink>
+          <iconblockcontentarea>
+            <caption>Yta för ikonblock, länkar med bild</caption>
+          </iconblockcontentarea>
+          <hidebreadcrumbs>
+            <caption>Dölj brödsmulor</caption>
+          </hidebreadcrumbs>
+          <locallogo>
+            <caption>Lokala inställningar för logo</caption>
+          </locallogo>
+          <!--Cookie header-->
+          <cookieheader>
+            <caption>Cookieinställningar</caption>
+          </cookieheader>
+          <disablecookieheader>
+            <caption>Stäng av cookiehantering</caption>
+          </disablecookieheader>
+          <cookieheadertext>
+            <caption>Text som informerar om cookies</caption>
+          </cookieheadertext>
+          
+          <!--Footer-->
+          <footer>
+            <caption>Inställningar för sidfot</caption>
+          </footer>
+          <footerheader>
+            <caption>Rubrik</caption>
+          </footerheader>
+          <footerbody>
+            <caption>Brödtext</caption>
+          </footerbody>
+          <phonenumber>
+            <caption>Telefonnummer</caption>
+          </phonenumber>
+          <email>
+            <caption>E-post</caption>
+          </email>
+          <linkcollection>
+            <caption>Länklista</caption>
+          </linkcollection>
+          <secondlinkcollection>
+            <caption>Sekundär länklista</caption>
+          </secondlinkcollection>
+          <socialmedialinks>
+            <caption>Ikonlänkar till sociala medier</caption>
+          </socialmedialinks>
+          <hidesitemap>
+            <caption>Dölj internationell sitemap</caption>
+          </hidesitemap>
+
+          <!--Google tools-->
+          <googletoolsblock>
+            <caption>Inställningar för Googleverktyg</caption>
+          </googletoolsblock>
+          <googleanalyticsscript>
+            <caption>Google Analytics script</caption>
+          </googleanalyticsscript>
+          <webmastertoolstag>
+            <caption>Web Master Tools tag</caption>
+          </webmastertoolstag>
+          <tagmanagerscript>
+            <caption>Tag Manager script</caption>
+          </tagmanagerscript>
+          <!--Script import-->
+          <scriptimport>
+            <caption>Inställningar för scriptimport</caption>
+          </scriptimport>
+          <scriptimporthead>
+            <caption>Scriptimport i sidhuvudet</caption>
+          </scriptimporthead>
+          <scriptimportbottom>
+            <caption>Scriptimport i botten på sidan</caption>
+          </scriptimportbottom>
+          <globalsettings>
+            <caption>Sida för globala inställningar</caption>
+          </globalsettings>
+          <globalsettingspage>
+            <caption>Sida för globala inställningar</caption>
+          </globalsettingspage>
+          <!--Global settings-->
+        </properties>
+      </settingspagemodel>
+      
+      <!--Globalsettings page-->
+      <globalsettingspagemodel>
+        <properties>
+          <bookademo>
+            <caption>Boka en demo länk</caption>
+          </bookademo>
+          <findadealer>
+            <caption>Hitta en återförsäljare länk</caption>
+          </findadealer>
+          <logo>
+            <caption>Logotyp</caption>
+          </logo>
+          <copyright>
+            <caption>Copyright</caption>
+          </copyright>
+          <iconcontentarea>
+            <caption>Sociala medier ikoner</caption>
+            <help>Kan även sättas på inställningssidan</help>
+          </iconcontentarea>          <noindexnofollow>
+            <caption>Sätt NoIndex NoFollow för hela siten för att inte riskera indexering av testdata</caption>
+          </noindexnofollow>        </properties>
+      </globalsettingspagemodel>
+
+      <!--Landing page-->
+      <landingpagemodel>
+        <properties>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+          <contentarea>
+            <caption>Blockyta</caption>
+          </contentarea>
+          <image>
+            <caption>Bild</caption>
+          </image>
+          <movie>
+            <caption>Film</caption>
+          </movie>
+          <mobileimage>
+            <caption>Bild för mobilläge</caption>
+          </mobileimage>
+        </properties>
+      </landingpagemodel>
+
+      <!--News page-->
+      <newspagemodel>
+        <properties>
+          <heading>
+            <caption>Rubrik</caption>
+          </heading>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+          <mainbody>
+            <caption>Brödtext</caption>
+          </mainbody>
+          <image>
+            <caption>Bild</caption>
+          </image>
+          <mobileimage>
+            <caption>Mobilbild</caption>
+          </mobileimage>
+          <readmore>
+            <caption>Läs mer</caption>
+          </readmore>
+          <publisher>
+            <caption>Ansvarig utgivare</caption>
+          </publisher>
+        </properties>
+      </newspagemodel>
+
+      <!--Start page-->
+      <startpagemodel>
+        <properties>
+          <imagelinks>
+            <caption>Innehållsyta för puffar</caption>
+          </imagelinks>
+          <imageslider>
+            <caption>Innehållsyta för bildspelsblock</caption>
+          </imageslider>
+          <pagecarousel>
+            <caption>Innehållsyta för sidkarusell</caption>
+          </pagecarousel>
+          <settingspage>
+            <caption>Inställningssida</caption>
+          </settingspage>
+        </properties>
+      </startpagemodel>
+      
+      <!--Product page-->
+      <productpagemodel>
+        <properties>
+          <images>
+            <caption>Bild</caption>
+          </images>
+          <iconcontentarea>
+            <caption>Ikonblock</caption>
+          </iconcontentarea>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+          <mainbody>
+            <caption>Brödtext</caption>
+          </mainbody>
+          <contentarea>
+            <caption>Blockyta</caption>
+          </contentarea>
+        </properties>
+      </productpagemodel>
+      
+      <!--Sub page category page-->
+      <subpagecategorypagemodel>
+        <properties>
+          <listpagetype>
+            <caption>Sidlistningstyp</caption>
+          </listpagetype>
+          <thumbnail>
+            <caption>Tumnagel</caption>
+          </thumbnail>
+          <title>
+            <caption>Rubrik</caption>
+          </title>
+          <description>
+            <caption>Ingress</caption>
+          </description>
+          <imageslidesarea>
+            <caption>Innehållsyta för bilder</caption>
+          </imageslidesarea>
+          <rightcolumn>
+            <caption>Innehållsyta till höger</caption>
+          </rightcolumn>
+          <maincolumntop>
+            <caption>Innehållsyta toppen</caption>
+          </maincolumntop>
+          <maincolumnbottom>
+            <caption>Innehållsyta botten</caption>
+          </maincolumnbottom>
+        </properties>
+      </subpagecategorypagemodel>
+      
+      <!--Sub page list page-->
+      <subpagelistpagemodel>
+        <properties>
+          <thumbnail>
+            <caption>Tumnagel</caption>
+          </thumbnail>
+          <title>
+            <caption>Rubrik</caption>
+          </title>
+          <description>
+            <caption>Ingress</caption>
+          </description>
+          <imageslidesarea>
+            <caption>Innehållsyta för bilder</caption>
+          </imageslidesarea>
+          <rightcolumn>
+            <caption>Innehållsyta till höger</caption>
+          </rightcolumn>
+          <maincolumntop>
+            <caption>Innehållsyta toppen</caption>
+          </maincolumntop>
+          <maincolumnbottom>
+            <caption>Innehållsyta botten</caption>
+          </maincolumnbottom>
+        </properties>
+      </subpagelistpagemodel>
+    </contenttypes>
+  </language>
+</languages>

@@ -1,0 +1,94 @@
+﻿@using Knowit.EpiserverFramework.Models.Core
+@model Knowit.EpiserverFramework.Models.ViewModels.IPageViewModel<SitePageData>
+
+<!--SEO, metatags and tagmanager/webmastertools-->
+
+@if (!string.IsNullOrEmpty(Model.CurrentPage.Seo.MetaDescription))
+{
+    <meta name="description" content='@Model.CurrentPage.Seo.MetaDescription'>
+}
+else if (!string.IsNullOrEmpty(Model.CurrentPage.Settings.Seo.MetaDescription))
+{
+    <meta name="description" content='@Model.CurrentPage.Settings.Seo.MetaDescription'>
+}
+
+@if (!string.IsNullOrEmpty(Model.CurrentPage.Seo.MetaKeywords))
+{
+    <meta name="keywords" content='@Model.CurrentPage.Seo.MetaKeywords'>
+}
+else if (!string.IsNullOrEmpty(Model.CurrentPage.Settings.Seo.MetaKeywords))
+{
+    <meta name="keywords" content='@Model.CurrentPage.Settings.Seo.MetaKeywords'>
+}
+
+@if (!string.IsNullOrEmpty(Model.CurrentPage.Seo.MetaAuthor))
+{
+    <meta name="author" content='@Model.CurrentPage.Seo.MetaAuthor'>
+}
+else if (!string.IsNullOrEmpty(Model.CurrentPage.Settings.Seo.MetaAuthor))
+{
+    <meta name="author" content='@Model.CurrentPage.Settings.Seo.MetaAuthor'>
+}
+
+@if (!string.IsNullOrEmpty(Model.CurrentPage.Seo.MetaCopyright))
+{
+    <meta name="copyright" content='@Model.CurrentPage.Seo.MetaCopyright'>
+}
+else if (!string.IsNullOrEmpty(Model.CurrentPage.Settings.Seo.MetaCopyright))
+{
+    <meta name="copyright" content='@Model.CurrentPage.Settings.Seo.MetaCopyright'>
+}
+
+@if (Model.CurrentPage.Seo.NoFollow)
+{
+    if (Model.CurrentPage.Seo.NoIndex)
+    {
+        <meta name="robots" content="noindex, nofollow">
+    }
+    else
+    {
+        <meta name="robots" content="index, nofollow">
+    }
+}
+else
+{
+    <meta name="robots" content="noindex, follow">
+}
+
+@if (!string.IsNullOrEmpty(Model.CurrentPage.Settings.Seo.MetaTitle))
+{
+    <title>@Model.CurrentPage.Seo.MetaTitle</title>
+}
+else
+{
+    <title>@Model.CurrentPage.Name - Nyköpingsguiden</title>
+}
+
+<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<link rel="shortcut icon" type="image/x-icon" href="@Href(Url.Content("~/Frontend/img/favicon-nykopingsguiden.ico"))" />
+
+
+<link rel="stylesheet" href="@Href(Url.Content("~/Frontend/css/fontawesome.css"))" media="all" />
+<link rel="stylesheet" href="@Href(Url.Content("~/Frontend/css/global.css"))" media="all" />
+<link rel="stylesheet" href="@Href(Url.Content("~/Frontend/css/grid.css"))" media="all" />
+<link rel="stylesheet" href="@Href(Url.Content("~/Frontend/css/layout.css"))" media="all" />
+<link rel="stylesheet" href="@Href(Url.Content("~/Frontend/css/lightbox.css"))" media="all" />
+<link rel="stylesheet" href="@Href(Url.Content("~/Frontend/css/print.css"))" media="all" />
+<link rel="stylesheet" href="@Href(Url.Content("~/Frontend/css/responsive.css"))" media="all" />
+@*<link rel="stylesheet" href="@Href(Url.Content("~/Frontend/assets/adminstyles.css"))" media="all" />*@
+
+@*<link rel="stylesheet" href="@Href(Url.Content("~/Frontend/assets/styles.css"))" media="all" /> *@
+@*<link rel="stylesheet" href="@Href(Url.Content("~/Content/css/Layout.css"))" media="all" />
+  <link rel="stylesheet" href="@Href(Url.Content("~/Content/css/chosen.min.css"))" media="all"/>*@
+
+<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic">
+<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.2.1.min.js"></script>
+@*<script src="~/Frontend/assets/common.js"></script>*@
+<script src="/Frontend/js/pages/admin/chosen.jquery.min.js"></script>
+<script src="/Frontend/js/pages/admin/Cropbox.js"></script>
+@*<script src="/Frontend/js/pages/admin/jquery-gmaps-latlon-picker.js"></script>*@
+<script src="/Frontend/js/modules/slick.min.js"></script>
+<script src="/Frontend/js/components/Global.js"></script>
+<meta name="google-translate-customization" content="abf706dd6f17536e-695d0502a2feb73b-ga342f453fea6034a-16" />

@@ -1,0 +1,26 @@
+﻿@using EPiServer.Shell.Web.Mvc.Html
+@model Knowit.EpiserverFramework.Web.Features.Blocks.BlockPreview.BlockPreviewViewModel
+
+@Html.DisplayFor(x => x.PreviewContent)
+@*<div class="container-fluid">
+    @foreach (var area in Model.Areas)
+    {
+        if (area.Supported)
+        {
+            <h3 style="margin:20px 0 20px 0">@Html.Partial("_TemplateHint", string.Format(@Html.Translate("/preview/heading"), Model.PreviewContent.Name, area.AreaName))</h3>
+            
+            <div class="row preview clearfix">
+                @Html.DisplayFor(x => area.ContentArea, new { Tag = area.AreaTag })
+            </div>
+        }
+        else
+        {
+            <h3 style="margin:20px 0 20px 0">@Html.Partial("_TemplateHint", string.Format(@Html.Translate("/preview/norenderer"), Model.PreviewContent.Name, area.AreaName))</h3>
+        }
+    }
+
+    @if (!Model.Areas.Any())
+    {
+        <h3 style="margin:20px 0 20px 0">@Html.Partial("_TemplateHint", string.Format(@Html.Translate("/preview/norendereratall"), Model.PreviewContent.Name))</h3>
+    }
+</div>*@

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<languages>
+  <language name="English" id="en">
+    <groups>
+
+      <!--Tab headers-->
+      <seo>SEO, search engine optimization</seo>
+      <sitesettings>Site settings</sitesettings>
+      <header>Header</header>
+      <footer>Footer</footer>
+      <globalsettings>Global settings</globalsettings>
+      <googletools>Google tools</googletools>
+      <googleanalytics>Google Analytics</googleanalytics>
+      <scriptimports>Script imports</scriptimports>
+      <navigation>Navigation</navigation>
+      <test>Test</test>
+      
+    </groups>
+  </language>
+</languages>

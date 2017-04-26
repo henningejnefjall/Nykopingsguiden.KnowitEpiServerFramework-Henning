@@ -1,0 +1,164 @@
+﻿@using EPiServer
+@using EPiServer.Core
+@using EPiServer.Editor
+@using EPiServer.Filters
+@using EPiServer.ServiceLocation
+@using EPiServer.Web
+@using EPiServer.Web.Routing
+@using Knowit.EpiserverFramework.Models.Media
+@using Knowit.EpiserverFramework.Utilities.EpiserverUtilities
+@using Knowit.EpiserverFramework.Web.Features.Pages.SubPageListPage
+
+@model SubPageListPageViewModel
+
+@{
+    Layout = "~/Features/Layouts/_Layout.cshtml";
+}
+
+@{
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+}
+
+@if (Model.CurrentPage.ImageSlidesArea != null && Model.CurrentPage.ImageSlidesArea.Count > 0)
+                {
+    if (PageEditing.PageIsInEditMode)
+                    {
+        for (var i = 0; i < Model.CurrentPage.ImageSlidesArea.Count; i++)
+        {
+            var sliderImage = contentLoader.Get<IContentData>(Model.CurrentPage.ImageSlidesArea.Items[i].ContentLink) as ImageMediaModel;
+
+            <img src="@Url.ContentUrl(sliderImage.ContentLink)" alt="@sliderImage.Alt" style="width: 300px !important; margin-bottom: 2px; margin-right: 2px;" />
+        }
+    }
+    else
+                        {
+        <section id="ps-themes" class="push-section subpage">
+            <div class="inner-wrap big-slider-wrapper">
+                <div id="theme-slider" class="slider big-slider wide-slider" data-sliderautoplayinterval="5000">
+                    @for (var i = 0; i < Model.CurrentPage.ImageSlidesArea.Count; i++)
+                            {
+                        var sliderImage = contentLoader.Get<IContentData>(Model.CurrentPage.ImageSlidesArea.Items[i].ContentLink) as ImageMediaModel;
+
+                        <div class="push segora">
+                            <img src="@Url.ContentUrl(sliderImage.ContentLink)" alt="@sliderImage.Alt" @(PageEditing.PageIsInEditMode ? "style=width:300px!important;" : string.Empty)/>
+                            <div class="text bottomright">
+                                <div class="box bottomright">
+                                    <h2>@Model.CurrentPage.Heading</h2>
+                                    @if (Model.CurrentPage.Description != null)
+                                {
+                                        <p>
+                                            @Model.CurrentPage.Description
+                                        </p>
+                }
+            </div>
+                            </div>                       
+                         </div>
+        }
+                </div>
+             </div>
+        </section>
+        }
+        }
+else
+{
+    <section id="ps-themes" class="push-section">
+        <div class="inner-wrap big-slider-wrapper">
+            <img src="~/Frontend/images/white-bg.png" />
+            <div class="text bottomright">
+                <div class="box bottomright">
+                    <h2>@Model.CurrentPage.Heading</h2>
+                    @if (Model.CurrentPage.Description != null)
+                    {
+                <p>
+                    @Model.CurrentPage.Description
+                </p>
+                    }
+                </div>
+            </div>
+        </div>
+</section>
+}
+<div id="content">
+
+    @Html.Partial("Nykopingsguiden/_breadcrumbs-menu")
+
+    <div id="sub-content">
+        <section class="sub-content-section">
+            <div class="inner-wrap">
+                <main class="main-column">
+
+                    @{
+                        if (Model.CurrentPage.MainColumnTop != null)
+                        {
+                            <div class="upper-content">
+                                @Html.PropertyFor(m => m.CurrentPage.MainColumnTop)
+                            </div>
+                        }
+                    }
+
+                    <div class="main-pushes">
+                        @{
+                            IEnumerable<PageData> filteredChildren = new List<PageData>();
+                            var image = new ContentReference();
+
+                            PageDataCollection allChildren = DataFactory.Instance.GetChildren(Model.CurrentPage.PageLink);
+                            if (allChildren.Count != 0)
+                            {
+                                filteredChildren = FilterForVisitor.Filter(allChildren).Where(p => p.IsVisibleOnSite() && p.VisibleInMenu);
+                                foreach (PageData item in filteredChildren)
+                                {
+                                    if (item.LinkURL != null)
+                                    {
+                                        var guid = PermanentLinkUtility.GetGuid(item.LinkURL);
+                                        image = ContentExtensions.GetImageFromLink(guid);
+                                    }
+                                    <div class="col w_1-2 w9_1-3 w6_1-2 w2_1">
+                                        <a class="main-push sectionChoice" href="@UrlResolver.Current.GetUrl(item.LinkURL)">
+                                            <div class="text">
+                                                <div class="box">
+                                                    <h3>@item.PageName</h3>
+                                                    <div class="more">
+                                                        <p>@item["Description"]</p>
+                                                        <div class="arrow"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            @if (item["thumbnail"] != null)
+                                            {
+                                                <img src="@UrlResolver.Current.GetUrl(item["Thumbnail"] as ContentReference)" alt="@item.PageName">
+                                            }
+                                            else if (item["Image1"] != null)
+                                            {
+                                                <img src="@UrlResolver.Current.GetUrl(item["Image1"] as ContentReference)" alt="@item.PageName">
+                                            }
+                                            else if (image != null)
+                                            {
+                                                <img src="@UrlResolver.Current.GetUrl(image)" alt="@item.PageName">
+                                            }
+                                            else
+                                            {
+                                                <img src="~/Frontend/images/company.jpg" alt="No image">
+                                            }
+
+                                        </a>
+                                    </div>
+                                }
+                            }
+                        }
+
+                    </div>
+                </main>
+
+                <aside class="side-column">
+                    @Html.PropertyFor(m => m.CurrentPage.RightColumn)
+                </aside>
+            </div>
+        </section>
+        <section id="ps-themes" class="push-section">
+            <div class="inner-wrap">
+                    @Html.PropertyFor(m => m.CurrentPage.MainColumnBottom)
+            </div>
+        </section>
+    </div>
+</div>

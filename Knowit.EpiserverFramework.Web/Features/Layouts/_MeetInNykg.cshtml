@@ -1,0 +1,235 @@
+﻿@using EPiServer.Web.Mvc.Html
+@using EPiServer
+@using EPiServer.Cms.Shell.UI.ObjectEditing.EditorDescriptors
+@using EPiServer.Core
+@using EPiServer.Filters
+@using EPiServer.Forms.Helpers.Internal
+@using EPiServer.ServiceLocation
+@using EPiServer.Web.Routing
+@using Knowit.EpiserverFramework.Models.Pages
+@using Knowit.EpiserverFramework.Models.Pages.MeetInNykgPages
+@model Knowit.EpiserverFramework.Models.ViewModels.IPageViewModel<Knowit.EpiserverFramework.Models.Core.SitePageData>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    @Html.Partial("~/Features/Shared/Motesplats/Head.cshtml")
+
+</head>
+@{
+    var iPageRouteHelper = ServiceLocator.Current.GetInstance<IPageRouteHelper>();
+    var pageClass = string.Empty;
+
+    if (Model.CurrentPage is MeetInNykgStartPageModel)
+    {
+            pageClass = "home";
+    }
+    else if (Model.CurrentPage is MeetInNykgSubPageListPageModel)
+    {
+            pageClass = "archive";
+    }
+    else if (Model.CurrentPage is MeetInNykgSubPageCategoryPageModel)
+    {
+            pageClass = "archive";
+    }
+    else if (Model.CurrentPage is ArticlePageModel)
+    {
+            pageClass = "article";
+    }
+    else
+    {
+            pageClass = "article";
+    }
+
+    string meetInNykgStart = string.Empty;
+
+    if (Model.CurrentPage.Settings!= null)
+    {
+        meetInNykgStart = Url.ContentUrl(Model.CurrentPage.Settings.MeetInNykgStart) ?? Url.ContentUrl(ContentReference.StartPage);
+    }
+}
+<body class="ma sub @pageClass">
+    <div id="lb-search" class="lb">
+        <a class="lb-overlay"></a>
+        <div class="inner-wrap">
+            <div class="box">
+                <a class="close" title="Stäng"></a>
+                <div class="search-form">
+                    <span class="screen-reader-text">Sök efter:</span>
+                    <form action="@UrlResolver.Current.GetUrl(Model.CurrentPage.Settings.SearchMeetInNykgReference)" method="post">
+                        <input id="q" class="search-field" placeholder="Sök &hellip;" value="" name="q" type="text">
+                        <input class="search-btn" value="Sök" type="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header id="header">
+
+        <div class="inner-wrap">
+
+            <div class="header-logo">
+                <a href="@meetInNykgStart" rel="home"><img class="logo-symbol" src="@Href(Url.Content("~/Frontend/images/logo-moten-arenor.png"))" alt="Mötesplats Nyköping"></a>
+            </div>
+
+            <div class="header-menu">
+
+                <ul class="header-top-menu">
+                    <li class="links">
+                        @{
+                            if (Model.CurrentPage.Settings != null)
+                            {
+                                foreach (var linkItem in Model.CurrentPage.Settings.MNTopMenu ?? Enumerable.Empty<EPiServer.SpecializedProperties.LinkItem>())
+                                {
+                                    <a href="@UrlResolver.Current.GetUrl(linkItem.Href)" title="@linkItem.Text" class="toplink">@linkItem.Text</a>
+                                }
+                            }
+                        }
+                        <div class="language">
+                            <a href="#">Translate</a>
+
+                            <ul style="width:200px; text-align:center;">
+                                <li style="padding:4px;">
+                                    <div id="google_translate_element"></div>
+                                    <script type="text/javascript">
+                                    function googleTranslateElementInit() {
+                                        new google.translate.TranslateElement({ pageLanguage: 'sv', gaTrack: true, gaId: 'UA-21957491-9' }, 'google_translate_element');
+                                    }
+                                    </script>
+                                    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </li>
+
+                    <li class="buttons">
+                        <a class="header-search-btn" title="Sök"><div>Sök</div></a>
+                        <a class="header-port-menu-btn" title="Visa meny"><div>Meny</div></a>
+                    </li>
+
+                </ul>
+
+
+                        @Html.Partial("Motesplats/_ma_main-menu")
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <div id="port-menu" class="lb">
+        <a class="lb-overlay"></a>
+        <div class="port-menu-box">
+
+            <div class="head">
+                <a class="btn close" title="Stäng"></a>
+            </div>
+
+            <ul class="port-main-menu">
+                <li>
+                    @{
+                    IContent meetInNykgStartPage;
+                    IEnumerable<PageData> filteredChilds = new List<PageData>();
+
+                    if (Model.CurrentPage.Settings != null && Model.CurrentPage.Settings.MeetInNykgStart != null)
+                    {
+                        meetInNykgStartPage = Model.CurrentPage.Settings.MeetInNykgStart.GetContent();
+                        PageDataCollection allChilds = DataFactory.Instance.GetChildren(((PageData)meetInNykgStartPage).PageLink);
+                        filteredChilds = FilterForVisitor.Filter(allChilds).Where(p => p.IsVisibleOnSite() && p.VisibleInMenu);
+                    }
+
+                        var category = "pmma-segora";
+                    }
+                    <a href="@meetInNykgStart">Mötesplats Nyköping</a>
+            <ul class="port-main-menu-a">
+                        @foreach (PageData item in filteredChilds)
+                        {
+                            PageDataCollection children = DataFactory.Instance.GetChildren(item.PageLink);
+                            IEnumerable<PageData>
+                                filteredChildren = FilterForVisitor.Filter(children).Where(p => p.IsVisibleOnSite() && p.VisibleInMenu);
+                            var firstitem = "";
+                            if (item.PageLink.ID == iPageRouteHelper.Page.PageLink.ID)
+                            {
+                                firstitem = "current-menu-item";
+                            }
+
+                            <li class="@firstitem">
+                                <a href="@Url.ContentUrl(item.LinkURL)">
+                                    @item.Name
+                                </a>
+                                @if (children.Count > 0)
+                                {
+                                    <ul class="sub-menu">
+                                        @foreach (PageData seconditem in filteredChildren)
+                                        {
+                                            PageDataCollection secondchildren = DataFactory.Instance.GetChildren(seconditem.PageLink);
+                                            IEnumerable<PageData>
+                                                filteredSecondChildren = FilterForVisitor.Filter(secondchildren).Where(p => p.IsVisibleOnSite() && p.VisibleInMenu);
+                                            var secondCurrent = "";
+                                            if (seconditem.PageLink.ID == iPageRouteHelper.Page.PageLink.ID)
+                                            {
+                                                secondCurrent = "current-menu-item";
+                                            }
+                                            <li class="@secondCurrent">
+                                                <a href="@Url.ContentUrl(seconditem.LinkURL)">
+                                                    @seconditem.Name
+                                                </a>
+                                                @if (secondchildren.Count > 0)
+                                                {
+        <ul>
+                                                        @foreach (PageData thirditem in filteredSecondChildren)
+                                                        {
+                                                            var thirdCurrent = "";
+                                                            if (thirditem.PageLink.ID == iPageRouteHelper.Page.PageLink.ID)
+                                                            {
+                                                                thirdCurrent = "current-menu-item";
+                                                            }
+                                                            <li class="@thirdCurrent">
+                                                                <a href="@Url.ContentUrl(thirditem.LinkURL)">
+                                                                    @thirditem.Name
+                                                                </a>
+    </li>
+                                                        }
+        </ul>
+                                                }
+    </li>
+
+                                        }
+
+            </ul>
+                                }
+        </li>
+                        }
+                    </ul>
+    </ul>
+
+    <ul class="port-plus-menu">
+        @{
+            if (Model.CurrentPage.Settings != null)
+            {
+                foreach (var linkItem in Model.CurrentPage.Settings.MNPortPlusMenu ?? Enumerable.Empty<EPiServer.SpecializedProperties.LinkItem>())
+                {
+                    <li><a href="@UrlResolver.Current.GetUrl(linkItem.Href)" title="@linkItem.Text">@linkItem.Text</a></li>
+                }
+            }
+        }
+    </ul>
+
+        </div>
+    </div>
+
+        <div id="site">
+            @RenderBody()
+        </div>
+
+        @Html.Partial("_Footer")
+
+        <div class="scroll-up-btn"></div>
+
+    <script src="@Url.Content("~/frontend/js/components/Script.js")" type="text/javascript"></script>
+</body>
+</html>

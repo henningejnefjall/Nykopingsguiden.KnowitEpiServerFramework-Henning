@@ -1,0 +1,808 @@
+﻿/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+	NYKOPINGSGUIDEN | RESPONSIVE
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+@media screen and (max-width: 1920px) { }
+
+@media screen and (max-width: 1840px) { 
+
+.fullwide-slider .push .text    { bottom:190px; }
+
+}
+@media screen and (max-width: 1760px) { 
+
+.fullwide-slider                { height:auto; min-height:630px; }
+.fullwide-slider .push .text    { bottom:180px; }
+
+}
+@media screen and (max-width: 1680px) { 
+
+.fullwide-slider .push .text    { bottom:170px; }
+
+}
+@media screen and (max-width: 1600px) { 
+
+.fullwide-slider                { min-height:560px; }
+.fullwide-slider .push .text    { bottom:160px; }
+
+}
+@media screen and (max-width: 1520px) { 
+
+.fullwide-slider .push .text    { bottom:150px; }
+
+}
+@media screen and (max-width: 1440px) { 
+
+.fullwide-slider                { min-height:500px; }
+.fullwide-slider .push .text    { bottom:140px; }
+
+body.home .main-menu            { height:60px; margin:-60px 0 0; }
+body.home .main-menu .btn       { height:60px; font:33px/60px 'BertholdAGMedium'; }
+
+}
+
+@media screen and (max-width: 1400px) { 
+
+.slider.carousel .slick-prev    { left:-35px; }
+.slider.carousel .slick-next    { right:-35px; }
+ 
+}
+
+@media screen and (max-width: 1360px) { 
+
+.fullwide-slider .push .text    { bottom:130px; }
+
+.slider.carousel .slick-prev,
+.slider.carousel .slick-next    { display:none !important; }
+
+}
+
+@media screen and (max-width: 1356px) { 
+
+#footer .inner-wrap             { max-width:1356px; padding:0 25px; }
+
+.guidebox-head                  { padding:0 24px 0 16px; }
+
+body.article .main-column       { padding-left:16px; padding-right:0; }
+body.article .main-column .sub-main { padding:30px 0 30px 2%; }
+
+/*
+body.info .main-column,
+body.theme .main-column,
+body.campaign .main-column, */
+.main-column                    { padding-left:3%; padding-right:2%; }
+
+.sub-nav                        { padding-right:4%; }
+
+}
+
+@media screen and (max-width: 1296px) { 
+
+.header-port-menu-btn           { width:61px; border-right:none; }
+				
+.fullwide-slider .push .text    { bottom:120px; }
+
+#breadcrumb-nav .inner-wrap     { padding:0 15px; }
+
+.sub-content-row:first-child > img { margin:0 !important; }
+
+body.home .main-menu            { position:relative; z-index:1; margin:0 !important; }
+
+.slider.carousel .slick-list    { margin:0 0 0 -14px; }
+.slider.carousel .slick-slide   { padding:0 0 0 14px; }
+
+.guidebox-body                  { margin:0 0 0 -14px; }
+.guidebox-body .col             { padding:0 0 14px 14px; }
+
+.footer-pushes                  { margin:0 0 0 -14px; }
+.footer-pushes .col             { padding:0 0 14px 14px; }
+
+body.archive .main-pushes       { margin:0 0 0 -14px; } 
+body.archive .main-pushes .col  { padding:0 0 14px 14px; } 
+
+}
+
+@media screen and (max-width: 1280px) { 
+							 								 
+.main-push .text .meta          { height:24px; margin:-24px 0 0; padding:0 12px 0 0; }
+
+.main-push .text .meta div      { padding:0 0 0 12px; } 
+.main-push .text .meta .date    { font:700 18px/24px 'Open Sans'; }
+.main-push .text .meta .location { font:600 14px/24px 'Open Sans'; }
+.main-push .text .box           { min-height:75px; padding:10px 16px 10px 12px; font:14px/17px 'Open Sans'; }	
+.main-push .text .box .more     { padding:2px 0 0; }
+
+.fullwide-slider                { min-height:445px; }
+.fullwide-slider .push .text    { bottom:60px; }
+
+.main-column                    { width:68%; }
+
+}
+
+@media screen and (max-width: 1200px) { 
+
+.btn-text.large                 { padding:10px 18px; font:24px/24px 'BertholdAGMedium'; }
+
+.big-slider .push .text .box    { padding:10px 20px 12px 22px; }											 								 
+.big-slider .push .text .box h1,
+.big-slider .push .text .box h2 { margin:0 0 5px; font:50px/55px 'BertholdAGMedium'; }
+
+.fullwide-slider .push .text    { bottom:50px; }
+
+.main-slider                    { min-height:415px; }
+
+.slider.carousel .slick-list    { margin:0 0 0 -12px; }
+.slider.carousel .slick-slide   { padding:0 0 0 12px; }
+
+.guidebox-body                  { margin:0 0 0 -12px; }
+.guidebox-body .col             { padding:0 0 12px 12px; }
+
+#sub-header-image .text         { padding:10px 20px 20px; }											 								 
+#sub-header-image .text h1      { margin:0; font:50px/55px 'BertholdAGMedium'; }
+
+.footer-pushes                  { margin:0 0 0 -12px; }
+.footer-pushes .col             { padding:0 0 12px 12px; }
+.footer-push h2                 { font:50px/55px 'BertholdAGMedium'; }	
+
+body.archive .main-pushes       { margin:0 0 0 -12px; } 
+body.archive .main-pushes .col  { padding:0 0 12px 12px; } 
+
+.main-article-info              { padding:15px 20px 5px; font:600 18px/22px 'Open Sans'; }
+.main-article-info .btn-text    { padding:8px 18px 9px; font:24px/28px 'BertholdAGMedium';  }
+
+.ps-info .text                  { font:16px/22px 'Open Sans'; }
+.ps-info .text h2               { margin:8px 0; font:36px/40px 'BertholdAGMedium'; }
+.ps-info .text h3               { margin:10px 0 24px; font:700 28px/31px 'Open Sans'; }
+
+}
+
+@media screen and (max-width: 1120px) { 
+
+body                            { font-size:15px; line-height:20px; }
+
+h1                              { font:50px/54px 'BertholdAGMedium'; }
+h2                              { font:28px/31px 'BertholdAGMedium'; }
+h3                              { font:24px/27px 'BertholdAGMedium'; }
+h4                              { font:21px/24px 'BertholdAGMedium'; }
+h5                              { font:21px/26px 'BertholdAGRegular'; }
+h6                              { font:13px/17px 'Open Sans'; }
+
+body.campaign h1                { font:60px/64px 'BertholdAGMedium'; }
+body.campaign h2                { font:36px/40px 'BertholdAGMedium'; }
+body.campaign h3                { font:27px/30px 'BertholdAGMedium'; }
+
+.fullwide-slider                { min-height:375px; }
+.fullwide-slider .push .text    { bottom:40px;  }
+
+.wide-slider                    { min-height:470px; }
+
+.main-slider                    { min-height:380px; }
+
+.slider.carousel .slick-list    { margin:0 0 0 -10px; }
+.slider.carousel .slick-slide   { padding:0 0 0 10px; }
+.slick-dots                     { margin:18px 0 0; }
+
+.push-section                   { padding:30px 0 10px; }
+.push-section-head              { padding:0 2.5% 18px; }
+.push-section-head h2           { margin:2px 0 0; }
+
+.sub-content-section > img,
+.sub-content-row > img          { margin-top:40px; }
+.sub-content-section .main-column,
+.sub-content-section .side-column,
+.sub-content-row .main-column,
+.sub-content-row .side-column { padding-top:40px; }
+						 								 
+.main-push .text .meta          { height:22px; margin:-22px 0 0; padding:0 10px 0 0; }
+.main-push .text .meta div      { padding:0 0 0 10px; }
+.main-push .text .meta .date    { font:700 17px/22px 'Open Sans'; }
+.main-push .text .meta .location { font:600 13px/22px 'Open Sans'; }
+.main-push .text .box           { min-height:70px; padding:10px 16px 10px 10px; font:13px/17px 'Open Sans'; }
+
+body.archive .main-column .main-push .text .box { padding:11px 16px 12px 12px; font:14px/17px 'Open Sans'; }
+
+.guidebox-head .menu ul.linkmenu li { padding:4px 0 0 40px; }
+.guidebox-body                  { margin:0 0 0 -10px; }
+.guidebox-body .col             { padding:0 0 10px 10px; }
+
+.footer-pushes                  { margin:0 0 0 -10px; }
+.footer-pushes .col             { padding:0 0 10px 10px; }
+
+.footer-bottom .col.info .text  { padding:0 20px 8px 0; }
+
+body.archive .main-pushes       { margin:0 0 0 -10px; } 
+body.archive .main-pushes .col  { padding:0 0 10px 10px; }
+
+}
+
+@media screen and (max-width: 1040px) { 
+
+body.sub .main-menu             { height:50px; }
+body.sub .main-menu .btn        { height:50px; font:25px/50px 'BertholdAGMedium'; }
+
+.fullwide-slider .push .text    { bottom:30px; }
+
+.main-slider                    { min-height:330px; }
+
+.carousel .main-push .text .meta,								 								 
+.guidebox .main-push .text .meta           { height:24px; margin:-24px 0 0; padding:0 14px 0 0; }
+.carousel .main-push .text .meta div,
+.guidebox .main-push .text .meta div       { padding:0 0 0 14px; }
+.carousel .main-push .text .meta .date,
+.guidebox .main-push .text .meta .date     { font:700 18px/24px 'Open Sans'; }
+.carousel .main-push .text .meta .location,
+.guidebox .main-push .text .meta .location { font:600 14px/24px 'Open Sans'; }
+
+.guidebox-head .menu ul.iconmenu    { margin:0 0 14px -35px; }
+.guidebox-head .menu ul.iconmenu li { padding:0 30px 0 35px; }
+.guidebox-head .menu ul.linkmenu li { padding:4px 0 0 30px; }
+
+.main-push .text .box           { padding:11px 16px 12px 12px; font:14px/17px 'Open Sans'; }
+
+.side-column .main-push .text .box    { min-height:60px; padding:6px 16px 8px 8px; font:13px/16px 'Open Sans'; }
+.side-column .main-push .text .box h3 { font:20px/23px 'BertholdAGMedium'; }
+
+.main-column                    { width:66%; }
+.side-column                    { width:31%; }
+
+.main-article-info              { padding:15px 15px 5px; }
+
+}
+
+@media screen and (max-width: 960px) { 
+
+body                            { font-size:14px; line-height:19px; }
+
+h1                              { font:44px/48px 'BertholdAGMedium'; }
+h2                              { font:26px/29px 'BertholdAGMedium'; }
+h3                              { font:22px/25px 'BertholdAGMedium'; }
+
+body.campaign h1                { font:55px/59px 'BertholdAGMedium'; }
+body.campaign h2                { font:32px/35px 'BertholdAGMedium'; }
+body.campaign h3                { font:24px/27px 'BertholdAGMedium'; }
+
+body.sub .main-menu .btn.segora { width:26%; }
+body.sub .main-menu .btn.event  { width:28%; }
+body.sub .main-menu .btn.ata    { width:23%; }
+body.sub .main-menu .btn.bo     { width:23%; }
+
+.big-slider .push .text .box    { padding:8px 18px 10px 20px; font:16px/22px 'Open Sans'; }											 								 
+.big-slider .push .text .box h1,
+.big-slider .push .text .box h2 { margin:0 0 4px; font:45px/49px 'BertholdAGMedium'; }
+.big-slider .push .arrow        { margin:3px 0 0 3px; }
+
+.fullwide-slider                { min-height:310px; }
+
+.wide-slider                    { min-height:390px; }
+
+.main-slider                    { min-height:300px; }
+
+body.home .main-menu            { height:50px; }
+body.home .main-menu .btn       { height:50px; font:29px/50px 'BertholdAGMedium'; }
+
+body.archive .main-column       { width:100%; } 
+
+.guidebox-head .menu ul li a    { font:600 16px/34px 'Open Sans'; }
+.guidebox-head .menu ul.iconmenu    { margin:0 0 14px -30px; }
+.guidebox-head .menu ul.iconmenu li { padding:0 30px 0 30px; }
+.guidebox-head .menu ul.linkmenu    { margin:0 0 14px -24px; }
+.guidebox-head .menu ul.linkmenu li { padding:4px 0 0 24px; }
+
+#sub-header-image .text         { padding:10px 16px 16px; font:16px/22px 'Open Sans'; }											 								 
+#sub-header-image .text h1      { font:45px/49px 'BertholdAGMedium'; }
+
+.footer-push h2                 { padding:0 20px 5%; font:45px/49px 'BertholdAGMedium'; }	
+
+body.archive .sub-content-section .side-column { width:100%; padding-top:40px; }
+body.archive .side-pushes       { width:auto; margin:0 0 0 -1.3%; }
+body.archive .side-pushes .main-push { float:left; width:48.7%; margin:0 0 8px 1.3%; }
+
+.main-column                    { width:64%; }
+.side-column                    { width:33%; }
+
+.ps-info .text                  { font:15px/20px 'Open Sans'; }
+.ps-info .text h2               { margin:0 0 5px; font:32px/36px 'BertholdAGMedium'; }
+.ps-info .text h3               { margin:8px 0 20px; font:700 24px/27px 'Open Sans'; }
+
+}
+
+@media screen and (max-width: 880px) { 
+
+body.sub .main-menu .btn        { font:23px/50px 'BertholdAGMedium'; }
+
+.fullwide-slider .push .text    { bottom:20px; }
+
+.main-slider                    { min-height:440px; }
+
+.guidebox-head .menu ul.iconmenu    { margin:0 0 14px -25px; }
+.guidebox-head .menu ul.iconmenu li { padding:0 30px 0 25px; }
+.guidebox-head .menu ul.linkmenu    { margin:0 0 14px -28px; }
+.guidebox-head .menu ul.linkmenu li { padding:3px 0 0 20px; }
+
+body.archive .main-column .main-push .text .box { min-height:60px; padding:6px 16px 8px 8px; font:13px/16px 'Open Sans'; }
+
+.main-column                    { width:100%; padding:0 3%; }
+body.article .main-column       { width:100%; padding:0; }
+body.article .main-column .sub-main { padding:30px 3%; }
+body.article .main-column .map,
+body.article .main-column .tripadvisor,
+body.article .sub-content-footer { padding:0 3% !important; }
+
+.sub-content-footer,
+body.article .sub-content-footer { text-align:center; }
+
+#main-article-info-calendar     { display:block !important; }
+#side-calendar                  { display:none !important; }
+
+.main-column .sub-nav           { display:block !important; padding:15px; background:#f5f5f5; }
+.sub-nav a                      { padding:5px 0 6px 16px; font:400 22px/26px 'Open Sans';  }
+.sub-nav ul ul a                { padding:5px 0 6px 32px; /*margin:0 0 5px; font:400 17px/21px 'Open Sans';*/ }
+.sub-nav ul ul ul a             { padding:5px 0 6px 48px; }
+.sub-nav ul ul ul ul a          { padding:5px 0 6px 64px; }
+.sub-nav .toggle                { margin:5px 0 0; }
+
+.side-column .sub-nav           { display:none !important; }
+
+body.sub .side-column           { width:100%; padding:40px 0 0; }
+body.sub .side-pushes           { width:auto; margin:0 0 0 -1.3%; }
+body.sub .side-pushes .main-push { float:left; width:48.7%; margin:0 0 8px 1.3%; }
+
+
+/* --------------------------------------------------------------------------  
+   RESPONSIVE BOX | x-scroll on static elements on small screens
+--------------------------------|----------------------------------------- */
+
+.responsivebox                  { overflow-y:hidden; overflow-x:scroll; width:100%; max-width:100%; text-align:center;
+                                  -ms-overflow-style:-ms-autohiding-scrollbar; -webkit-overflow-scrolling:touch; }
+
+.responsivebox > .table         { margin-bottom:0; }
+.responsivebox > .table > thead > tr > th, .responsive-box > .table > tbody > tr > th,
+.responsivebox > .table > tfoot > tr > th, .responsive-box > .table > thead > tr > td,
+.responsivebox > .table > tbody > tr > td, .responsive-box > .table > tfoot > tr > td { white-space:nowrap; }
+
+}
+
+@media screen and (max-width: 800px) { 
+
+h1                              { font:40px/44px 'BertholdAGMedium'; }
+h2                              { font:24px/27px 'BertholdAGMedium'; }
+h3                              { font:21px/24px 'BertholdAGMedium'; }
+h6                              { font:12px/16px 'Open Sans'; }
+
+body.campaign h1                { font:50px/54px 'BertholdAGMedium'; }
+body.campaign h2                { font:28px/31px 'BertholdAGMedium'; }
+body.campaign h3                { font:23px/26px 'BertholdAGMedium'; }
+
+.header-logo a  			        { padding:11px 10px 9px; }
+
+ul.header-top-menu .links a     { margin:20px 22px 0 0; }
+
+body.home .main-menu .btn       { font:25px/50px 'BertholdAGMedium'; }
+
+body.sub .main-menu .btn        { font:22px/50px 'BertholdAGMedium'; }
+body.sub .main-menu .btn.segora { width:28%; }
+body.sub .main-menu .btn.event  { width:30%; }
+body.sub .main-menu .btn.ata    { width:21%; }
+body.sub .main-menu .btn.bo     { width:21%; }
+
+.big-slider .push .text .box h1,
+.big-slider .push .text .box h2 { margin:0 0 2px 0; font:40px/44px 'BertholdAGMedium'; }
+
+.fullwide-slider                { min-height:245px; }								 								 
+
+.wide-slider                    { min-height:310px; }
+
+.main-slider                    { min-height:395px; }
+
+.slider.carousel .slick-list    { margin:0 0 0 -8px; }
+.slider.carousel .slick-slide   { padding:0 0 0 8px; }
+								 								 
+.main-push .text .meta          { height:22px; margin:-22px 0 0; padding:0 10px 0 0; }
+.main-push .text .meta .date    { padding:0 0 0 10px; font:700 17px/22px 'Open Sans'; }
+.main-push .text .meta .location,
+.main-push .text .meta .category { padding:0 0 0 10px; font:600 13px/22px 'Open Sans'; }
+.main-push .text .box           { min-height:60px; padding:8px 16px 9px 10px; font:13px/17px 'Open Sans'; }
+
+body.archive .main-column .main-push .text .box { min-height:50px; padding:5px 16px 7px 8px; font:12px/15px 'Open Sans'; }
+
+.guidebox                       { margin:-10px 0 0; }
+
+.guidebox-head                  { padding:0; }
+.guidebox-head .heading         { display:block; width:100%; padding:0 0 10px; text-align:center; }
+.guidebox-head .menu            { width:100%; text-align:center; }
+.guidebox-head .menu ul         { float:none; }
+.guidebox-head .menu ul.iconmenu,
+.guidebox-head .menu ul.linkmenu    { margin:0 0 12px -40px; }
+.guidebox-head .menu ul.linkmenu li { padding:0 0 0 40px; }
+
+.guidebox-body                  { margin:0 0 0 -8px; }
+.guidebox-body .col             { padding:0 0 8px 8px; }
+
+#sub-header-image .text         { padding:6px 12px 12px; font:15px/19px 'Open Sans'; }											 								 
+#sub-header-image .text h1      { font:40px/44px 'BertholdAGMedium'; }
+
+.sub-content-section > img,
+.sub-content-row > img          { margin-top:30px; }
+.sub-content-section .main-column,
+.sub-content-section .side-column,
+.sub-content-row .main-column,
+.sub-content-row .side-column { padding-top:30px; }
+
+.footer-pushes                  { margin:0 0 0 -8px; }
+.footer-pushes .col             { padding:0 0 8px 8px; }
+.footer-push h2                 { font:40px/44px 'BertholdAGMedium'; }	
+
+body.archive .main-pushes       { margin:0 0 0 -8px; } 
+body.archive .main-pushes .col  { padding:0 0 8px 8px; } 
+
+.ps-info .text                  { font:14px/19px 'Open Sans'; }
+.ps-info .text h2               { font:30px/34px 'BertholdAGMedium'; }
+.ps-info .text h3               { font:700 22px/25px 'Open Sans'; }
+
+}
+
+@media screen and (max-width: 720px) { 
+
+.btn-text.large                 { padding:8px 15px; font:22px/22px 'BertholdAGMedium'; }
+
+.header-logo a  			        { width:190px; margin:14px 0 0 10px; padding:0; }
+.header-logo a img         	  { margin-top:-70px; }
+
+.header-menu                    { width:100%; }
+ul.header-top-menu              { height:50px; margin:0; }
+.header-port-menu-btn,
+.header-search-btn              { border-bottom:none; }
+
+#lb-search .box                 { width:70%; height:50px; padding:0 0 0 50px; }
+#lb-search .close               { margin:0 0 0 -50px; width:50px; height:50px; font:32px/48px 'Open Sans'; }											 										 
+#lb-search .search-form         { margin:5px 0 0; }
+#lb-search .search-field        { padding:0 55px 0 0; font:27px/50px 'BertholdAGRegular'; }
+#lb-search .search-btn          { width:55px; font:33px/37px 'FontAwesome' !important; }
+
+.main-menu                      { height:45px !important; }
+.main-menu .btn                 { height:45px !important; font:25px/45px 'BertholdAGMedium' !important; }
+body.sub .main-menu .btn.segora,
+body.sub .main-menu .btn.event,
+body.sub .main-menu .btn.ata,
+body.sub .main-menu .btn.bo     { width:25%; }
+
+.header-port-menu-btn           { width:52px; height:50px; padding:13px 8px 12px; }
+
+.header-search-btn              { width:51px; height:50px; }
+.header-search-btn:after        { font:32px/49px 'FontAwesome' !important; }	
+
+ul.header-top-menu .links a     { margin:15px 20px 0 0; }
+
+.big-slider .push .text         { bottom:0; }
+.big-slider .push .text .box    { width:100%; padding:6px 2.5% 12px; font:15px/19px 'Open Sans'; }										 								 
+.big-slider .push .text .box h1,
+.big-slider .push .text .box h2 { margin:0; font:36px/40px 'BertholdAGMedium'; }
+.big-slider .push .arrow        { margin:2px 0 0 3px; }
+
+.main-slider                    { min-height:345px; }
+
+.push-section-head              { padding:0 0 15px; }
+.slick-dots                     { margin:15px 0 0; }
+							 								 
+.main-push .text .box           { padding:6px 16px 7px 10px; font:12px/15px 'Open Sans'; }
+
+body.archive .main-column .main-push .text .box { padding:11px 16px 12px 12px; font:14px/17px 'Open Sans'; }
+
+#sub-header-image .text         { width:100%; padding:6px 16px 12px; }											 								 
+#sub-header-image .text h1      { font:36px/40px 'BertholdAGMedium'; }
+
+.footer-push h2                 { font:36px/40px 'BertholdAGMedium'; }	
+
+}
+
+@media screen and (max-width: 670px) { 
+
+ul.header-top-menu .links       { display:none; }
+
+}
+
+@media screen and (max-width: 640px) { 
+
+h1                              { font:36px/40px 'BertholdAGMedium'; }
+
+body.campaign h1                { font:44px/48px 'BertholdAGMedium'; }
+
+.main-menu .btn                 { font:22px/46px 'BertholdAGMedium' !important; }
+
+#lb-search .box                 { width:60%; }										 										 
+
+.big-slider .push .text .box    { padding:5px 2.5% 10px; }											 								 
+.big-slider .push .text .box h1,
+.big-slider .push .text .box h2 { font:32px/35px 'BertholdAGMedium'; }
+
+.fullwide-slider                { min-height:180px; }
+
+.wide-slider                    { min-height:230px; }
+
+.main-slider                    { min-height:295px; }
+
+body.home .main-menu .btn       { font:22px/50px 'BertholdAGMedium'; }
+
+#breadcrumb-nav                 { display:none; }
+
+.main-push                      { max-height:256px; }							 								 
+.main-push .text .meta          { height:30px; margin:-30px 0 0; padding:0 14px 0 0; }
+.main-push .text .meta div      { padding:0 0 0 14px; }
+.main-push .text .meta .date    { font:700 22px/29px 'Open Sans'; }
+.main-push .text .meta .location { font:600 15px/28px 'Open Sans'; }
+.main-push .text .box           { min-height:70px; padding:10px 16px 12px 14px; font:14px/18px 'Open Sans'; }
+
+body.sub.archive #content       { padding:8px 0 0; } 
+
+body.archive .main-column .main-push .text .box { padding:6px 16px 8px 8px; font:13px/16px 'Open Sans'; }
+
+#sub-header-image .text         { padding:5px 15px 10px; font:14px/18px 'Open Sans'; }	
+#sub-header-image .text h1      { font:32px/35px 'BertholdAGMedium'; }										 								 
+
+.sub-content-section > img,
+.sub-content-row > img          { margin-top:25px; }
+.sub-content-section .main-column,
+.sub-content-section .side-column,
+.sub-content-row .main-column,
+.sub-content-row .side-column { padding-top:25px; }
+
+body.sub .side-pushes            { margin:0 !important; }
+body.sub .side-pushes .main-push { width:100% !important; margin:0 0 8px; }
+
+.main-article-info              { padding:12px 15px 5px; font:600 16px/20px 'Open Sans'; }
+.main-article-info .btn-text    { padding:6px 15px 7px; font:22px/26px 'BertholdAGMedium'; }
+
+.footer-push h2                 { padding:0 15px 5%; font:32px/35px 'BertholdAGMedium'; }	
+
+#footer .inner-wrap             { padding:0 20px; }
+
+.footer-links .col-1, .footer-links .col-2, .footer-links .col-3,
+.footer-links .col-4            { width:50%; padding:0 5px 10px; text-align:center; }	
+
+.footer-bottom .col.info        { padding:0 0 40px; text-align:center; }
+
+}
+
+@media screen and (max-width: 560px) { 
+									 								 
+.big-slider .push .text .box h1,
+.big-slider .push .text .box h2 { font:28px/31px 'BertholdAGMedium'; }
+
+.main-slider                    { min-height:255px; }
+
+.main-menu .btn.segora          { width:26% !important; }
+.main-menu .btn.event           { width:28% !important; }
+.main-menu .btn.ata             { width:23% !important; }
+.main-menu .btn.bo              { width:23% !important; }
+
+.main-push                      { max-height:224px; }	
+
+.guidebox-head .menu ul li a    { font:600 15px/34px 'Open Sans'; }
+.guidebox-head .menu ul.linkmenu    { margin:0 0 10px -30px; }
+.guidebox-head .menu ul.linkmenu li { padding:0 0 0 30px; }
+.guidebox-body                  { margin:0; }
+.guidebox-body .col             { padding:0 0 6px; }
+
+#sub-header-image .text         { padding:4px 14px 9px; font:13px/17px 'Open Sans'; }											 								 
+#sub-header-image .text h1      { font:28px/31px 'BertholdAGMedium'; }
+
+body.sub .side-pushes .main-push { margin:0 0 6px; }
+
+body.sub.archive #content       { padding:6px 0 0; } 
+
+body.archive .main-column .main-push .text .box { padding:5px 16px 7px 8px; font:12px/15px 'Open Sans'; }
+
+body.archive .main-pushes       { margin:0 0 0 -6px; } 
+body.archive .main-pushes .col  { padding:0 0 6px 6px; }
+
+.main-column .sub-nav           { padding:10px; }
+.sub-nav a                      { padding:3px 0 4px 12px; font:600 18px/26px 'Open Sans';  }
+.sub-nav ul ul a                { padding:3px 0 4px 24px; margin:0 0 3px; font:400 15px/18px 'Open Sans'; }
+.sub-nav ul ul ul a             { padding:3px 0 4px 36px; }
+.sub-nav ul ul ul ul a          { padding:3px 0 4px 48px; }
+.sub-nav .toggle                { margin:3px 0 0; }	
+
+.side-section h4,
+.side-pushes .main-push         { margin:0 0 6px; }
+
+.footer-pushes                  { margin:0 0 0 -6px; }
+.footer-pushes .col             { padding:0 0 6px 6px; }
+
+.ps-info .image                 { width:25%; }
+.ps-info .text                  { width:75%; padding:0 4%; }
+
+.ps-info .text h2               { font:26px/30px 'BertholdAGMedium'; }
+
+#lb-contact .lb-box             { max-width:100%; margin:0; }
+
+}
+
+@media screen and (max-width: 540px) { 
+
+#main-article-info-calendar.active .calendar { width:100%; padding:25px 0 5px; }
+
+}
+
+@media screen and (max-width: 480px) { 
+
+h1                              { font:32px/35px 'BertholdAGMedium'; }
+
+body.campaign h1                { font:36px/40px 'BertholdAGMedium'; }
+body.campaign h2                { font:27px/30px 'BertholdAGMedium'; }
+body.campaign h3                { font:22px/25px 'BertholdAGMedium'; }
+
+#lb-search .box                 { width:100%; padding:0 0 0 40px; }
+#lb-search .close               { margin:0 0 0 -40px; width:40px; }											 										 
+#lb-search .search-field        { font:24px/50px 'BertholdAGRegular'; }
+
+.big-slider .push .text .box    { font:14px/18px 'Open Sans'; }											 								 
+.big-slider .push .text .box h1,
+.big-slider .push .text .box h2 { font:24px/29px 'BertholdAGMedium'; }
+.big-slider .push .arrow        { margin:0 0 0 3px; }
+
+.fullwide-slider                { min-height:150px; }
+
+.wide-slider                    { min-height:190px; }
+
+.main-slider                    { min-height:200px; }
+
+.main-push .text .box           { min-height:60px; }
+
+.main-menu .btn.segora          { width:28.5% !important; }
+.main-menu .btn.event           { width:31.5% !important; }
+.main-menu .btn.ata             { width:20% !important; }
+.main-menu .btn.bo              { width:20% !important; }
+
+.guidebox-head .menu ul.iconmenu    { margin:0 0 10px -22px; }
+.guidebox-head .menu ul.iconmenu li { padding:0 30px 0 26px; }
+
+#sub-header-image .text         { padding:3px 14px 8px; font:13px/16px 'Open Sans'; }											 								 
+#sub-header-image .text h1      { font:24px/29px 'BertholdAGMedium'; }
+
+.sub-content-section > img,
+.sub-content-row > img          { margin-top:20px; }
+.sub-content-section .main-column,
+.sub-content-section .side-column,
+.sub-content-row .main-column,
+.sub-content-row .side-column { padding-top:20px; }
+
+.footer-push                    { max-height:160px; }
+
+}
+
+@media screen and (max-width: 460px) { 
+
+.footer-links .col-1, .footer-links .col-2, .footer-links .col-3,
+.footer-links .col-4            { width:100%; padding:0 0 10px; }	
+
+}
+
+
+@media screen and (max-width: 440px) { 
+
+#lb-search .box                 { padding:0; }
+#lb-search .close               { display:none; }											 										 
+#lb-search .search-field        { padding:0 48px 0 8px; }
+#lb-search .search-btn          { width:48px; font:28px/37px 'FontAwesome' !important; }
+
+.big-slider .slick-arrow        { display:none !important; }
+.big-slider .push .text .box    { min-height:1px; padding:6px 2.5% 8px; font:13px/16px 'Open Sans'; }		
+.big-slider .push .arrow        { margin:-1px 0 0 3px; }
+
+.fullwide-slider .push .text .box p,							 								 
+.fullwide-slider .push .text .box .arrow { display:none !important; }		
+
+.main-menu                      { height:auto !important; }
+.main-menu .btn                 { height:40px !important; font:22px/40px 'BertholdAGMedium' !important; }
+
+.main-menu .btn.segora,
+.main-menu .btn.event,
+.main-menu .btn.ata,
+.main-menu .btn.bo              { width:50% !important; }
+
+.main-menu .btn .arrow          { display:none !important; }
+
+.guidebox-head .menu ul.linkmenu    { margin:0 0 10px -22px; }
+.guidebox-head .menu ul.linkmenu li { padding:0 0 0 22px; }
+
+#sub-header-image .text         { position:relative; z-index:1; bottom:auto; right:auto; 
+                                  padding:7px 12px 8px; background:#fff; color:#555; }	
+#sub-header-image .text h1      { margin:0 0 3px; color:#000; }
+
+.main-article-info              { padding:10px 14px 5px; }
+.main-article-info ul li        { padding:0 0 8px 20px; }
+.main-article-info .btn-text    { padding:6px 12px; }
+
+}
+
+
+@media screen and (max-width: 400px) { 
+
+h1                              { font:28px/31px 'BertholdAGMedium'; }
+
+body.campaign h1                { font:32px/35px 'BertholdAGMedium'; }
+body.campaign h2                { font:25px/28px 'BertholdAGMedium'; }
+body.campaign h3                { font:21px/24px 'BertholdAGMedium'; }
+
+.big-slider .push .text .box h1,
+.big-slider .push .text .box h2 { font:22px/25px 'BertholdAGMedium'; }
+.big-slider .push .text .box p,	
+.big-slider .push .arrow        { display:none !important;}
+
+.big-slider .push:hover .text .box p { display:inline !important; }	
+.big-slider .push:hover .arrow  { display:inline-block !important; }
+
+.fullwide-slider                { min-height:135px; }
+
+.wide-slider                    { min-height:170px; }
+
+.main-slider                    { min-height:170px; }
+
+#content .inner-wrap            { padding:0; }
+
+.main-push .text .meta          { height:24px; margin:-24px 0 0; padding:0 10px 0 0; }
+.main-push .text .meta div      { padding:0 0 0 10px; }
+.main-push .text .meta .date    { font:700 18px/24px 'Open Sans'; }
+.main-push .text .meta .location { font:600 14px/24px 'Open Sans'; }
+.main-push .text .box           { padding:8px 16px 10px 10px; }
+
+body.archive .main-column .main-push .text .box { min-height:65px; padding:11px 16px 12px 12px; font:14px/17px 'Open Sans'; }
+
+.guidebox-head .menu ul li a    { font:600 14px/34px 'Open Sans'; }
+.guidebox-head .menu ul.iconmenu    { margin:0 0 10px -20px; }
+.guidebox-head .menu ul.iconmenu li { padding:0 30px 0 20px; }
+.guidebox-head .menu ul.linkmenu    { margin:0 0 10px -18px; }
+.guidebox-head .menu ul.linkmenu li { padding:0 0 0 18px; }
+
+.ps-info .image                 { width:100%; padding:0 30% 20px; }
+.ps-info .text                  { width:100%; padding:0 4%; }
+
+}
+
+@media screen and (max-width: 375px) { 
+
+.main-article-info              { font:600 15px/18px 'Open Sans'; }
+.main-article-info .button      { width:100%; text-align:center; padding:3px 0 12px; }
+.main-article-info .btn-text    { position:relative; right:auto; padding:5px 12px 6px; font:20px/24px 'BertholdAGMedium';  }
+
+#main-article-info-calendar     { text-align:center; }
+#main-article-info-calendar .hide { margin:2px 0 0; }
+#main-article-info-calendar.active .calendar { padding:10px 0 5px; }
+
+}
+
+@media screen and (max-width: 360px) { 
+
+h1                              { font:24px/27px 'BertholdAGMedium'; }
+
+body.campaign h1                { font:28px/31px 'BertholdAGMedium'; }
+
+.big-slider .push .text .box h1,
+.big-slider .push .text .box h2 { font:20px/23px 'BertholdAGMedium'; }
+
+.fullwide-slider                { min-height:120px; }
+
+.wide-slider                    { min-height:150px; }
+							 								 
+.main-push .text .meta          { height:22px; margin:-22px 0 0; padding:0 8px 0 0; }
+.main-push .text .meta div      { padding:0 0 0 8px; }
+.main-push .text .meta .date    { font:700 16px/22px 'Open Sans'; }
+.main-push .text .meta .location { font:700 13px/22px 'Open Sans'; }
+.main-push .text .box           { padding:7px 16px 9px 9px; font:13px/17px 'Open Sans'; }
+
+.guidebox-head .menu ul.iconmenu    { margin:0 0 10px -30px; }
+.guidebox-head .menu ul.iconmenu li { padding:0 30px 0 30px; }
+.guidebox-head .menu ul.linkmenu    { margin:0 0 10px -28px; }
+.guidebox-head .menu ul.linkmenu li { padding:0 0 0 28px; }
+.guidebox-head .menu ul.iconmenu span,
+.guidebox-head .menu ul.linkmenu span { display:none; }
+
+.sub-content-footer ul.icons li { margin:0 0 0 15px; }
+
+}
+
+@media screen and (max-width: 340px) { 
+
+.sub-content-footer ul.icons li { margin:0 0 0 9px; }
+
+}

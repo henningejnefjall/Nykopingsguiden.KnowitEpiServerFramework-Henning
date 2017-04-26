@@ -1,0 +1,19 @@
+﻿@using Knowit.EpiserverFramework.Models.ViewModels
+@using Knowit.EpiserverFramework.Models.Core
+
+@*This view is used to display messages to editor. For example if the settingspage is not selected or similar.*@
+@model IPageViewModel<SitePageData>
+<div class="row">
+    <div class="col-md-12">
+        @if (Model.CurrentPage.Settings == null)
+        {
+            <div class="alert alert-info">
+                <ul>
+                    <li>
+                        <p>Settingspage is not selected</p>
+                    </li>
+                </ul>
+            </div>
+        }
+    </div>
+</div>

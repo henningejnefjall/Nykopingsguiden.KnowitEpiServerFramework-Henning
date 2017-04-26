@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<languages>
+  <language name="Svenska" id="sv">
+    <groups>
+      <default>Sidmallar eller block som ej är grupperade</default>
+
+      <!--Pagetype group headers-->
+      <admintype>Adminsidtyper</admintype>
+      <events>Besöksmålsidtyper</events>
+      <pagetype>Vanliga sidtyper</pagetype>
+      <meetinnykg>Mötesplats Nyköping - sidtyper</meetinnykg>
+      <startnodes>Sidtyper för trädnoder</startnodes>
+      <special>Specialiserade sidtyper</special>
+      <system>Sidtyper för konfiguration</system>
+
+      <!--Block group headers-->
+      <block>Vanliga blocktyper</block>
+      <localblock>Block för specifika innehållsytor</localblock>
+    
+      <!--Tab headers-->
+      <seo>SEO, sökmotoroptimering</seo>
+      <sitesettings>Systeminställningar</sitesettings>
+      <header>Sidhuvud</header>
+      <footer>Sidfot</footer>
+      <globalsettings>Global inställningssida</globalsettings>
+      <googletools>Googleverktyg</googletools>
+      <googleanalytics>Google Analytics</googleanalytics>
+      <scriptimports>Scriptimport</scriptimports>
+      <navigation>Navigation</navigation>
+      <test>Test</test>
+    </groups>
+  </language>
+</languages>

@@ -1,0 +1,38 @@
+
+//== Typography
+
+$font-family-sans-serif:  Arial, sans-serif;
+$font-family-serif:       "Cheltenham ITC W01 Book", serif;
+$font-family-serif-bold:   "Cheltenham ITC W01 Bold", serif;
+
+$font-family-base:        $font-family-serif;
+
+$font-size-base:          18px !default;
+$font-size-large:         ceil(($font-size-base * 1.2)) !default; // ~22px
+$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~14px
+
+$font-size-h1:            floor(($font-size-base * 3.4)) !default; // ~63px
+$font-size-h2:            floor(($font-size-base * 2.3)) !default; // ~43px
+$font-size-h3:            ceil(($font-size-base * 1.4)) !default; // ~27px
+$font-size-h4:            $font-size-base !default;
+$font-size-h5:            $font-size-base !default;
+$font-size-h6:            ceil(($font-size-base * 0.70)) !default; // ~14px
+
+$font-size-main-nav:       floor(($font-size-base * 1.2)) !default; // ~22px  
+
+/*Colors*/
+$vad-red:              #a81c22;
+$vad-black:            #333333;
+$vad-white:            #ffffff;
+$vad-gray-dark:        #65676c;
+
+$gray-light:           #fdfdfd;       /*Use for menu background*/
+$gray-medium:          #ebe7e7; 
+$gray-dark:            #555555;
+$orange:               #f37c05;
+
+/*Padding*/ 
+
+
+/*Images*/
+$chosen-sprite:         "~/Frontend/images/chosen-sprite.png";

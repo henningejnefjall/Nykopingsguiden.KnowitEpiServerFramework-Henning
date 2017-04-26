@@ -1,0 +1,7 @@
+﻿@using Knowit.EpiserverFramework.Web.Helpers
+@model Knowit.EpiserverFramework.Web.Features.Blocks.ImageLinkBlock.ImageLinkBlockViewModel
+
+<a class="footer-push" href="@Model.ImageLinkBlock.LinkUrl" title="@Model.ImageLinkBlock.LinkTitle" >
+    <h2>@Model.ImageLinkBlock.Heading</h2>
+    @Html.Raw(Html.RenderImageTag(Model.ImageLinkBlock.Image.Image, Model.ImageLinkBlock.Image.Alt, Model.ImageLinkBlock.Image.Alt))
+</a>

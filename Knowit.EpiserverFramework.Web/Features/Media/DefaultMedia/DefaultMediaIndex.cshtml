@@ -1,0 +1,14 @@
+﻿@model Knowit.EpiserverFramework.Web.Features.Media.DefaultMedia.DefaultMediaViewModel
+
+<div>
+    @if (Model.DefaultMedia.Image != null)
+    {
+        <img src="@Url.ContentUrl(Model.DefaultMedia.Image)" alt="@Model.DefaultMedia.Heading" title="@Model.DefaultMedia.Heading" class="" />
+    }
+
+    @Model.DefaultMedia.Heading
+    @Model.DefaultMedia.Description
+    @Model.DefaultMedia.MainIntro
+    @Model.DefaultMedia.Publisher
+    @Model.DefaultMedia.Copyright    
+</div>

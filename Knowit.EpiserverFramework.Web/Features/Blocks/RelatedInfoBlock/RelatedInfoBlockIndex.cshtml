@@ -1,0 +1,63 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web
+@using EPiServer.Web.Routing
+@using Knowit.EpiserverFramework.Models.Pages
+@using Knowit.EpiserverFramework.Utilities.EpiserverUtilities
+@using Knowit.EpiserverFramework.Web.Features.Blocks.RelatedInfoBlock
+
+@model RelatedInfoBlockViewModel
+
+<div id="side-tips" class="side-section">
+
+    <h4>@Model.RelatedInfoBlock.Title</h4>
+
+    <div class="side-pushes">
+        @{
+            foreach (CompanyPageModel item in Model.CategoryPages)
+            {
+                var category = string.Empty;
+                var image = new ContentReference();
+                if (item.LinkURL != null)
+                {
+                    var guid = PermanentLinkUtility.GetGuid(item.LinkURL);
+                    category = ContentExtensions.GetCategoryFromLink(guid);
+                    image = ContentExtensions.GetImageFromLink(guid);
+                }
+                <a class="main-push @category" href="@UrlResolver.Current.GetUrl(item.LinkURL)">
+                    <div class="text">
+                        <div class="meta">
+                            <div class="location">@item.PageName</div>
+                        </div>
+                        <div class="box">
+                            <h3>@item["Header"]</h3>
+                            <div class="more">
+                                <p>
+                                    <!-- 200 tecken -->
+                                    @item["Extract"]
+                                </p>
+                                <div class="arrow"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    @if (item["Thumbnail"] != null)
+                    {
+                        <img src="@UrlResolver.Current.GetUrl(item["Thumbnail"] as ContentReference)" alt="@item.PageName">
+                    }
+                    else if (item["Image1"] != null)
+                    {
+                        <img src="@UrlResolver.Current.GetUrl(item["Image1"] as ContentReference)" alt="@item.PageName">
+                    }
+                    else if (image != null)
+                    {
+                        <img src="@UrlResolver.Current.GetUrl(image)" alt="@item.PageName">
+                    }
+                    else 
+                    {
+                        <img src="~/Frontend/images/company.jpg" alt="No image">
+                    }
+                </a>
+            }
+        }
+    </div>
+</div>

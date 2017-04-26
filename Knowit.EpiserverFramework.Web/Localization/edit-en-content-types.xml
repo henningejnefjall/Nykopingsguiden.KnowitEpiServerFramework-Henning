@@ -1,0 +1,61 @@
+﻿<languages>
+  <language name="English" id="en">
+    <contenttypes>
+
+      <!--PAGES-->
+
+      <!--Concept page-->
+      <conceptpagemodel>
+        <name>Concept page</name>
+        <description>Page for describing concepts</description>
+      </conceptpagemodel>
+
+      <!--Settings page-->
+      <settingspagemodel>
+        <name>Settings page</name>
+        <description>Page for site settings</description>
+      </settingspagemodel>
+      
+      <!--MEDIA-->
+
+      <!--Default media model-->
+      <defaultmediamodel>
+        <name>Generic media</name>
+        <description>Used for media of unspecified types</description>
+      </defaultmediamodel>
+
+      <!--Excel media model-->
+      <excelmediamodel>
+        <name>Excel document</name>
+        <description>Used for Excel files (XLS, XLSX)</description>
+      </excelmediamodel>
+
+      <!--Image media model-->
+      <imagemediamodel>
+        <name>Image</name>
+        <description>Used for image files (BMP, GIF, ICO, JPEG, PNG, SVG)</description>
+      </imagemediamodel>
+
+      <!--Pdf media model-->
+      <pdfmediamodel>
+        <name>PDF document</name>
+        <description>Used for PDF files (PDF)</description>
+      </pdfmediamodel>
+
+      <!--Video media model-->
+      <videomediamodel>
+        <name>Video</name>
+        <description>Used for video files (FLV, MP4, WEBM)</description>
+      </videomediamodel>
+     
+      <!--BLOCKS-->
+      
+      <!--Icon block-->
+      <iconblockmodel>
+        <name>Icon block</name>
+        <description>Used to create an icon</description>
+      </iconblockmodel>
+  
+    </contenttypes>
+  </language>
+</languages>

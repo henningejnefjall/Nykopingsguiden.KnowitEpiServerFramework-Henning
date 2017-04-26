@@ -1,0 +1,45 @@
+﻿@using EPiServer
+@using EPiServer.Core
+@using EPiServer.ServiceLocation
+@using Knowit.EpiserverFramework.Models.Core
+@using Knowit.EpiserverFramework.Web.Features.Pages.StartPage
+
+@model StartPageViewModel
+    @{
+        var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+    }
+
+@{
+    Layout = "~/Features/Layouts/_Layout.cshtml";
+}
+
+@if (Model.CurrentPage.ImageSlider != null && Model.CurrentPage.ImageSlider.Count > 0)
+{
+    @Html.PropertyFor(m => m.CurrentPage.ImageSlider)
+}
+
+@Html.Partial("Nykopingsguiden/_main-menu")
+
+@if (Model.CurrentPage.PageCarousel != null)
+{
+    @Html.PropertyFor(m => m.CurrentPage.PageCarousel)
+}
+
+@if (Model.CurrentPage.ImageLinks != null)
+{
+    <section id="ps-footer-pushes" class="push-section">
+        <div class="inner-wrap">
+            <div class="footer-pushes">
+                @foreach (var item in Model.CurrentPage.ImageLinks.FilteredItems)
+                {
+                    <div class="@(Model.CurrentPage.ImageLinks.FilteredItems.Count() == 1 ? "col w_1" : "col w_1-2")">
+                        @{
+                            var imageLink = contentLoader.Get<SiteBlockData>(item.ContentLink);
+                            @Html.PropertyFor(m => imageLink)
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}

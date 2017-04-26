@@ -1,0 +1,36 @@
+.language-menu-container {
+    padding: 15px;
+
+    h2, h3, h4 {
+        margin-top: 5px;
+    }
+
+    .international {
+        a {
+            color: $vad-red;
+        }
+    }
+
+    ul {
+        display: inline-block;
+        padding: 0px 15px 0px 0px;
+
+        li {
+            list-style-type: none;
+            padding: 3px 0px;
+
+            a {
+                color: $vad-red;
+            }
+        }
+    }
+
+    .eu {
+        ul {
+            width: 31%;
+            @include respond-to(small) {
+                width: 19%;
+            }
+        }
+    }
+}

@@ -1,0 +1,59 @@
+﻿@using Knowit.EpiserverFramework.Web.Features.Pages.LoginPage
+
+@model LoginPageViewModel
+
+@{
+    ViewBag.Title = "Logga in";
+    Layout = "~/Features/Layouts/_Layout.cshtml";
+}
+
+@section xtrahead{
+    <link href="@Url.Content("~/Frontend/css/adminstyles.css")" rel="stylesheet" />
+}
+@*<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>*@
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js" type="text/javascript"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+@{Html.EnableClientValidation();}
+@{Html.EnableUnobtrusiveJavaScript();}
+<section id="content">
+    
+    <h2 style="padding:10px; color:#000;">Nya Nyköpingsguiden är under uppbyggnad. Inloggning och administration av verksamheter är för tillfället stängd.</h2>
+
+    @*<section id="firstRow" class="section">
+        <div class="inner-wrap" id="adminsec">
+            <h2>Ange ditt användarnamn och lösenord för att logga in.</h2>
+            <a href="@Url.ContentUrl(Model.CurrentPage.RegisterPage)">Registrera</a> dig om du saknar konto.
+            <br />
+            <br />
+
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
+                @Html.AntiForgeryToken()
+
+                <div>
+                    <fieldset>
+                        <div class="editor-label">
+                            E-postadress:
+                        </div>
+                        <div class="editor-field inner">
+                            @Html.TextBoxFor(m => m.CurrentPage.Email, new { Name = "Email" })
+                            @Html.ValidationMessageFor(m => m.CurrentPage.Email)
+                        </div>
+                        <div class="editor-label">
+                            Lösenord:
+                        </div>
+                        <div class="editor-field inner">
+                            @Html.PasswordFor(m => m.CurrentPage.Password, new { Name = "Password" })
+                            @Html.ValidationMessageFor(m => m.CurrentPage.Password)
+                        </div>
+                        <br />
+                        <input class="btn-text" type="submit" value="Logga in" />
+                    </fieldset>
+                </div>
+            }
+            <a href="@Url.ContentUrl(Model.CurrentPage.ContentLink)Reset">Glömt lösenord?</a>
+        </div>
+    </section>*@
+
+</section>

@@ -1,0 +1,30 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+.logo {
+    height: 20px;
+    width: 120px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #f5f5f5;
+}
+.copyright {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+

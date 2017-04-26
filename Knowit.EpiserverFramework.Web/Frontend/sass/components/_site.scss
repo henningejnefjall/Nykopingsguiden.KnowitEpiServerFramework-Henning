@@ -1,0 +1,550 @@
+html {
+    background-color:#fff;
+}
+body {
+    color: #555;
+    font-family: "Open Sans","OpenSansRegular",Arial,sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+    #header {
+    background: #053e80 none repeat scroll 0 0;
+    position: relative;
+    width: 100%;
+    z-index: 100;
+}
+
+.inner-wrap {
+    margin: 0 auto;
+    max-width: 1296px;
+    position: relative;
+    width: 100%;
+}
+
+.header-logo {
+    position: absolute;
+    width: 25%;
+}
+
+    .header-logo a {
+        background: #053e80 none repeat scroll 0 0;
+        display: block;
+        max-width: 324px;
+        padding: 20px 12px 10px;
+        text-align: center;
+    }
+
+    .footer-bottom .col.logo .nykoping-logo {
+    display: inline-block;
+    height: 50px;
+    margin: 0;
+    max-width: 250px;
+    width: 100%;
+}
+
+    .header-logo a img {
+    max-width: 284px;
+    width: 100%;
+}
+
+    img {
+    border: 0 none;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+    .footer-bottom .col.info a {
+    color: #888;
+}
+a {
+    color: $orange;
+    cursor: pointer !important;
+    text-decoration: none;
+    transition: color 0.3s ease 0s;
+}
+
+    #content {
+        min-height: 500px;
+    }
+
+    .push-section {
+    padding: 45px 0 15px;
+}
+
+    #firstRow {
+        margin-top: 40px;
+    }
+    
+ #footer {
+    position: relative;
+    width: 100%;
+}
+
+ .footer-illustration {
+    background: rgba(0, 0, 0, 0) url("/Frontend/images/footer-illustration.jpg") no-repeat scroll center 0;
+    height: 162px;
+    margin: 60px 0 0;
+    position: relative;
+    width: 100%;
+}
+        
+ .footer-bottom {
+    color: #888;
+    padding: 38px 0 40px;
+    width: 100%;
+}
+
+ .w_3-4 {
+    width: 75%;
+}
+.col {
+    display: block;
+    float: left;
+    min-height: 1px;
+}
+
+.footer-bottom .col.logo {
+    float: right;
+    text-align: center;
+}
+.w_1-4 {
+    width: 25%;
+}
+
+.footer-bottom .col.info .text {
+    display: inline-block;
+    padding: 0 25px 10px 0;
+}
+    
+
+/* VALIDATION */
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.field-validation-error 
+{
+    color: #ff0000;
+}
+
+.validation-summary-errors 
+{
+    background-color:#fee;
+    border: 1px solid #f00; 
+    color:#000; 
+    margin:1em 0;
+    border-radius:.25em;
+    -moz-border-radius:.25em;
+    box-shadow: 2px 2px 5px #777;
+    -webkit-box-shadow: 2px 2px 5px #777;
+    -moz-box-shadow: 2px 2px 5px #777;
+    border-bottom:none;
+}
+    .validation-summary-errors li
+    {
+        padding:.5em;
+        list-style-type:none;    
+        border-bottom:solid 1px #f00;
+    }
+
+
+
+/* XFORM */
+
+form.xform #id_matrix
+{
+    width: 100%;
+}
+form.xform td
+{
+    padding: .25em 0;
+}
+    form.xform label span.field-validation-error
+    {
+        margin-left:1em;
+    }
+
+    form.xform fieldset
+    {
+        padding:.5em;
+    }
+        form.xform fieldset.orientationVertical label
+        {
+            display:block;
+            margin:.1em 0;
+        }
+
+/* FORMS */
+
+.form div, 
+.form section
+{
+    display:block;
+    margin:.5em .5em;
+}
+.form input,
+.form select,
+.form textarea,
+.form label
+{
+    margin-left:0.7em;
+    vertical-align:top;
+}
+
+ fieldset {
+        border: none;
+    }
+
+
+ /* Company register */
+ .leftCol {
+     float: left;
+     width: 20%;
+ }
+
+ .rightCol {
+     float: left;
+     width: 80%;
+     min-height: 45px;
+ }
+
+ .rightCol input {
+    width: 660px;
+}
+
+ .rightCol input .btn-text {
+     width:auto;
+ }
+ 
+.leftCol div, .editor-label div {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    display: none;
+    padding: 10px 10px 0 10px;
+    position: absolute;
+    z-index: 50;
+}
+
+.eventsHolder{
+    float:left;
+    margin-left:100px;
+}
+
+.companyHolder{
+    float:left;
+}
+
+ .companyList, .eventList {
+  list-style-type: none; }
+
+.companyList li, .eventList li {
+  display: flex;
+  margin-top: 10px; }
+
+.companyListImage, .eventListImage {
+  float: left;
+  margin-right: 10px;
+  max-height: 85px;
+  width: 150px !important; }
+
+.companyEditImage, .eventEditImage {
+  margin-bottom: 10px;
+  max-height: 110px;
+  width: 150px !important; }
+
+.companyListText, .eventListText {
+  position: relative;
+  margin-top: 15px; }
+
+ .hidden{
+     display: none;
+ }
+
+ #CompanyCategory_chosen, #ConferenceCategory_chosen, #EventCategory_chosen, #AttractionsCategory_chosen, #Companies_chosen, #Places_chosen {
+     width: 660px!important;
+     margin-bottom: 10px;
+ }
+
+ .section {
+     margin-top: 80px!important;
+ }
+
+ .radiobuttons input{
+     float:left;
+     width:auto;
+     height:25px;
+ }
+
+ .radiobuttons label{
+     float:left;
+     width:auto;
+     margin-right:25px;
+ }
+
+ #CompanyCategory-error, #ConferenceCategory-error, #EventCategory-error, #AttractionsCategory-error {
+     color: #ff0000;
+     display: none;
+ }
+
+#content {
+    padding-left:5px;
+}
+
+ .clickDelete, .clickInactivate {
+     cursor: pointer;
+     padding:4px;
+     font-size: 13px;
+ }
+
+ .deleteBtn, .inactivateBtn {
+     margin: 10px 0;
+ }
+
+ .showDelete, .showInactivate{ 
+     background-color: rgb(255, 255, 255);
+     border: 1px solid rgb(221, 221, 221);
+     display: none;
+     height: 112px;
+     left: 25%;
+     padding: 20px;
+     position: absolute;
+     top: 30%;
+     width: 356px;
+     font-size: 13px;
+     z-index: 350;
+ }
+
+ #EULA{
+     background-color: rgb(255, 255, 255);
+     border: 1px solid rgb(221, 221, 221);
+     display: none;
+     left: 25%;
+     padding: 20px;
+     position: absolute;
+     top: 5px;
+     font-size: 13px;
+     z-index: 350;
+ }
+
+ .overlay {
+    background-color: rgba(2, 2, 2, 0.7);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 300;
+     display: none;
+ }
+
+ #acceptDelete, #acceptInactivate {
+     float: left; 
+     margin-top: 10px; 
+     margin-left: 0;
+ }
+
+ #cancelDelete, #cancelInactivate {
+     float:left;
+     margin-left:10px;
+     margin-top: 10px;
+ }
+
+
+.infoPopup {
+    background: $orange none repeat scroll 0 0;
+    border-radius: 12px;
+    color: #fff;
+    float: left;
+    margin-right: 5px;
+    padding: 0 10px;
+    transition: all 0.3s ease 0s;
+}
+
+.infoPopup:hover {
+    background:#053e80; color:#fff; text-decoration:none !important; 
+}
+
+.infoPopup:hover + div {
+    display: block;
+}
+
+.links .adminlinks {
+  background: #fff none repeat scroll 0 0;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.22);
+  display: none;
+  font: 14px/20px "Open Sans";
+  height: auto;
+  padding: 0 0 15px 15px;
+  position: absolute;
+  right: 0;
+  top: 60px;
+  transition: all 0.3s ease 0s;
+  width: 187px;
+  z-index: 100; }
+
+.links .translatelink {
+    background: #fff none repeat scroll 0 0;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.22);
+    display: none;
+    font: 14px/20px "Open Sans";
+    height: auto;
+    padding: 10px;
+    position: absolute;
+    right: 190px;
+    top: 60px;
+    transition: all 0.3s ease 0s;
+    width: 134px;
+    z-index: 100;
+}
+
+.goog-te-menu-frame
+{
+    z-index:999;
+}
+
+.goog-te-gadget-simple
+{
+    width: 115px; 
+    height: 20px;
+
+    span{
+        float:left;
+
+        a{
+            float:left;
+        }
+    }
+}
+
+.goog-te-menu-value span{
+    float:none;
+}
+
+.goog-te-gadget-icon {
+    float:left;
+}
+
+.adminlink {
+  color: #111 !important; }
+
+.adminlink:hover {
+  color: #f37c05 !important; }
+
+.loginMenu:hover + div, .adminlinks:hover, .translatelink:hover {
+  display: block; }
+
+.loginMenu {
+    padding: 0 30px 20px 0;
+    margin: 20px 0 0!important;
+}
+
+.gllpMap {
+    width: 400px; 
+    height: 300px;
+    margin: 5px 0 0 5px;
+}
+
+.gllpLatitude, .gllpLongitude {
+    width: 157px!important;
+}
+
+.gllpLatlonPicker span, .gllpLatlonPicker p{
+   float:left;
+   margin-right:5px;
+}
+
+.loginMenu{
+    position:relative;
+}
+
+.loginMenuArrow { 
+  border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid $orange;
+    height: 0;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: 0;
+}
+
+.rightCol input, .rightCol select, .rightCol textarea {
+    margin:0 5px 10px 0!important;
+}
+
+.successText {
+    color: #339933;
+    border: 1px solid #339933;
+    padding: 5px;
+    width: 300px;
+    background-color: #ddffdd;
+    display:none;
+}
+
+.noSuccessText {
+    color: #993333;
+    border: 1px solid #993333;
+    padding: 5px;
+    width: 300px;
+    background-color: #ffdddd;
+    display:none;
+}
+
+
+/* Image cropping */
+.imageBox
+{
+    background: #fff none no-repeat scroll 0 0;
+    border: 1px solid #aaa;
+    cursor: move;
+    height: 655px;
+    overflow: hidden;
+    position: relative;
+    width: 1000px;
+}
+
+.imageBox .thumbBox
+{
+    background: transparent none repeat scroll 0 0;
+    border: 1px solid rgb(102, 102, 102);
+    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    height: 488px;
+    left: 23%;
+    margin-left: -163px;
+    margin-top: -68px;
+    position: absolute;
+    top: 23%;
+    width: 866px;
+}
+
+.imageBox .spinner
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    line-height: 400px;
+    background: rgba(0,0,0,0.7);
+}
+
+.cropper {
+    background-color: white; 
+    width: 1000px; 
+    height: 700px; 
+    position: absolute; 
+    z-index: 999; 
+    display: none; 
+    left:0;
+    top: -70px;
+}
+
+.links{
+    margin-right:10px;
+}

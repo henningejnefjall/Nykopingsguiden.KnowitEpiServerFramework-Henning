@@ -1,0 +1,38 @@
+﻿
+
+p
+{
+    EditMenuName: Body text;
+}
+
+h2
+{
+   EditMenuTitle: Rubriker;
+   EditMenuName: Heading 2;
+}
+
+h3
+{
+   EditMenuName: Heading 3;
+}
+
+h4
+{
+   EditMenuName: Heading 4;
+}
+
+.caption
+{
+   EditMenuName: Image caption;
+}
+
+img.align-left{
+    EditMenuTitle: Bildegenskaper;
+    EditMenuName: Image align left;
+}
+img.align-right{
+    EditMenuName: Image align right;
+}
+
+
+

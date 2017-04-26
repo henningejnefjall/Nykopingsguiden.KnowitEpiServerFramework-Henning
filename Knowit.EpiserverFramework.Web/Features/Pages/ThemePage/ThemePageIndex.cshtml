@@ -1,0 +1,58 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Web.Routing
+@using Knowit.EpiserverFramework.Web.Features.Pages.ThemePage
+
+@model ThemePageViewModel
+@{
+    Layout = "~/Features/Layouts/_Layout.cshtml";
+}
+
+<div id="content">
+    @Html.Partial("Nykopingsguiden/_breadcrumbs-menu")
+    <div id="sub-content">
+        <section class="sub-content-section">
+            <div class="inner-wrap">
+                <div class="sub-content-row"><img src="@UrlResolver.Current.GetUrl(Model.CurrentPage.Thumbnail as ContentReference)" alt="@Model.CurrentPage.Title">
+                </div>
+                <div class="sub-content-row">
+                    <main class="main-column centered">
+                        <div class="sub-main">
+                            <h1>@Model.CurrentPage.Title</h1>
+                            <h4>@Model.CurrentPage.Extract</h4>
+                            @Model.CurrentPage.MainBody
+                        </div>
+
+                    </main>
+
+                </div>
+
+                @Html.PropertyFor(m => m.CurrentPage.MainColumn)
+
+                <div class="sub-content-row">
+                    <main class="main-column centered">
+                        <div class="sub-content-row">
+                            <div class="sub-content-footer">
+                                <ul class="icons">
+                                    <li><a class="addthis_button_facebook" href="#" title="Dela sidan på Facebook">
+                                        <div class="icon facebook"></div></a></li>
+                                    <li><a class="addthis_button_twitter" href="#" title="Dela sidan på Twitter">
+                                        <div class="icon twitter"></div></a></li>
+                                    <li><a class="addthis_button_email" href="#" title="Dela sidan via mail">
+                                        <div class="icon email"></div></a></li>
+                                    <li><a class="addthis addthis_button" href="#" title="Dela sidan">
+                                        <div class="icon addthis"></div></a></li>
+                                    <li><a class="print-button" onclick="printContent(&#39;sub-content&#39;)" title="Skriv ut">
+                                        <div class="icon print"></div></a></li>
+                                </ul>
+                                <script type="text/javascript">var addthis_config = { "data_track_addressbar": false, ui_click: true, ui_offset_top: 40 };</script>
+                                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e123d080fe1776d"></script>
+                            </div>
+
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>    

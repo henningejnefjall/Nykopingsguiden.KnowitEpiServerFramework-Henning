@@ -1,0 +1,18 @@
+.icon-block {
+    padding: 0px 5px;
+    text-align:center;
+    a{
+        &:hover{
+            text-decoration:none;
+            cursor:default;
+        }
+    }
+
+    span {
+        font-size: 80px;
+    }
+
+    p {
+        font-size: 23px;
+    }
+}

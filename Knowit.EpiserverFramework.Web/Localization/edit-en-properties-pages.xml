@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+  <language name="English" id="en">
+    <contenttypes>
+      <!--Pages-->
+
+      <!--ConceptPage-->
+      <conceptpagemodel>
+        <properties>
+          <secondaryheading>
+            <caption>Secondary heading</caption>
+          </secondaryheading>
+          <mainbody>
+            <caption>Main body</caption>
+          </mainbody>
+          <maincontentarea>
+            <caption>Main block area</caption>
+          </maincontentarea>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+          <image>
+            <caption>Image</caption>
+          </image>
+          <mobileimage>
+            <caption>Mobile image</caption>
+          </mobileimage>
+          <video>
+            <caption>Video</caption>
+          </video>
+          <autoplayvideo>
+            <caption>Play video automatically</caption>
+          </autoplayvideo>
+          <productcontentarea>
+            <caption>Product page content area</caption>
+          </productcontentarea>
+          <bottomcontentarea>
+            <caption>Bottom block area</caption>
+          </bottomcontentarea>
+        </properties>
+      </conceptpagemodel>
+
+      <!--Product page-->
+      <productpagemodel>
+        <properties>
+          <images>
+            <caption>Image</caption>
+          </images>
+          <iconcontentarea>
+            <caption>Icon block</caption>
+          </iconcontentarea>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+          <mainbody>
+            <caption>Main body</caption>
+          </mainbody>
+          <contentarea>
+            <caption>Block area</caption>
+          </contentarea>
+        </properties>
+      </productpagemodel>
+      <!--Settings page-->
+      <settingspagemodel>
+        <properties>
+          <!--General tab-->
+          <generalsettings>
+            <caption>general settings</caption>
+          </generalsettings>
+          <notfoundpage>
+            <caption>404 error page, this page is displayed when a page is missing</caption>
+          </notfoundpage>
+          <errorpage>
+            <caption>500 error page, this page is displayed when an error occurs</caption>
+          </errorpage>
+          <favicon>
+            <caption>Favicon, displayed in the browser's title field</caption>
+          </favicon>
+          <showloginbutton>
+            <caption>Display login link to edit mode</caption>
+          </showloginbutton>
+          
+          <!--Header-->
+          <header>
+            <caption>Settings for header</caption>
+          </header>
+          <mainnavigationroot>
+            <caption>Root page for main navigation</caption>
+          </mainnavigationroot>
+          <searchpagelink>
+            <caption>Page for search results</caption>
+          </searchpagelink>
+          <iconblockcontentarea>
+            <caption>Icon block area, links with icons</caption>
+          </iconblockcontentarea>
+          <hidebreadcrumbs>
+            <caption>Hide bread crumbs</caption>
+          </hidebreadcrumbs>
+          <locallogo>
+            <caption>Local settings for logo</caption>
+          </locallogo>
+          
+          <!--Cookie header-->
+          <cookieheader>
+            <caption>Cookie settings</caption>
+          </cookieheader>
+          <disablecookieheader>
+            <caption>Disable cookie header</caption>
+          </disablecookieheader>
+          <cookieheadertext>
+            <caption>Cookie header text</caption>
+          </cookieheadertext>
+
+          <!--Footer-->
+          <footer>
+            <caption>Footer settings</caption>
+          </footer>
+          <footerheader>
+            <caption>Header</caption>
+          </footerheader>
+          <footerbody>
+            <caption>Footer body</caption>
+          </footerbody>
+          <phonenumber>
+            <caption>Phone number</caption>
+          </phonenumber>
+          <email>
+            <caption>E-mail</caption>
+          </email>
+          <linkcollection>
+            <caption>Link list</caption>
+          </linkcollection>
+          <secondlinkcollection>
+            <caption>Secondary link list</caption>
+          </secondlinkcollection>
+          <socialmedialinks>
+            <caption>Social media links</caption>
+          </socialmedialinks>
+          <hidesitemap>
+            <caption>Hide international site map</caption>
+          </hidesitemap>
+
+          <!--Google tools-->
+          <googletoolsblock>
+            <caption>Google Tools settings</caption>
+          </googletoolsblock>
+          <googleanalyticsscript>
+            <caption>Google Analytics scripts</caption>
+          </googleanalyticsscript>
+          <webmastertoolstag>
+            <caption>Web Master Tools tag</caption>
+          </webmastertoolstag>
+          <tagmanagerscript>
+            <caption>Tag Manager scripts</caption>
+          </tagmanagerscript>
+          
+          <!--Script import-->
+          <scriptimport>
+            <caption>Script import settings</caption>
+          </scriptimport>
+          <scriptimporthead>
+            <caption>Script import for header</caption>
+          </scriptimporthead>
+          <scriptimportbottom>
+            <caption>Script import for bottom</caption>
+          </scriptimportbottom>
+          <globalsettings>
+            <caption>Global settings page</caption>
+          </globalsettings>
+        </properties>
+      </settingspagemodel>
+    </contenttypes>
+  </language>
+</languages>

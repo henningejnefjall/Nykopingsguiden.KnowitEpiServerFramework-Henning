@@ -1,0 +1,195 @@
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+   NYKOPINGSGUIDEN | LIGHTBOX (LB)
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+
+.lb                             { display:none; position:absolute; z-index:9996; width:100% !important; min-height:100% !important; }
+											 
+.lb-overlay                     { display:block; position:fixed; z-index:9997; 
+                                  top:0 !important; right:0 !important; bottom:0 !important; left:0 !important; 
+                                  background:#000; opacity:0.3; filter:alpha(opacity=30); cursor:default !important; }
+
+.lb-box                         { position:relative; z-index:9998; margin:10% auto 0; width:600px; min-height:300px; 
+                                  text-align:left; background:#053e80; color:#fff; box-shadow:0 0 44px 0 rgba(255,255,255,0.4); 
+                                  -moz-box-shadow:0 0 44px 0 rgba(255,255,255,0.4); -webkit-box-shadow:0 0 44px 0 rgba(255,255,255,0.4); }
+
+.lb-close                       { display:block; position:absolute; z-index:9999; top:0; right:0; 
+                                  width:40px; height:40px; background:transparent; text-align:center; 
+                                  font:30px/38px 'Open Sans'; color:#fff !important; 
+                                  transition:all 0.2s; -moz-transition:all 0.2s; -webkit-transition:all 0.2s; }								 										 
+.lb-close:before                { display:inline-block; content:"\00d7"; }
+.lb-close:hover                 { background:transparent; color:#f37c05 !important; font:38px/38px 'Open Sans'; }
+
+.lb-box a                       { color:#f37c05; }
+.lb-box a:hover                 { color:#fff; }
+	
+.lb-box .btn-text               { background:#f37c05; color:#fff; }
+.lb-box .btn-text:hover         { background:#fff; color:#f37c05; }
+
+
+
+/* ========================================================================== 
+   LB SEARCH
+================================|========================================= */
+
+#lb-search                      { display:none; }
+#lb-search .box                 { overflow:hidden; position:absolute; z-index:9998; top:0; right:0; 
+                                  width:66.6666666666%; height:60px; padding:0 0 0 60px; background:#fff; }
+
+#lb-search .close               { display:block; position:absolute; margin:0 0 0 -60px; width:60px; height:60px; 
+                                  font:32px/58px 'Open Sans'; text-align:center; color:#bbb; 
+                                  transition:all 0.2s; -moz-transition:all 0.2s; -webkit-transition:all 0.2s; }											 										 
+#lb-search .close:before        { content:"\00d7"; }
+#lb-search .close:hover         { color:#000; }
+
+#lb-search .search-form         { display:block; width:100%; height:40px; margin:10px 0 0; }
+
+#lb-search .search-field        { float:left; width:100%; height:40px; padding:0 60px 0 0;
+                                  font:27px/60px 'BertholdAGRegular'; color:#000; }
+
+#lb-search .search-btn          { display:block; position:absolute; right:0; padding:0; width:60px; height:40px; 
+                                  font:33px/37px 'FontAwesome' !important; background:#fff; color:#053e80;
+										    transition:color 0.3s; -moz-transition:color 0.3s; -webkit-transition:color 0.3s;
+                                  transform:scaleX(-1); -ms-filter:fliph; filter:fliph;
+                                  -moz-transform:scaleX(-1); -webkit-transform:scaleX(-1); -o-transform:scaleX(-1); }
+#lb-search .search-btn:hover    { color:#f37c05; }
+
+
+
+/* ========================================================================== 
+   LB CONTACT
+================================|========================================= */
+
+#lb-contact                     { display:none; }
+#lb-contact .lb-box             { width:680px; max-width:96%; min-height:360px; margin:14% auto 0;  }
+#lb-contact .content            { padding:30px 4% 20px; }
+
+#lb-contact .intro              { padding:0 0 10px; font-weight:600; color:#fff; }
+#lb-contact .intro h2           { padding:0 0 10px; font:600 30px/34px 'Open Sans'; color:#fff; }
+
+#lb-contact-form                { font-weight:600; }
+#lb-contact-form section        { padding:0 0 20px; }
+#lb-contact-form .row           { padding:0 0 10px; }
+
+#lb-contact-form .alert         { width:100%; text-align:center; margin:2px 0 0; padding:4px 8px 5px; background:#000; color:#94cc5c;  }
+
+#lb-contact-confirm h3          { padding:60px 0 20px; font:600 30px/34px 'Open Sans'; color:#fff; }
+#lb-contact-confirm p           { padding:0 0 30px; }
+#lb-contact-confirm a           { font-weight:700; color:#fff; }
+#lb-contact-confirm a:hover     { color:#000; }
+
+#ContactStatus                  { margin:0 0 10px 0 !important; }
+
+
+
+/* ========================================================================== 
+   PORTABLE MENU
+================================|========================================= */
+
+#port-menu                      { display:none; }
+
+#port-menu .port-menu-box       { display:block; float:right; position:relative; z-index:9998; 
+                                  top:0; bottom:0; right:-320px; width:320px; min-height:100%;
+                                  padding:0; text-align:left; color:#fff; 
+                                  background:#053e80;
+											 box-shadow:0 0 20px 0 rgba(0,0,0,0.1); -moz-box-shadow:0 0 20px 0 rgba(0,0,0,0.1); 
+                                  -webkit-box-shadow:0 0 20px 0 rgba(0,0,0,0.1); 
+                                  transition:all 600ms ease; -moz-transition:all 600ms ease;
+                                  -o-transition:all 600ms ease; -webkit-transition:all 600ms ease; }
+#port-menu.active .port-menu-box { right:0; }
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+
+/* No Animation on Retina ---- */ 
+#port-menu .port-menu-box       { right:0 !important; }
+	
+}
+
+
+/* --------------------------------------------------------------------------  
+   PORT MENU HEAD
+--------------------------------|----------------------------------------- */
+
+#port-menu .head                { width:100%; padding:20px; }
+#port-menu .btn                 { display:block; float:left; height:30px; 
+                                  color:#333\9; border:1px solid #333\9; 
+                                  color:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.2);
+                                  transition:all 0.3s; -moz-transition:all 0.3s; -webkit-transition:all 0.3s; }
+#port-menu .btn:hover           { border:1px solid #888\9; border:1px solid rgba(255,255,255,0.5); }
+
+#port-menu .btn.close           { float:right; width:30px; height:30px; }								 										 
+#port-menu .btn.close:before    { display:inline-block; position:absolute; margin:-2px 0 0 5px; 
+                                  font:30px/30px 'Open Sans'; content:"\00d7"; }
+#port-menu .btn.close:hover     { color:#fff; border:1px solid #fff; }
+
+
+/* --------------------------------------------------------------------------  
+   PORT MAIN MENU (PMM)
+--------------------------------|----------------------------------------- */
+
+.port-main-menu                 { position:relative; }
+
+.port-main-menu a               { display:block; width:290px; padding:9px 0 10px 18px; font:400 22px/28px 'Open Sans'; 
+                                  color:#fff; border-left:8px solid transparent; }
+.port-main-menu > a /* home */  { }
+.port-main-menu ul ul a         { padding:5px 0 6px 32px; margin:0 0 5px; font:400 17px/21px 'Open Sans'; color:#fff; }
+.port-main-menu ul ul ul a      { padding:5px 0 6px 46px; }
+.port-main-menu ul ul ul ul a   { padding:5px 0 6px 60px; }
+
+.port-main-menu a:hover         { color:#fff; border-left:8px solid #fff\9; border-left:8px solid rgba(255,255,255,0.5); }
+
+.port-main-menu .current-menu-parent { }
+
+.port-main-menu .current-menu-item > a,
+.port-main-menu .current-menu-item > .toggle-row a { color:#fff; border-left:8px solid #fff\9; border-left:8px solid rgba(255,255,255,0.5); }
+
+.port-main-menu .toggle-row a   { float:left; }
+
+
+/* Toggle Icon --------------- */
+.port-main-menu .toggle         { display:block; float:right; overflow:hidden; width:30px; height:30px; 
+                                  margin:8px 0 0; cursor:pointer; }	
+												 
+.port-main-menu .toggle:before  { display:inline-block; margin:0 0 0 6px; 
+                                  font:30px/30px 'FontAwesome'; color:#444\9; color:rgba(255,255,255,0.4); content:"\f107"; 
+                                  transition:none\9; transition:all 0.3s; -moz-transition:all 0.3s; -webkit-transition:all 0.3s; }	
+								  
+.port-main-menu .toggle:hover:before { color:#fff; }	
+	
+.port-main-menu .exp > .toggle-row .toggle:before { content:"\f106"\9;
+                                        transform:perspective(999px) translateZ(1px) rotate(180deg); 
+                                        -ms-transform:none\9; -ms-transform:perspective(999px) translateZ(1px) rotate(180deg);
+                                        -webkit-transform:translateZ(1px) rotate(180deg); }
+
+.port-main-menu .sub-menu .has-children .toggle { margin:0; }	
+
+
+/* PMM A ===================== */
+.port-main-menu-a               { }
+
+.pmma-segora                    { background:#318dd4; }
+.pmma-event                     { background:#99c230; }
+.pmma-ata                       { background:#f37c05; }
+.pmma-bo                        { background:#c5361d; }
+
+
+/* PMM B ===================== */
+.port-main-menu-b               { margin:40px 0 0; }
+.port-main-menu-b a             { font:300 22px/28px 'Open Sans'; }
+.port-main-menu-b a:hover       { color:#f37c05; border-left:8px solid transparent !important; }
+
+
+/* --------------------------------------------------------------------------  
+   PORT PLUS MENU
+--------------------------------|----------------------------------------- */
+
+.port-plus-menu                    { width:auto; margin:30px 0 35px 0 !important; }		
+.port-plus-menu li a               { display:block; padding:6px 30px 7px 26px; font:400 15px/19px 'Open Sans'; color:#fff; }
+.port-plus-menu li a:hover         { color:#f37c05; }
+
+/* Exit Link -------------------- */
+.port-plus-menu .exit              { display:inline-block; margin:0 !important; }
+.port-plus-menu .exit:after        { display:inline-block !important; overflow:visible !important; visibility:visible !important; width:auto !important; height:auto !important; 
+                                     position:absolute; margin:0 0 0 8px; content:"\f08e"; font:24px/24px 'FontAwesome'; color:#fff\9; color:rgba(255,255,255,0.5);  }
+.port-plus-menu .exit:hover:after  { color:#fff; }

@@ -1,0 +1,134 @@
+.productpage {
+    .branding-image {
+        @include branding-image;
+    }
+
+    .navigation-container {
+        height: 56px;
+    }
+
+    .productpage-navigation {
+        background-color: $vad-gray-dark;
+        text-align: center;
+        height: 56px;
+        padding: 5px;
+        width: 100%;
+
+        &.affix {
+            top: 0;
+            border-bottom: 0;
+            z-index: 1;
+        }
+
+        .nav {
+            display: inline-block;
+
+            &.nav-pills {
+                li {
+                    display: none;
+
+                    @include respond-to(small) {
+                        display: block;
+                    }
+
+                    a {
+                        padding: 10px;
+                        font-size: $font-size-base;
+
+                        @include respond-to(medium) {
+                            padding: 10px 20px;
+                        }
+                    }
+
+                    &.active {
+                        display: block;
+                    }
+                }
+
+                li.active > a, li.active > a:hover, li.active > a:focus, li > a:hover, li > a:focus {
+                    background-color: rgba(0,0,0,0) !important;
+                    text-decoration: underline;
+                }
+
+                li > a:hover, .nav > li > a:focus, {
+                    text-decoration: underline;
+                    background-color: rgba(0,0,0,0) !important;
+                }
+            }
+        }
+
+        a {
+            color: $vad-white;
+        }
+    }
+
+    .functions {
+        @include functions;
+        padding: 20px 0px 10px;
+
+        @include respond-to(extrasmall) {
+            padding: 20px;
+
+            .icon-block {
+                padding: 0px 8px !important;
+
+                span {
+                    font-size: 40px !important;
+                }
+
+                p {
+                    font-size: $font-size-large !important;
+                }
+            }
+        }
+
+        @include respond-to(small) {
+            padding: 40px;
+
+            span {
+                font-size: 80px !important;
+            }
+
+            .icon-block {
+                padding: 0px 15px !important;
+            }
+        }
+    }
+
+    .intro {
+        @include intro;
+    }
+
+    .main-body {
+        @include padding-productpage-section;
+    }
+
+    .machine {
+        background-color: darkkhaki;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .blockarea {
+        @include padding-productpage-section;
+    }
+
+    .tech-data {
+        @include padding-productpage-section;
+    }
+
+    .downloads {
+        ul {
+            list-style-type: none;
+            padding-left: 0px;
+
+            li {
+                padding: 5px 0px;
+
+                a {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+﻿@using EPiServer.Web.Routing
+@model Knowit.EpiserverFramework.Models.ViewModels.IPageViewModel<Knowit.EpiserverFramework.Models.Core.SitePageData>
+
+<footer id="footer">
+    <div class="footer-facebook">
+
+        <a href="https://www.facebook.com/nykopingsguiden" target="_blank" title="Följ oss på facebook.">
+            <div class="icon"></div>
+            <h2>Följ oss på Facebook</h2>
+        </a>
+
+    </div>
+    <div class="footer-illustration"></div>
+    <div class="footer-links">
+        <div class="inner-wrap">
+            @{
+                if (Model.CurrentPage.Settings != null)
+                {
+                    var i = 0;
+                    foreach (var linkItem in Model.CurrentPage.Settings.BottomMenu ?? Enumerable.Empty<EPiServer.SpecializedProperties.LinkItem>())
+                    {
+                        i++;
+                        <div class="col col-@i">
+                            <ul>
+                                <li>
+                                    <a href="@UrlResolver.Current.GetUrl(linkItem.Href)" title="@linkItem.Text">@linkItem.Text</a>
+                                </li>
+                            </ul>
+                        </div>
+                    }
+                }
+            }
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="inner-wrap">
+            <div class="col info w_3-4 w5_1">
+                @if(Model.CurrentPage.Settings != null)
+                {
+                    @Model.CurrentPage.Settings.FooterText
+                }
+            </div>
+            <div class="col logo w_1-4 w5_1">
+                <a href="http://www.nykoping.se" target="_blank" class="nykoping-logo"><img src="@Href(Url.Content("~/Frontend/images/logo-nykoping@2x.png"))" alt="Nyköpings kommun"></a>
+            </div>
+        </div>
+    </div>
+</footer>

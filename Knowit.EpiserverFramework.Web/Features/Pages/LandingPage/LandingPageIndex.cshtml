@@ -1,0 +1,88 @@
+﻿@using Knowit.EpiserverFramework.Web.Features.Pages.LandingPage
+
+@model LandingPageViewModel
+
+<div class="categorypage">
+    <section class="branding-image">
+        <picture>
+            <source srcset="/globalassets/testnod/480-480mobile.png" media="(max-width: 480px)">
+            <img src="http://localhost:17031/globalassets/testnod/bild-1800-700.png" alt="" title="" class="">
+        </picture>
+
+        <h1>
+            @Html.PropertyFor(model => model.CurrentPage.Heading)
+        </h1>
+    </section>
+    <section class="content">
+        <div class="intro">
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    @Html.PropertyFor(m => m.CurrentPage.MainIntro)
+                </div>
+            </div>
+        </div>
+        <div class="block-area">
+            <div class="row">
+                <div class="block block-50-50 col-sm-12">
+                    <div class="block-wrapper">
+                        <div class="image block-content" style="background: url('http://placehold.it/900x400') no-repeat center center; background-size: cover;">
+                            @*<img src="http://placehold.it/900x400" />*@
+                        </div>
+                        <div class="text block-content">
+                            <div class="text-content">
+                                <h2 class="no-margin-top">Cultivator Xy</h2>
+                                <p>
+                                    Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur.
+                                </p>
+                                <a class="btn btn-primary">Läs mer</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block block-50-50 col-sm-12">
+                    <div class="block-wrapper">
+                        <div class="text block-content">
+                            <div class="text-content">
+                                <h2 class="no-margin-top">Cultivator Xy</h2>
+                                <p>
+                                    Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur.
+                                </p>
+                                <a class="btn btn-primary">Läs mer</a>
+                            </div>
+                        </div>
+                        <div class="image block-content" style="background: url('http://placehold.it/900x400') no-repeat center center; background-size: cover;">
+                            @*<img src="http://placehold.it/900x400" />*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        @if (Model.CurrentPage.ContentArea != null)
+            {
+            <div class="block-area">
+                @Html.PropertyFor(m => m.CurrentPage.ContentArea)
+            </div>
+        }
+
+    </section>
+
+    @*@if (Model.CurrentPage.MainIntro != null)
+        {
+            <div class="row">
+                <div class="col-md-8">
+                    @Html.PropertyFor(m => m.CurrentPage.MainIntro)
+                </div>
+            </div>
+        }*@
+    @*@if (Model.CurrentPage.Movie != null)
+        {
+            <div class="row">
+                <div class="col-md-8">
+                    @Html.Raw(@Model.CurrentPage.Movie)
+                </div>
+            </div>
+        }*@
+
+</div>

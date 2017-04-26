@@ -1,0 +1,55 @@
+﻿@using EPiServer
+@using EPiServer.Core
+@using EPiServer.Web.Routing
+@using Knowit.EpiserverFramework.Utilities.EpiserverUtilities;
+
+@{
+    var pageRouteHelper = EPiServer.ServiceLocation.ServiceLocator.Current.GetInstance<IPageRouteHelper>();
+
+    PageReference currentPageLink = pageRouteHelper.PageLink;
+
+    PageData currentPage = currentPageLink.GetPage();
+    var t = currentPage.GetPropertyValueRecursive<bool>("Menu");
+    PageReference toppage;
+    var visabilityofpart = "display:block";
+
+    if (t)
+    {
+        toppage = currentPageLink;
+    }else
+    {
+        if (currentPage.ParentLink.GetPage().GetPropertyValue<bool>("Menu"))
+        {
+            toppage = currentPage.ParentLink;
+        }else
+        {
+            if (currentPage.ParentLink.GetPage().ParentLink.GetPage().GetPropertyValue<bool>("Menu"))
+            {
+                toppage = currentPage.ParentLink.GetPage().ParentLink;
+            }else
+            {
+                toppage = currentPage.ParentLink.GetPage().ParentLink;
+                visabilityofpart = "display:none";
+            }
+        }
+    }
+
+    var children = DataFactory.Instance.GetChildren(toppage);
+}
+
+@{
+
+    <nav class="newsub-nav" style="@visabilityofpart">
+        <ul>
+            <li class="">
+                <div class="toggle-row"><a href="@toppage.GetPage().LinkURL" @Heextensions.CheckActive(toppage.GetPage())>@toppage.GetPage().Name</a><div class="toggle"></div></div>
+
+                <ul class="sub-menu" style="display: block;">
+                    @foreach (PageData page in children) {
+                        <li><a href="@page.LinkURL" @Heextensions.CheckActive(page)>@page.Name</a></li>
+                    }
+                </ul>
+            </li>
+        </ul>
+    </nav>
+}

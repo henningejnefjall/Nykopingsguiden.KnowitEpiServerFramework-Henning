@@ -1,0 +1,432 @@
+﻿@using Knowit.EpiserverFramework.Web.Features.Pages.CompanyCreatePage
+
+@model CompanyCreatePageViewModel
+
+@{
+    Layout = "~/Features/Layouts/_LayoutAdmin.cshtml";
+}
+
+<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js" type="text/javascript"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBMQqXaCB6RZXhJMnHleQb9vMJtOK0lZWE"></script>
+
+@section xtrahead{
+    <link href="@Url.Content("~/Frontend/css/adminstyles.css")" rel="stylesheet" />
+}
+
+<section id="content">
+    <section id="firstRow" class="section">
+        <div class="inner-wrap">
+            <div>
+                <h1>@ViewBag.FormHeader</h1>
+                <br />
+                @Model.CurrentPage.UpperFirstMainBody
+
+                <div class="CompanyCategoryString">@ViewBag.CompanyCategoryString</div>
+
+                <div>
+                    <a href="@EPiServer.Web.Routing.UrlResolver.Current.GetUrl(Model.CurrentPage.SuccessTarget)" class="admin-stepnav-btn" style="width:200px">
+                        < Dina verksamheter
+                    </a>
+                </div>
+
+                <div class="form-step">
+
+                    @using (Html.BeginForm("SubmitPage", "CompanyCreatePage", FormMethod.Post, new { @class = "createCompany", id = "step1form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary(true)
+
+                        <fieldset>
+                            <h3 class="form-section-headline">Kategorier</h3>
+
+                            @*Verksamhetskategori*@
+                            <div class="ffield">
+                                <div class="fheader">@Model.CurrentPage.CompanyCategoryHeader</div>
+
+                                <div class="infoColAlt">
+
+                                    @if (Model.CurrentPage.CompanyCategoryHelp != null)
+                                    {
+                                        <a class="infoPopup">i</a>
+                                        <div class="helptext">@Model.CurrentPage.CompanyCategoryHelp</div>
+                                    }
+                                </div>
+
+                                <div class="row">
+                                    <script>
+                                        $(function () {
+                                            $(".subcat").hide();
+                                            $(".sub-toggle").on('click', function () {
+
+                                                $(this).next("div.subcat").toggle();
+                                                $(this).toggleClass('active');
+                                            });
+                                        })
+                                    </script>
+
+                                    <div class="radio-category-select">
+                                        @{
+                                            @:<div class="column">
+                                                @:<h3 style="background:#318dd4; color:#fff !important; box-shadow: 0px 0px 1px 1px #ddd;" class="mainsec-head">Se och göra</h3>
+
+
+
+
+
+
+
+
+                                                @:<div class="mainsec-helptext">Se och göra - Dessa verksamheter blir synliga under sektionen Se och göra.</div>
+                                            string prev = string.Empty;
+                                            var castobj = ViewBag.SeochgoraCats as List<SectionCats>;
+                                            int i = 0;
+
+                                            foreach (SectionCats cat in ViewBag.SeochgoraCats)
+                                            {
+                                                //Expandera aktuell undermeny vid load
+                                                if (ViewBag.CompanyCategoryString != null)
+                                                {
+                                                    if (ViewBag.CompanyCategoryString.Contains(@cat.Value))
+                                                    {
+                                                        <script>
+                                                            $(document).ready(function () {
+                                                                //var x = $(this);
+                                                                $(this).find(".sub-toggle.id-@cat.ParentID").next().show();
+                                                                $(this).find(".sub-toggle.id-@cat.ParentID").toggleClass("active");
+                                                            });
+                                                        </script>
+                                                    }
+                                                }
+                                                if (prev != cat.Parent)
+                                                {
+                                                   @:<h4 class="sub-toggle id-@cat.ParentID" id="id-@cat.ParentID">@cat.Parent</h4>
+                                                    @:<div class="subcat">
+                                                }
+
+                                                if (ViewBag.SelectedCompanyCategory != null)
+                                                {
+                                                    @: <label class="rb"><input type="radio" id="CompanyCategory" name="CompanyCategory" value="@cat.Value" @Html.Raw(@ViewBag.CompanyCategoryString.Contains(@cat.Value) ? " checked=\"checked\"" : "") /><span>@cat.Text</span></label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="rb"><input type="radio" id="CompanyCategory" name="CompanyCategory" value="@cat.Value" /><span>@cat.Text</span></label>
+                                                }
+
+                                                var nextobj = castobj[(castobj.IndexOf(cat) + 1) == castobj.Count ? 0 : (castobj.IndexOf(cat) + 1)];
+
+                                                if (nextobj.Parent != cat.Parent)
+                                                {
+                                                    @:</div>
+                                                }
+
+                                                prev = cat.Parent;
+                                                i++;
+                                            }
+                                            @:</div>
+
+                                            @:<div class="column">
+                                                @:<h3 style="background:#f37c05; color:#fff !important;" class="mainsec-head">Äta</h3>
+                                                @:<div class="mainsec-helptext">Äta - Dessa verksamheter blir synliga under sektionen Äta.</div>
+
+                                            foreach (SectionCats cat in ViewBag.AtaCats)
+                                            {
+                                                if (ViewBag.SelectedCompanyCategory != null)
+                                                {
+                                                    @: <label class="rb"><input type="radio" id="CompanyCategory" name="CompanyCategory" value="@cat.Value" @Html.Raw(@ViewBag.CompanyCategoryString.Contains(@cat.Value) ? " checked=\"checked\"" : "") /><span>@cat.Text</span></label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="rb"><input type="radio" id="CompanyCategory" name="CompanyCategory" value="@cat.Value" /><span>@cat.Text</span></label>
+                                                }
+                                            }
+                                            @:</div>
+
+                                            @:<div class="column">
+                                                @:<h3 style="background:#c5361d; color:#fff !important;" class="mainsec-head">Bo</h3>
+                                                @:<div class="mainsec-helptext">Bo - Dessa verksamheter blir synliga under sektionen Bo.</div>
+
+                                            foreach (SectionCats cat in ViewBag.BoCats)
+                                            {
+                                                if (ViewBag.SelectedCompanyCategory != null)
+                                                {
+                                                    @: <label class="rb"><input type="radio" id="CompanyCategory" name="CompanyCategory" value="@cat.Value" @Html.Raw(@ViewBag.CompanyCategoryString.Contains(@cat.Value) ? " checked=\"checked\"" : "") /><span>@cat.Text</span></label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="rb"><input type="radio" id="CompanyCategory" name="CompanyCategory" value="@cat.Value" /><span>@cat.Text</span></label>
+                                                }
+                                            }
+                                            @:</div>
+                                            
+                                            @:<div class="column">
+                                                @:<h3 style="background:#000; color:#fff !important;" class="mainsec-head">Mötesplats Nyköping</h3>
+                                                @:<div class="mainsec-helptext">Välj en kategori här om din verksamhet vänder sig mot företag och grupper. Dessa verksamheter blir synliga under sektionen Mötesplats Nyköping.</div>
+
+                                            foreach (SectionCats cat in ViewBag.MotenCats)
+                                            {
+                                                if (ViewBag.SelectedCompanyCategory != null)
+                                                {
+                                                    @: <label class="rb"><input type="radio" id="CompanyCategory" name="CompanyCategory" value="@cat.Value" @Html.Raw(@ViewBag.CompanyCategoryString.Contains(@cat.Value) ? " checked=\"checked\"" : "") /><span>@cat.Text</span></label>
+                                                }
+                                                else
+                                                {
+                                                    <label class="rb"><input type="radio" id="CompanyCategory" name="CompanyCategory" value="@cat.Value" /><span>@cat.Text</span></label>
+                                                }
+                                            }
+                                            @:</div>
+                                        }
+                                    </div>
+                                </div>
+
+                                <div id="JQCategoryValidate" style="display:none;">Du måste ange en verksamhetskategori</div>
+
+                            </div>
+
+                            <div class="row"></div>
+
+                            <h3 class="form-section-headline">Beskrivning av verksamhet</h3>
+
+                            <div class="ffield">
+                                <div class="fheader">@Model.CurrentPage.HeaderHeader</div>
+
+                                <div class="infoCol">
+                                    @if (Model.CurrentPage.HeaderHelp != null)
+                                    {
+                                        <a class="infoPopup">i</a>
+                                        <div class="helptext">@Model.CurrentPage.HeaderHelp</div>
+                                    }
+                                </div>
+
+                                <div class="rightCol">
+                                    @Html.TextBoxFor(m => m.CurrentPage.Header, new { Name = "Header", Value = ViewBag.Header })
+                                </div>
+                            </div>
+
+                            @*Ingress*@
+                            <div class="ffield">
+                                <div class="fheader">@Model.CurrentPage.ExtractHeader</div>
+
+                                <div class="rightCol">
+                                    @Html.TextAreaFor(m => m.CurrentPage.Extract, new { Id="Extract", Name = "Extract", cols = 99, rows = 3 })
+                                    <span class="ViewbagExtract">@ViewBag.Extract</span>
+                                </div>
+
+                                <div class="infoCol">
+                                    @if (Model.CurrentPage.ExtractHelp != null)
+                                    {
+                                        <a class="infoPopup">i</a>
+                                        <div class="helptext">@Model.CurrentPage.ExtractHelp</div>
+                                    }
+                                </div>
+                            </div>
+
+                            <script type="text/javascript" src="http://cloud.tinymce.com/stable/tinymce.min.js?apiKey=kh3lxv0cij1r5nbrca95q12iiuii6pj21i2huy61jivzgzh9"></script>
+
+
+                            <script type="text/javascript">
+                          tinymce.init({
+                              selector: 'textarea.tiny',
+                              theme: 'modern',
+                              style_formats: [
+                                {title: 'Rubrikformat', items: [
+                                  {title: 'Rubrik 2', format: 'h2'},
+                                  {title: 'Rubrik 3', format: 'h3'}
+                                ]}
+                                ],
+
+                              plugins: [
+                                  'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+                                  'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+                                  'save table contextmenu directionality paste'
+                              ],
+                              toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
+                          });
+                            </script>
+
+                            @*Brödtext - mainbody*@
+                            <div class="ffield">
+                                @*<div class="fheader">@Model.CurrentPage.MainBodyHeader</div>*@
+                                <div aclass="fheader" style="display:block; width:200px;">@Model.CurrentPage.MainBodyHeader</div>
+                                <div class="infoCol">
+
+                                    @if (@Model.CurrentPage.MainbodyHelp != null)
+                                    {
+                                        <a class="infoPopup">i</a>
+                                        <div class="helptext">@Model.CurrentPage.MainbodyHelp</div>
+                                    }
+                                </div>
+
+                                <div class="rightCol" style="max-width:660px;">
+                                    @Html.TextAreaFor(m => m.CurrentPage.MainBody, new { Id = "MainBody", Name = "MainBody", cols = 99, rows = 10, @class = "tiny" })
+                                    <span class="ViewbagMainbody">@ViewBag.MainBody</span>
+                                </div>
+
+                                @*<div class="infoCol">
+
+                                    @if (Model.CurrentPage.MainbodyHelp != null)
+                                    {
+                                        <a class="infoPopup">i</a>
+                                        <div class="helptext">@Model.CurrentPage.MainbodyHelp</div>
+                                    }
+                                </div>*@
+                            </div>
+
+                            <h3 class="form-section-headline" style="display:block; padding-top:14px;">Övriga upplysningar</h3>
+
+                            @*Öppentider*@
+                            <div class="ffield">
+                                <div class="fheader">@Model.CurrentPage.OpeningHeader</div>
+
+                                <div class="rightCol">
+                                    @Html.TextAreaFor(m => m.CurrentPage.Opening, new { Id="Opening", Name = "Opening", cols = 99, rows = 3 })
+
+                                    <span class="ViewbagOpening">@ViewBag.Opening</span>
+                                </div>
+
+                                <div class="infoCol">
+
+                                    @if (Model.CurrentPage.OpeningHelp != null)
+                                    {
+                                        <a class="infoPopup">i</a>
+                                        <div class="helptext">@Model.CurrentPage.OpeningHelp</div>
+                                    }
+                                </div>
+                            </div>
+
+                            @*Tillgänglighet*@
+                            <div class="ffield">
+                                <div class="fheader">@Model.CurrentPage.AccessHeader</div>
+                                <div class="rightCol">
+                                    @Html.TextAreaFor(m => m.CurrentPage.Access, new { Id="Access", Name = "Access", cols = 99, rows = 3 })
+                                    <span class="ViewbagAccess">@ViewBag.Access</span>
+                                </div>
+
+                                <div class="infoCol">
+
+                                    @if (@Model.CurrentPage.AccessHelp != null)
+                                    {
+                                        <a class="infoPopup">i</a>
+                                        <div class="helptext">@Model.CurrentPage.AccessHelp</div>
+                                    }
+                                </div>
+                            </div>
+
+                            <h3 class="form-section-headline">Kontaktinformation</h3>
+
+                            @*Adress*@
+                            <div class="ffield">
+                                <div class="fheader">@Model.CurrentPage.AddressHeader</div>
+
+                                <div class="rightCol">
+                                    @Html.TextBoxFor(m => m.CurrentPage.Address, new { Id = "Address", Name = "Address", Value = ViewBag.Address }) @* Har laggt till id men fortfarande prob *@
+
+                                </div>
+                                <div class="infoCol">
+                                    @if (Model.CurrentPage.AddressHelp != null)
+                                    {
+                                        <a class="infoPopup">i</a>
+
+                                        <div class="helptext">@Model.CurrentPage.AddressHelp</div>
+                                    }
+                                </div>
+                            </div>
+
+                            @*Telefon*@
+                            <div class="ffield">
+                                <div class="fheader">@Model.CurrentPage.PhoneHeader</div>
+
+                                <div class="rightCol">
+                                    @Html.TextBoxFor(m => m.CurrentPage.Phone, new { Name = "Phone", Value = ViewBag.Phone })
+
+                                </div>
+                                <div class="infoCol">
+                                    @if (Model.CurrentPage.PhoneHelp != null)
+                                    {
+                                        <a class="infoPopup">i</a>
+
+                                        <div class="helptext">@Model.CurrentPage.PhoneHelp</div>
+                                    }
+                                </div>
+                            </div>
+
+                            @*E-post*@
+                            <div class="ffield">
+                                <div class="fheader">@Model.CurrentPage.EmailHeader</div>
+
+                                <div class="rightCol">
+                                    @Html.TextBoxFor(m => m.CurrentPage.Email, new { Name = "Email", Value = ViewBag.Email }) @* Kolla ok epost *@
+                                </div>
+
+                                <div class="infoCol">
+                                    @if (Model.CurrentPage.EmailHelp != null)
+                                    {
+                                        <a class="infoPopup">i</a>
+                                        <div class="helptext">@Model.CurrentPage.EmailHelp</div>
+                                    }
+                                </div>
+                            </div>
+
+                            <script>
+                                $(document).ready(function () {
+                                    $("#step1submit").click(function () {
+                                        var check = $("input[type=radio][name=CompanyCategory]:checked").val();
+
+                                        if (check) {
+                                            $("#JQCategoryValidate").hide();
+                                            $("#step1form").submit();
+                                        }
+                                        else {
+                                            $("#JQCategoryValidate").show();
+                                            $("html, body").animate({ scrollTop: 0 }, "slow");
+                                            return false;
+                                        }
+                                    });
+                                });
+                            </script>
+
+                            <div class="leftCol">
+                                <input type="submit" value="Nästa &raquo;" class="adm-btn" style="opacity: 0; display: none;" />
+                                @*HIDE FÖR IOS*@
+
+                                <span id="step1submit" class="adm-btn" style="cursor: pointer;">Nästa ></span>
+
+                                @Html.HiddenFor(m => m.CurrentPage.PageId, new { Name = "PageId", Value = ViewBag.PageId })
+                                @*@Html.HiddenFor(m => m.CurrentPage.PageId, new { @Value = @ViewBag.PageId })*@
+                                @Html.HiddenFor(m => m.CurrentPage.DefaultLat, new { Name = "DefaultLat" })
+                                @Html.HiddenFor(m => m.CurrentPage.DefaultLong, new { Name = "DefaultLong" })
+                            </div>
+                        </fieldset>
+                                            }
+                </div>
+
+                <br />
+                @Model.CurrentPage.LowerFirstMainBody
+
+            </div>
+            <div class="deleteBtn">
+                <hr style="clear:both;margin:8px 0 8px 0" />
+
+                <div style="">
+                    <div class="clickDelete btn-text" style="clear:both; display:block; width:160px; text-align:center; background:red; margin:auto 0;">Ta bort verksamhet</div>
+                </div>
+
+                <div class="showDelete">
+                    <div>Är du säker på att du vill ta bort verksamheten? Den kommer då inte längre att vara synlig på Nyköpingsguiden.</div>
+
+                    @using (Html.BeginForm("DeleteAction", "CompanyCreatePage", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(m => m.CurrentPage.PageId, new { Name = "PageId", @Value = @ViewBag.PageId })
+                        <input type="submit" value="Godkänn" id="acceptDelete" class="btn-text" />
+                    }
+
+                    <input type="submit" value="Avbryt" id="cancelDelete" class="btn-text" />
+                </div>
+
+                <hr style="clear:both;margin:8px 0 8px 0" />
+            </div>
+        </div>
+    </section>
+</section>

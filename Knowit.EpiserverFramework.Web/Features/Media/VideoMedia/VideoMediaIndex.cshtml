@@ -1,0 +1,11 @@
+﻿@using EPiServer.Web.Mvc.Html
+@using Knowit.EpiserverFramework.Web.Helpers
+
+@model Knowit.EpiserverFramework.Web.Features.Media.VideoMedia.VideoMediaViewModel
+
+<div>
+    @Html.Raw(Html.RenderImageTag(Model.VideoMedia.PreviewImage, null, null, null, null))
+    @Html.Raw(Html.RenderVideoTag(Model.VideoMedia.ContentLink, null, null, "video", "controls"))
+
+    <p>@Model.VideoMedia.Heading | @Model.VideoMedia.MainIntro | @Model.VideoMedia.Copyright</p>
+</div>

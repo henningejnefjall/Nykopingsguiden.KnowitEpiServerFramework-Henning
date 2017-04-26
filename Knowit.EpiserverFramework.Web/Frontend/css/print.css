@@ -1,0 +1,12 @@
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+   NYKOPINGSGUIDEN | PRINT
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+
+@media print {
+
+.sub-nav, .map, .main-push,
+.side-pushes, #side-tips,
+.sub-content-footer             { display:none; }
+
+}

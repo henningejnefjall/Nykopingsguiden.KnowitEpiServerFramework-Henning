@@ -1,0 +1,22 @@
+﻿@using EPiServer.Web.Mvc.Html
+@using Knowit.EpiserverFramework.Web.Features.Blocks.MeetInNykgContactBlock
+
+@model MeetInNykgContactBlockViewModel
+
+<section id="ps-contact" class="ps-info push-section">
+    <div class="inner-wrap">
+        <div class="image">
+            <img src="@Url.ContentUrl(Model.MeetInNykgContactBlock.Image.Image)" alt="">
+        </div>
+
+        <div class="text">
+            <h2>@Model.MeetInNykgContactBlock.Heading</h2>
+
+            <p>
+                @Model.MeetInNykgContactBlock.MainIntro
+            </p>
+
+            <h3><span>Ring mig:</span> @Model.MeetInNykgContactBlock.Phone</h3>
+        </div>
+    </div>
+</section>

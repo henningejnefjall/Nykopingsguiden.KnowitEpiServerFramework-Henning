@@ -1,0 +1,25 @@
+.text-block{
+    padding: 15px;
+    .content{
+        text-align:center;
+        p{
+            font-size: $font-size-base;
+            margin:0;
+            @include respond-to(medium) {
+                font-size: $font-size-h4;
+            }
+        }
+    }
+
+    &.red-bg{
+        background-color: $vad-red;
+            color: $vad-white;
+    }
+    &.yellow-bg{
+        background-color: $vad-red;
+    }
+    &.black-bg{
+        background-color: $vad-red;
+            color: $vad-white;
+    }
+}

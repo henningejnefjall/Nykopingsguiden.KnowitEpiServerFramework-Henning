@@ -1,0 +1,12 @@
+.generalpage {
+    .main-image-dt, .main-image-mobile {
+        margin-left: -15px !important;
+        margin-right: -15px !important;
+    }
+
+    .block-area {
+        @include respond-to(medium) {
+            padding-left: 30px;
+        }
+    }
+}

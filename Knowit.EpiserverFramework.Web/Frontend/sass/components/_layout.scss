@@ -1,0 +1,862 @@
+﻿/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   NYKOPINGSGUIDEN | LAYOUT
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+body.ng                         { }
+
+#site                           { position:relative; z-index:1; width:100%; margin:0 auto; }
+
+.inner-wrap                     { position:relative; width:100%; max-width:1296px; margin:0 auto; }
+
+
+/* ========================================================================== 
+   HEADER  
+================================|========================================= */
+
+#header                         { position:relative; z-index:100; width:100%; background:#053e80; }
+
+
+/* Header Logo =============== */
+.header-logo                    { position:absolute; width:25%; }
+.header-logo a  			        { display:block; overflow:hidden; max-width:324px;
+                                  padding:20px 12px 10px; text-align:center; background:#053e80; }
+.header-logo a img		        { width:100%; max-width:284px; }
+
+
+/* --------------------------------------------------------------------------  
+   HEADER MENU
+--------------------------------|----------------------------------------- */
+	
+.header-menu                    { float:right; width:66.6666666666%; }
+
+/* --------------------------------------------------------------------------  
+   HEADER TOP MENU (HTM)
+--------------------------------|----------------------------------------- */
+
+ul.header-top-menu              { float:right; height:60px; margin:0 0 10px; }
+
+ul.header-top-menu li           { float:left; }
+ul.header-top-menu a            { color:#fff; }
+
+
+/* HTM | Links =============== */
+
+ul.header-top-menu .links a:not(.goog-te-menu-value)   { display:inline-block; float:left; margin:20px 30px 0 0;
+                                  font:14px/20px 'Open Sans'; color:#fff; 
+span       { color:rgba(255,255,255,0.6); 
+             transition:color 0.3s; -moz-transition:color 0.3s; -webkit-transition:color 0.3s; }
+}
+
+ul.header-top-menu .links        { 
+    a:not(.goog-te-menu-value):hover { color:rgba(255,255,255,0.6); }
+    a:not(.goog-te-menu-value):hover span { color:#fff; }
+}
+
+ul.header-top-menu .links a.turistbyran { display:none !important; }
+
+
+/* HTM | Buttons ============= */
+ul.header-top-menu .buttons a   { display:block; float:left; }
+
+
+/* Header Port Button ======== */
+.header-port-menu-btn           { width:62px; height:60px; padding:18px 10px 17px;
+                                  border-left:1px solid #1c508c!important; border-bottom:1px solid #1c508c!important; border-right:1px solid #1c508c; }
+											 
+.header-port-menu-btn:before,
+.header-port-menu-btn:after     { display:block; visibility:visible !important; width:100% !important;
+                                  border-bottom:5px solid #fff; }
+
+.header-port-menu-btn:before    { height:15px !important; border-top:5px solid #fff; }
+.header-port-menu-btn:after     { height:10px !important; }
+
+.header-port-menu-btn div       { position:absolute; overflow:hidden; height:0; width:0; }
+.header-port-menu-btn:hover     { background-color:#026; }
+
+
+
+/* Header Search Button ------ */
+.header-search-btn              { width:61px; height:60px;
+                                  border-left:1px solid #1c508c!important; border-bottom:1px solid #1c508c!important; text-align:center; }
+.header-search-btn div          { position:absolute; overflow:hidden; height:0; width:0; }
+
+.header-search-btn:after        { display:inline-block; visibility:visible !important; width:auto !important; height:auto !important; 
+                                  margin:0; font:32px/58px "FontAwesome" !important; 
+                                  content:"\f002"!important; transform:scaleX(-1); -ms-filter:fliph; filter:fliph; 
+                                  -moz-transform:scaleX(-1); -webkit-transform:scaleX(-1); -o-transform:scaleX(-1); }	
+.header-search-btn:hover        { background-color:#026; }
+
+
+
+/* --------------------------------------------------------------------------  
+   MAIN MENU (MM)
+--------------------------------|----------------------------------------- */
+
+.main-menu                      { clear:both; position:relative; width:100%; height:60px; }
+.main-menu .btn                 { display:block; float:left; width:25%; height:60px; text-align:center; 
+                                  font:27px/60px 'BertholdAGMedium'; color:#fff; 
+											 transition:background 0.3s; -moz-transition:background 0.3s; -webkit-transition:background 0.3s; }
+
+.main-menu .btn .arrow          { display:none; overflow:visible !important; position:absolute; z-index:-1; width:inherit; height:0; 
+                                  bottom:12px; text-align:center; font:0/0 'Open Sans' !important; }
+.main-menu .btn .arrow:before   { display:inline-block; width:22px; height:22px; visibility:visible !important;
+                                  transform:rotate(45deg); -ms-transform:rotate(45deg); -webkit-transform:rotate(45deg); }
+
+.main-menu .btn.active .arrow   { display:block; }
+
+.main-menu .btn.segora,
+.main-menu .btn.segora .arrow:before { background:#318dd4; }
+
+.main-menu .btn.event,
+.main-menu .btn.event  .arrow:before { background:#99c230; }
+
+.main-menu .btn.ata,
+.main-menu .btn.ata    .arrow:before { background:#f37c05; }
+
+.main-menu .btn.bo,
+.main-menu .btn.bo     .arrow:before { background:#c5361d; }
+
+
+
+/* ========================================================================== 
+   CONTENT
+================================|========================================= */
+
+#content                        { min-height:500px; }
+
+
+/* ========================================================================== 
+   PUSH SECTION (PS)
+================================|========================================= */
+
+.push-section                   { padding:45px 0 15px; }
+
+/* PS Head =================== */
+.push-section-head              { position:relative; margin:0 auto; width:100%; max-width:864px; padding:0 0 20px; text-align:center; }
+.push-section-head a            { display:inline-block; color:#777; }
+.push-section-head h2           { margin:3px 0 5px; text-transform:uppercase; text-align:center; }
+.push-section-head a:hover      { color:#000; }
+
+
+/* ========================================================================== 
+   PS | INFO
+================================|========================================= */
+
+.ps-info .image                 { float:left; width:33.3333333333%; text-align:center; }
+
+.ps-info .text                  { float:right; width:66.6666666666%; padding:0 3% 0 3.5%; font:18px/25px 'Open Sans'; }
+
+.ps-info .text h2               { margin:20px 0 10px; font:42px/46px 'BertholdAGMedium'; }
+
+.ps-info .text h3               { margin:10px 0 30px; font:700 32px/35px 'Open Sans'; }
+.ps-info .text h3 span          { padding:0 5px 0 0; font-weight:400; }
+
+
+/* ========================================================================== 
+   HEADER SLIDER | SLICK 
+================================|========================================= */
+ 
+.header-slider                  { background:#000; }
+
+.header-slider .slick-loading .slick-list { background:#000 url('/Frontend/images/loader2.gif') no-repeat center center; }
+
+
+/* ========================================================================== 
+   BIG SLIDER | SLICK | Inner full width (inner-wrap) ex. theme pushes
+================================|========================================= */
+ 
+.big-slider                     { }
+										 
+.big-slider .push .text         { position:absolute; z-index:+1; bottom:15%; width:100%; }
+.big-slider .push .text .box    { width:80%; max-width:864px; padding:12px 22px 12px 24px; font:18px/24px 'Open Sans'; }	
+											 					 								 
+.big-slider .push .text .box h1,
+.big-slider .push .text .box h2 { margin:0 0 10px; font:55px/60px 'BertholdAGMedium'; color:#fff !important; }
+
+.big-slider .push .arrow        { margin:4px 0 0 3px; }
+
+
+/* ========================================================================== 
+   FULL WIDE SLIDER | SLICK | "Big Slider" ex. Front page
+================================|========================================= */
+
+.fullwide-slider                { height:700px; }
+
+.fullwide-slider .push .text    { bottom:200px; }
+
+
+/* ========================================================================== 
+   WIDE SLIDER (WS) | SLICK | "Big Slider" 
+	Inner full width (inner-wrap) ex. theme pushes
+================================|========================================= */
+ 
+.wide-slider                    { min-height:550px; max-height:648px; }
+
+.wide-slider .push .text       { bottom: 0; right: 0; width: 66%; }
+.wide-slider .push .text .box .bottomright  { margin-right: 0; width: 100%; }
+
+/* ========================================================================== 
+   MAIN SLIDER | SLICK | main-column
+================================|========================================= */
+
+.main-slider                    { min-height:445px; max-height:486px; background:#f5f5f5; }
+.main-slider .slick-loading .slick-list { background:#f5f5f5 url('/Frontend/images/loader1.gif') no-repeat center center; }
+
+
+/* ========================================================================== 
+   MAIN PUSH (MP)
+================================|========================================= */
+
+.main-push                      { display:block; position:relative; z-index:1; }
+
+.main-push .text                { position:absolute; z-index:2; bottom:0; width:100%; } 
+
+/* MP Meta =================== */
+.main-push .text .meta          { display:inline-block; position:absolute; height:30px; 
+                                  margin:-30px 0 0; background:#053e80; color:#fff; padding:0 14px 0 0; }
+.main-push .text .meta div      { display:inline-block; float:left; padding:0 0 0 14px; }
+.main-push .text .meta .date    { font:700 22px/29px 'Open Sans'; }
+.main-push .text .meta .location { font:600 15px/28px 'Open Sans'; }
+
+/* MP Text/Box =============== */
+.main-push .text .box           { min-height:80px; padding:10px 16px 10px 14px; font:14px/18px 'Open Sans'; }
+
+.main-push .text .box h3        { color:#fff; }
+
+.main-push .text .more          { display:none; padding:5px 0 0; }
+
+/* MP Hover/Focus ============ */
+.main-push:focus .more,
+.main-push:hover .more          { display:block; }
+
+.main-push img {
+    height:238px;
+}
+
+body.android .main-push:focus .more,
+body.android .main-push:hover .more { display:none !important; }
+
+
+
+/* ========================================================================== 
+   PS | TIPS | Slick Carousel
+================================|========================================= */
+
+#ps-tips                        { }
+
+
+
+/* ========================================================================== 
+   PS | EVENT GUIDE (EG)
+================================|========================================= */
+
+#ps-eventguide.push-section     { }
+
+
+#eventguide .guidebox-head .menu ul.iconmenu a:after,
+#eventguide .guidebox-head .menu ul.iconmenu a:hover,
+#eventguide .guidebox-head .menu ul.linkmenu a:hover,
+#eventguide .guidebox-foot a:hover { color:#99c230; }
+
+#eventguide ul.iconmenu         { display:inline-block; }
+#eventguide ul.linkmenu         { display:none; }
+
+/* EG | HOME ------------------- */
+body.home #eventguide ul.iconmenu { display:none; }
+body.home #eventguide ul.linkmenu { display:inline-block; }
+
+
+
+/* ========================================================================== 
+   PS | THEMES
+================================|========================================= */
+
+#ps-themes                      { }
+
+
+
+/* ========================================================================== 
+   FOOTER PUSHES (Simple Pushes)
+================================|========================================= */
+
+#ps-footer-pushes               { }
+
+.footer-pushes                  { width:auto; margin:0 0 0 -16px; }
+.footer-pushes .col             { padding:0 0 16px 16px; }	
+
+.footer-push                    { display:block; position:relative; }
+
+.footer-push img                { z-index:-1; }
+											 
+.footer-push:before             { display:inline-block; position:absolute; visibility:visible !important; 
+                                  width:100%; height:100%;
+                                  top:0 !important; right:0 !important; bottom:0 !important; left:0 !important;
+											 background: rgba(0,0,0,0.0);
+											 transition:all 0.5s; -moz-transition:all 0.5s; 
+											 -webkit-transition:all 0.5s; }
+	
+.footer-push h2                 { position:absolute; bottom:0; padding:0 25px 5%;                               
+											 font:55px/60px 'BertholdAGMedium'; color:#fff; }													 								 
+
+.footer-push:hover:before       { background: rgba(0,0,0,0.33); }
+.footer-push:hover h2           { color:#fff; }
+
+
+
+/* ========================================================================== 
+   FOOTER
+================================|========================================= */
+
+#footer                         { position:relative; width:100%; }
+
+
+
+/* --------------------------------------------------------------------------  
+   FOOTER FACEBOOK
+--------------------------------|----------------------------------------- */
+
+.footer-facebook                { width:100%; padding:25px 3% 0; text-align:center; }
+
+.footer-facebook a              { display:inline-block; }
+.footer-facebook a .icon        { display:inline-block; overflow:hidden; width:60px; height:60px; 
+                                  padding:0 2px 0 0; background:#3b5998; text-align:center; 
+                                  border-radius:50%; -moz-border-radius:50%; -webkit-border-radius:50%; 
+                                  transition:background 0.4s; -moz-transition:background 0.4s; -webkit-transition:background 0.4s; }
+.footer-facebook a .icon:before { display:inline-block; margin:2px 0 0; font:40px/60px 'FontAwesome'; color:#fff; content:"\f09a"; }
+.footer-facebook a:hover .icon  { background:#4465ab; }
+
+.footer-facebook a h2           { margin:10px 0 0; font:600 22px/30px 'Open Sans' !important; }
+
+
+
+/* --------------------------------------------------------------------------  
+   FOOTER ILLUSTRATION
+--------------------------------|----------------------------------------- */
+
+
+.footer-illustration            { position:relative; width:100%; height:162px; margin:60px 0 0;
+                                  background:url(/Frontend/images/footer-illustration.jpg) no-repeat center 0; }
+
+
+/* --------------------------------------------------------------------------  
+   FOOTER LINKS
+--------------------------------|----------------------------------------- */
+
+.footer-links                   { width:100%; padding:30px 0 15px; background:#f6f6f6; border-top:2px solid #fff; }
+
+.footer-links .col              { width:25%; }	
+.footer-links .col-1            { padding:0 2% 10px 0; }	
+.footer-links .col-2            { padding:0 1.5% 10px 1%; text-align:center; }	
+.footer-links .col-3            { padding:0 1% 10px 1.5%; text-align:center; }	
+.footer-links .col-4            { padding:0 0 10px 2%; }	
+
+.footer-links ul                { list-style:none; }																						
+.footer-links li                { padding:0 0 10px 0; }
+
+.footer-links a                 { color:#222; }
+.footer-links a:hover           { color:#f37c05; }
+
+
+
+/* --------------------------------------------------------------------------  
+   FOOTER BOTTOM
+--------------------------------|----------------------------------------- */
+
+.footer-bottom                  { width:100%; padding:38px 0 40px; color:#888; }
+ 
+ /* Footer Bottom | Info ===== */  
+.footer-bottom .col.info        { padding:0 10px 0 0; }
+.footer-bottom .col.info .text  { display:inline-block; padding:0 25px 10px 0; }
+.footer-bottom .col.info a      { color:#888; }
+.footer-bottom .col.info a:hover { color:#f37c05; }
+
+
+ /* Footer Bottom | Logo ===== */ 
+.footer-bottom .col.logo        { float:right; text-align:center; }
+.footer-bottom .col.logo .nykoping-logo { display:inline-block; width:100%; max-width:250px; height:50px; margin:0 0 0 0; }
+
+
+
+/* ========================================================================== 
+   HOME (FRONT PAGE)
+================================|========================================= */
+
+body.home                       { }
+
+body.home ul.header-top-menu    { margin:0; }
+body.home .header-port-menu-btn { border-bottom:none; }
+body.home .header-search-btn    { border-bottom:none; }
+
+body.home #header .main-menu    { display:none; }
+
+body.home .main-menu            { position:absolute; z-index:50; width:100%; height:70px; margin:-70px 0 0; }
+body.home .main-menu .btn       { height:70px; font:33px/70px 'BertholdAGMedium'; }
+body.home .main-menu .arrow     { display:none; }
+
+
+
+/* ========================================================================== 
+   SUB PAGES (default)
+================================|========================================= */
+
+body.sub                        { } 
+
+body.sub #content               { padding:0px 0 0; } 
+
+
+/* ========================================================================== 
+   SUB HEADER IMAGE
+================================|========================================= */
+
+#sub-header-image               { background:#053e80; } 
+
+#sub-header-image .text         { position:absolute; z-index:10; bottom:0; right:0;
+                                  width:66.6666666666%; padding:15px 25px 25px; 
+                                  background:#111\9; background:rgba(0,0,0,0.5); 
+                                  font:18px/24px 'Open Sans'; color:#fff; 
+											 transition:background 0.5s; -moz-transition:background 0.5s; -webkit-transition:background 0.5s; }											 								 
+#sub-header-image .text h1      { margin:0 0 5px; color:#fff; }
+#sub-header-image .text p       { display:inline; padding:0; }
+
+
+
+/* ========================================================================== 
+   BREADCRUMBS
+================================|========================================= */
+
+body.sub.breadcrumbs #content   { padding:0; }
+
+#breadcrumb-nav .inner-wrap     { padding:0 0 0 20px; }
+
+
+
+/* ========================================================================== 
+   SUB NAV
+================================|========================================= */
+
+.sub-nav                        { position:relative; }
+
+.sub-nav ul                     { padding:0 !important; }																						
+.sub-nav ul li                  { padding:0 !important; }
+.sub-nav ul li:before           { display:none !important; }
+
+.sub-nav a                      { display:block; width:90%; padding:9px 0 10px 4%; font:400 22px/28px 'Open Sans'; 
+                                  color:#000; border-left:8px solid transparent; }
+.sub-nav > a                    { }
+.sub-nav ul ul a                { padding:5px 0 6px 8%; margin:0 0 5px; font:400 17px/21px 'Open Sans'; color:#000; }
+.sub-nav ul ul ul a             { padding:5px 0 6px 12%; }
+.sub-nav ul ul ul ul a          { padding:5px 0 6px 16%; }
+
+.sub-nav a:hover                { color:#f37c05; border-color:#f37c05; }
+
+.sub-nav .current-menu-parent   { }
+
+.sub-nav .current-menu-item > a,
+.sub-nav .current-menu-item > .toggle-row a { color:#000; border-color:#f37c05; }
+
+.sub-nav .current-menu-item .current-menu-item > a { color:#000 !important; border-color:transparent !important; }
+
+
+.sub-nav .toggle-row a          { float:left; }
+
+
+/* Toggle Icon --------------- */
+.sub-nav .toggle                { display:block; float:right; overflow:hidden; width:10%; max-width:30px; height:30px; 
+                                  margin:8px 0 0; cursor:pointer; }	
+												 
+.sub-nav .toggle:before         { display:inline-block; margin:0 0 0 6px; 
+                                  font:30px/30px 'FontAwesome'; color:#444\9; color:rgba(0,0,0,0.3); content:"\f107"; 
+                                  transition:none\9; transition:all 0.3s; -moz-transition:all 0.3s; -webkit-transition:all 0.3s; }	
+								  
+.sub-nav .toggle:hover:before   { color:#f37c05; }	
+	
+.sub-nav .exp > .toggle-row .toggle:before { content:"\f106"\9;
+                                             transform:perspective(999px) translateZ(1px) rotate(180deg); 
+                                             -ms-transform:none\9; -ms-transform:perspective(999px) translateZ(1px) rotate(180deg);
+                                             -webkit-transform:translateZ(1px) rotate(180deg); }
+
+.sub-nav .sub-menu .has-children .toggle { margin:0; }		
+
+
+
+/* ========================================================================== 
+   SUB CONTENT
+================================|========================================= */
+
+#sub-content                    { }
+
+.sub-content-section            { }
+.sub-content-section > img      { margin-top:50px; }
+.theme .sub-content-row > img   { margin-top:0; }
+.sub-content-section:first-child > img { margin:0 !important; }
+
+.sub-content-row                { }
+.sub-content-row > img          { margin-top:50px; }
+
+.sub-content-section .main-column,
+.sub-content-section .side-column,
+.sub-content-row .main-column,
+.sub-content-row .side-column { padding-top:50px; }
+
+
+/* ========================================================================== 
+   SUB CONTENT | MAIN COLUMN
+================================|========================================= */
+
+.main-column                    { float:left; /*width:66.6666666666%;*/ width:864px; } 
+
+.main-column.centered           { position:relative; float:none; width:92%; max-width:864px; margin:0 auto;
+                                  padding-left:0 !important; padding-right:0 !important; } 
+
+.main-column .map               { width:100%; margin:0 0 40px; }
+.main-column .map iframe        { width:100%; height:448px; }
+
+.main-column h1                 { margin:0 0 30px; }
+
+.main-column .sub-nav           { display:none !important; /* DESKTOP HIDE */ }
+
+
+.side-column .sub-nav           { margin-bottom: 18px;}
+
+
+/* ========================================================================== 
+   SUB | MAIN PUSHES
+================================|========================================= */
+
+.sub .main-pushes               { } 
+
+.sub .upper-content             { padding-bottom:18px; }
+
+
+/* ========================================================================== 
+   SUB MAIN
+================================|========================================= */
+
+.sub-main                       { padding:0; }
+
+/* Sub Main Content ========== */
+.sub-main h1                    { margin:-5px 0 25px; }
+.sub-main h2                    { margin:25px 0 20px; }
+.sub-main h3                    { margin:25px 0 15px; }
+.sub-main h4                    { margin:25px 0 10px; }
+.sub-main h5  /* Ingress */     { margin:0 0 25px; }
+.sub-main h6  /* Comment */     { }
+
+.sub-main h2:first-child,
+.sub-main h3:first-child,
+.sub-main h4:first-child,
+.sub-main h5:first-child        { margin-top:0 !important; }
+
+.sub-main .date                 { margin:0 0 20px; }
+
+.sub-main a                     { color:#f37c05; font-weight:600; }
+.sub-main a:hover               { color:#053e80; }
+
+body.segora .sub-main a         { color:#318dd4; }
+body.event  .sub-main a         { color:#99c230; }
+body.ata    .sub-main a         { color:#f37c05; }
+body.bo     .sub-main a         { color:#c5361d; }
+
+body.segora .sub-main a:hover,
+body.event  .sub-main a:hover,
+body.ata    .sub-main a:hover,
+body.bo     .sub-main a:hover   { text-decoration:underline; }
+
+.sub-main ul                    { padding:14px 0 20px 20px; list-style:none; }																						
+.sub-main ul li                 { padding:0 0 16px 0; }
+.sub-main ul li:before          { display:inline-block; position:absolute; margin:2px 0 0 -20px; 
+                                  font:14px/20px 'FontAwesome'; content:"\f111"; color:#053e80; }
+											 
+body.segora .sub-main  ul li:before { color:#318dd4; }
+body.event  .sub-main  ul li:before { color:#99c230; }
+body.ata    .sub-main  ul li:before { color:#f37c05; }
+body.bo     .sub-main  ul li:before { color:#c5361d; }
+
+.sub-main ol                    { padding:6px 0 20px 0; }																				
+.sub-main ol li                 { margin:0 0 0 22px; padding:0 0 16px 0; }
+
+.sub-main hr                    { height:20px; margin:0 0 10px; }
+
+.sub-main .btn-text             { background:#f37c05; color:#fff !important; }
+.sub-main .btn-text:hover       { background:#053e80; color:#fff !important; }
+
+body.segora .sub-main .btn-text       { background:#318dd4; }
+body.segora .sub-main .btn-text:hover { background:#053e80; }
+body.event  .sub-main .btn-text       { background:#99c230; }
+body.event  .sub-main .btn-text:hover { background:#053e80; }
+body.ata    .sub-main .btn-text       { background:#f37c05; }
+body.ata    .sub-main .btn-text:hover { background:#053e80; }
+body.bo     .sub-main .btn-text       { background:#c5361d; }
+body.bo     .sub-main .btn-text:hover { background:#053e80; }
+
+
+
+/* --------------------------------------------------------------------------  
+   TRIP ADVISOR
+--------------------------------|----------------------------------------- */
+
+.tripadvisor                    { width:100%; margin:0 0 40px; } 
+.tripadvisor .responsivebox > div { display:inline-block; position:relative; margin:0 auto; max-width:100%; padding:15px; 
+                                    background:#fff; border:1px solid #e0e0e0; } 
+
+
+
+/* ========================================================================== 
+   SUB CONTENT FOOTER (SCF)
+================================|========================================= */
+
+.sub-content-footer             { width:auto; padding:40px 0 20px; }
+
+.sub-content-footer ul.icons    { display:inline-block; margin:0 !important; padding:0 !important; }
+.sub-content-footer ul.icons li { float:left; margin:0 0 0 20px; padding:0 !important; }
+.sub-content-footer ul.icons li:first-child { margin:0 !important; }
+.sub-content-footer ul.icons li:before { display:none !important; }
+
+.sub-content-footer .icon       { display:inline-block; overflow:hidden;
+                                  width:50px; height:50px; text-align:center; 
+                                  background:#f6f6f6; color:#bbb;
+                                  border-radius:50%; -moz-border-radius:50%; -webkit-border-radius:50%; 
+                                  transition:background 0.4s; -moz-transition:background 0.4s; -webkit-transition:background 0.4s; }
+	
+.sub-content-footer .icon:before            { display:inline-block; }							 
+.sub-content-footer .icon.facebook:before   { font:36px/54px 'FontAwesome'; content:"\f09a"; }
+.sub-content-footer .icon.twitter:before    { font:36px/54px 'FontAwesome'; content:"\f099"; }
+.sub-content-footer .icon.email:before      { font:32px/50px 'FontAwesome'; content:"\f0e0"; }	
+.sub-content-footer .icon.addthis:before    { font:36px/54px 'FontAwesome'; content:"\f067"; }
+.sub-content-footer .icon.print:before      { font:36px/50px 'FontAwesome'; content:"\f02f"; }	
+
+
+.sub-content-footer .icon:hover             { background:#053e80; color:#fff; }
+
+body.segora .sub-content-footer .icon:hover { background:#318dd4; color:#fff; }
+body.event  .sub-content-footer .icon:hover { background:#99c230; color:#fff; }
+body.ata    .sub-content-footer .icon:hover { background:#f37c05; color:#fff; }
+body.bo     .sub-content-footer .icon:hover { background:#c5361d; color:#fff; }
+
+
+
+/* ========================================================================== 
+   SUB CONTENT | SIDE COLUMN
+================================|========================================= */
+
+.side-column                    { float:right; width:29%; }
+
+.side-column .main-push         { margin-top:40px; }
+.side-column .main-push:first-child { margin-top:0 !important; }
+
+
+
+/* ========================================================================== 
+   SIDE SECTION 
+================================|========================================= */
+
+.side-section                   { margin:40px 0 0; padding:0; }
+.side-section:first-child       { margin-top:0 !important; }
+
+.side-section h4                { margin:0 0 8px; padding:12px 15px; background:#053e80; color:#fff; }
+
+.side-section .main-push        { margin:0 0 8px; }
+.side-section .main-push h3     { margin:0; padding:0; }
+
+
+/* --------------------------------------------------------------------------  
+   SIDE PUSHES | responsive.css 960 <> 640
+--------------------------------|----------------------------------------- */
+
+.side-pushes                    { }
+
+
+/* --------------------------------------------------------------------------  
+   SIDE CALENDAR | calendar (global.css)
+--------------------------------|----------------------------------------- */
+
+#side-calendar                  { }
+
+
+
+/* ========================================================================== 
+   ARCHIVE PAGE | Ex "Se & Gora"
+================================|========================================= */
+
+body.archive                    { } 
+
+body.sub.archive #content       { padding:0; } 
+
+body.archive .sub-content-section .main-column,
+body.archive .sub-content-section .side-column { padding:0; }
+
+body.archive .main-pushes       { width:auto; margin:0 0 0 -18px; } 
+body.archive .main-pushes .col  { padding:0 0 18px 18px; } 
+
+
+
+/* ========================================================================== 
+   ARTICLE PAGE
+================================|========================================= */
+
+body.article                    { } 
+
+
+/* --------------------------------------------------------------------------  
+   ARTICLE PAGE | MAIN COLUMN
+--------------------------------|----------------------------------------- */
+
+body.article .main-column       { padding:0 0 25px; } 
+
+body.article .main-column .sub-main { padding:30px 0; } 
+								 
+.main-article-info              { padding:20px 20px 10px; background:#053e80; 
+                                  font:600 20px/24px 'Open Sans'; color:#fff; }
+body.segora .main-article-info  { background:#318dd4; }
+body.event  .main-article-info  { background:#99c230; }
+body.ata    .main-article-info  { background:#f37c05; }
+body.bo     .main-article-info  { background:#c5361d; }
+
+.main-article-info ul           { display:inline-block; margin:0 0 0 -20px; }
+.main-article-info ul li        { float:left; padding:0 0 10px 20px; }
+.main-article-info ul li span   { font-weight:400; color:rgba(255,255,255,0.8); }
+
+.main-article-info a            { display:inline-block; color:#fff; border-bottom:2px solid rgba(255,255,255,0); 
+                                  transition:all 0.3s; -moz-transition:all 0.3s; -webkit-transition:all 0.3s; }
+.main-article-info a:hover      { border-bottom:2px solid rgba(255,255,255,0.5); }
+
+.main-article-info .row         { position:relative; width:100%; padding:0 0 10px; }
+
+#main-article-info-calendar     { display:none !important; /* DESKTOP HIDE */ float:left; width:100%; }
+
+#main-article-info-calendar .show { display:inline-block; padding:7px 12px 8px; border:1px solid rgba(255,255,255,0.4); }
+#main-article-info-calendar .show:hover { border:1px solid rgba(255,255,255,1);}
+
+#main-article-info-calendar .calendar { display:none; width:50%;  }
+
+#main-article-info-calendar .hide { display:none; margin:10px 0 0; }
+
+#main-article-info-calendar.active .show     { display:none; }
+#main-article-info-calendar.active .calendar { display:block; padding:15px 0 5px; }
+#main-article-info-calendar.active .hide     { display:inline-block; font:600 14px/18px 'Open Sans'; }
+
+.main-article-info .button         { float:right; width:0; min-height:45px; }
+.main-article-info .btn-text       { position:absolute; right:0; padding:11px 22px 12px; background:#fff;  
+                                     font:27px/30px 'BertholdAGMedium'; color:#000; border:none !important; }
+.main-article-info .btn-text:hover { background:#053e80; color:#fff; }
+
+body.article .sub-main .btn-text.large { margin:40px 0 20px; }
+
+body.article .sub-content-footer             { width:100%; height:auto; margin:0; padding:0; text-align:left; }
+
+body.article .sub-content-footer .icon       { background:#053e80; color:#fff; }
+body.article .sub-content-footer .icon:hover { background:#053e80; }
+
+body.article.segora .sub-content-footer .icon       { background:#318dd4; }
+body.article.segora .sub-content-footer .icon:hover { background:#053e80; color:#fff; }
+
+body.article.event  .sub-content-footer .icon       { background:#99c230; }
+body.article.event  .sub-content-footer .icon:hover { background:#053e80; color:#fff; }
+
+body.article.ata    .sub-content-footer .icon       { background:#f37c05; }
+body.article.ata    .sub-content-footer .icon:hover { background:#053e80; color:#fff; }
+
+body.article.bo     .sub-content-footer .icon       { background:#c5361d; }
+body.article.bo     .sub-content-footer .icon:hover { background:#053e80; color:#fff; }
+
+
+
+/* --------------------------------------------------------------------------  
+   ARTICLE PAGE | SIDE COLUMN
+--------------------------------|----------------------------------------- */
+
+
+body.article .side-column       { padding:0; } 
+
+body.article .calendar          { }
+
+
+
+/* ========================================================================== 
+   GUIDE PAGE | Ex. "Evenemang" (Guidebox)
+================================|========================================= */
+
+body.guide                      { }
+
+body.sub.guide #content         { padding:25px 0 0; }
+
+
+
+/* ========================================================================== 
+   THEME PAGE
+================================|========================================= */
+
+body.theme                      { }
+
+
+
+/* ========================================================================== 
+   CAMPAIGN PAGE
+================================|========================================= */
+
+body.campaign                   { } 
+
+body.campaign h1                { font:65px/70px 'BertholdAGMedium'; }
+body.campaign h2                { font:40px/44px 'BertholdAGMedium'; }
+body.campaign h3                { font:30px/34px 'BertholdAGMedium'; }
+
+
+
+/* ========================================================================== 
+   SEARCH RESULT (SR)
+================================|========================================= */
+
+body.search                     { }
+
+.search-result                  { }
+
+.search-result h1               { margin:0 0 30px; }
+
+
+/* SR | Search Form ========== */
+.search-result .search-form     { width:100%; margin:0 0 30px; }
+.search-result .search-form .text             { float:left; width:100%; }
+.search-result .search-form label             { height:52px; margin:0; padding:0 52px 0 12px; font:24px/28px 'BertholdAGRegular'; }
+.search-result .search-form .search-field     { width:100%; height:52px; padding:0 52px 0 12px; 
+                                                background:#f8f8f8; border:1px solid #e0e0e0; 
+																font:24px/28px 'BertholdAGRegular'; }
+.search-result .search-form .search-field:focus { background:#fff; border:1px solid #666; color:#000; }
+
+.search-result .search-form .button           { float:right; }
+.search-result .search-form .search-btn       { display:block; position:absolute; margin:0 0 0 -52px; padding:0; width:52px; height:52px; 
+                                                font:33px/33px 'FontAwesome' !important; background:transparent; color:#053e80;
+										                  transition:color 0.3s; -moz-transition:color 0.3s; -webkit-transition:color 0.3s;
+                                                transform:scaleX(-1); -ms-filter:fliph; filter:fliph;
+                                                -moz-transform:scaleX(-1); -webkit-transform:scaleX(-1); -o-transform:scaleX(-1); }
+.search-result .search-form .search-btn:hover { color:#f37c05; }
+
+
+/* SR | Info =========================== */
+.search-result .search-info               { padding:0 0 30px; }
+.search-result .search-info h3            { margin:0 0 15px; font:400 20px/24px 'Open Sans'; }
+.search-result .search-info h3 em         { font-style:normal; font-weight:600;  }
+.search-result .search-info .row          { width:auto; margin:0 0 10px -20px; }
+.search-result .search-info .row h4       { display:inline-block; margin:0 0 5px 20px; font:600 16px/22px 'Open Sans'; color:#000; }
+.search-result .search-info .row a        { display:inline-block; margin:0 0 5px 20px; color:#555; }
+.search-result .search-info .row a:hover  { color:#000; }
+.search-result .search-info .row a.active { color:#000; text-decoration:underline; }
+
+
+/* SR | List ================= */
+.search-result ol               { }																				
+.search-result ol li            { padding:0 0 30px; }
+
+.search-result ol li a          { display:block; color:#555; }
+
+.search-result ol li h2         { padding:0 0 5px; }
+.search-result ol li h2 strong  { font-weight:normal; color:#000; }
+.search-result ol li a .category { display:inline-block; padding:0 4px 2px 4px; background:#053e80;
+                                   font:600 11px/13px 'Open Sans'; color:#fff; }
+.search-result ol li a:hover h2,
+.search-result ol li a:hover h2 strong { color:#f37c05 !important; }
+
+.search-result ol li a:hover,
+.search-result ol li a:hover strong { color:#000; }
+
+
+

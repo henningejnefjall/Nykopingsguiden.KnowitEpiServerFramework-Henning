@@ -1,0 +1,461 @@
+﻿@using EPiServer
+@using EPiServer.Core
+@using EPiServer.ServiceLocation
+@using EPiServer.Web.Routing
+@using Knowit.EpiserverFramework.Models.Pages
+@using Knowit.EpiserverFramework.Web.Features.Pages.EventCreatePage
+
+@model EventCreatePageViewModel
+
+@{
+    Layout = "~/Features/Layouts/_Layout.cshtml";
+    var contentRepository = ServiceLocator.Current.GetInstance<IContentRepository>();
+}
+@section xtrahead{
+    <link href="@Url.Content("~/Frontend/css/adminstyles.css")" rel="stylesheet" />
+}
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBMQqXaCB6RZXhJMnHleQb9vMJtOK0lZWE"></script>
+<script src="/Frontend/js/pages/admin/jquery-gmaps-latlon-picker.js"></script>
+<style>
+    .container {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .action {
+        width: 400px;
+        height: 30px;
+        margin: 10px 20px;
+    }
+
+    .cropped > img {
+        margin-right: 10px;
+    }
+</style>
+<div class="deleteBtn">
+    <span class="clickDelete btn-text">Ta bort</span>
+    <div class="showDelete">
+        Är du säker på att du vill ta bort evenemanget?
+        @using (Html.BeginForm("DeleteAction", "EventCreatePage", FormMethod.Post))
+        {
+            @Html.HiddenFor(m => m.CurrentPage.PageId, new { Name="PageId", @Value = @ViewBag.PageId })
+            <input type="submit" value="Godkänn" id="acceptDelete" class="btn-text" />
+        }
+        <input type="submit" value="Avbryt" id="cancelDelete" class="btn-text" />
+    </div>
+</div>
+
+@using (Html.BeginForm("SubmitPage", "EventCreatePage", FormMethod.Post, new {@class = "createEvent"}))
+{
+    @Html.AntiForgeryToken()
+    <section id="eventCreateContent">
+
+        <section id="firstRow" class="section">
+            <div class="inner-wrap">
+                <div>
+
+                    <h1>@ViewBag.FormHeader</h1>
+                    <br/>
+                    @Model.CurrentPage.UpperFirstMainBody
+
+                    <div class="EventCategoryString hidden">@ViewBag.EventCategoryString</div>
+                    <div class="AttractionsCategoryString hidden">@ViewBag.AttractionsCategoryString</div>
+
+                    @Html.ValidationSummary(true)
+                    <fieldset>
+                        <div class="leftCol">
+                            @Model.CurrentPage.HeaderHeader
+                            @if (@Model.CurrentPage.HeaderHelp != null)
+                            {
+                                <a class="infoPopup">!</a>
+                                <div>@Model.CurrentPage.HeaderHelp</div>
+                            }
+                        </div>
+                        <div class="rightCol">
+                            @Html.TextBoxFor(m => m.CurrentPage.Header, new { Name = "Header", @Value = @ViewBag.Header})
+                            @Html.ValidationMessageFor(m => m.CurrentPage.Header)
+                        </div>
+                        <div class="leftCol">
+                            @Model.CurrentPage.EventCategoryHeader
+                            @if (@Model.CurrentPage.EventCategoryHelp != null)
+                            {
+                                <a class="infoPopup">!</a>
+                                <div>@Model.CurrentPage.EventCategoryHelp</div>
+                            }
+                        </div>
+                        <div class="rightCol">
+                            @Html.ListBox("EventCategory", ViewBag.EventCategory as MultiSelectList, new {data_placeholder = "--Välj kategori--"})
+                            <span id="EventCategory-error" class="">Detta fält måste anges</span>
+                        </div>
+                        <div class="leftCol">
+                            @Model.CurrentPage.AttractionsCategoryHeader
+                            @if (@Model.CurrentPage.AttractionsCategoryHelp != null)
+                            {
+                                <a class="infoPopup">!</a>
+                                <div>@Model.CurrentPage.AttractionsCategoryHelp</div>
+                            }
+                        </div>
+                        <div class="rightCol">
+                            @Html.ListBox("AttractionsCategory", ViewBag.AttractionsCategory as MultiSelectList, new {data_placeholder = "--Välj kategori--"})
+                            <span id="AttractionsCategory-error" class="">Detta fält måste anges</span>
+                        </div>
+                        <div class="leftCol">
+                            @Model.CurrentPage.ExtractHeader
+                            @if (@Model.CurrentPage.ExtractHelp != null)
+                            {
+                                <a class="infoPopup">!</a>
+                                <div>@Model.CurrentPage.ExtractHelp</div>
+                            }
+                        </div>
+                        <div class="rightCol">
+                            @Html.TextAreaFor(m => m.CurrentPage.Extract, new { Id = "Extract", Name = "Extract", @cols = 99, @rows = 3})
+                            <span class="ViewbagExtract hidden">@ViewBag.Extract</span>
+                            @Html.ValidationMessageFor(m => m.CurrentPage.Extract)
+                        </div>
+                        <div class="leftCol">
+                            @Model.CurrentPage.MainBodyHeader
+                            @if (@Model.CurrentPage.MainbodyHelp != null)
+                            {
+                                <a class="infoPopup">!</a>
+                                <div>@Model.CurrentPage.MainbodyHelp</div>
+                            }
+                        </div>
+                        <div class="rightCol">
+                            @Html.TextAreaFor(m => m.CurrentPage.MainBody, new { Id = "MainBody", Name = "MainBody", @cols = 99, @rows = 10})
+                            <span class="ViewbagMainbody hidden">@ViewBag.MainBody</span>
+                            @Html.ValidationMessageFor(m => m.CurrentPage.MainBody)
+                        </div>
+                        <div class="leftCol">
+                            Datum:
+                        </div>
+                        <div class="rightCol">
+                            Lägg in datumval
+                        </div>
+                        <div class="leftCol">
+                            <input type="submit" value="Gå vidare" class="btn-text" id="eventCreateBtn"/>
+                            @Html.HiddenFor(m => m.CurrentPage.PageId, new { Name = "PageId", @Value = @ViewBag.PageId})
+                        </div>
+                    </fieldset>
+
+                    <br/>
+                    @Model.CurrentPage.LowerFirstMainBody
+
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+    <section id="eventCreateContent2">
+
+    <section class="section">
+    <div class="inner-wrap">
+
+    <div>
+
+    <h1>Fortsättning evenemang</h1>
+
+    @Model.CurrentPage.UpperSecondMainBody
+
+    @{
+        EventPageModel eventPage =  new EventPageModel();
+        if (ViewBag.PageId != null)
+        {
+            eventPage = contentRepository.Get<EventPageModel>(new PageReference(ViewBag.PageId));
+        }
+    }
+
+    <div class="PlaceString hidden">@ViewBag.Place</div>
+    <div class="CompanyString hidden">@ViewBag.Company</div>
+
+
+    <fieldset>
+    @Html.TextBoxFor(m => m.CurrentPage.PageId, new { Name = "PageId", @Value = ViewBag.PageId, Style = "display:none"})
+    <div class="leftCol">
+        <a href="@UrlResolver.Current.GetUrl(Model.CurrentPage.Settings.EventCreateContainer)?eventid=@ViewBag.PageId" class="btn-text" id="eventCreateBtn2">
+            Tillbaka
+        </a>
+    </div>
+    <br/><br/><br/>
+    <div class="leftCol">
+        @Model.CurrentPage.CompanyHeader
+        @if (@Model.CurrentPage.CompanyHelp != null)
+        {
+            <a class="infoPopup">!</a>
+            <div>@Model.CurrentPage.CompanyHelp</div>
+        }
+    </div>
+    <div class="rightCol">
+        @Html.DropDownList("Companies", ViewBag.Companies as SelectList)
+    </div>
+    <div class="leftCol">
+        @Model.CurrentPage.PlaceHeader
+        @if (@Model.CurrentPage.PlaceHelp != null)
+        {
+            <a class="infoPopup">!</a>
+            <div>@Model.CurrentPage.PlaceHelp</div>
+        }
+    </div>
+    <div class="rightCol">
+        @Html.DropDownList("Places", ViewBag.Places as SelectList)
+    </div>
+    <div class="hidePlace hidden">
+        <div class="leftCol">
+            @Model.CurrentPage.PlaceHeader
+        </div>
+        <div class="rightCol">
+            @Html.TextBoxFor(m => m.CurrentPage.OtherPlace, new { Name = "OtherPlace", @Value = @ViewBag.OtherPlace})
+            @Html.ValidationMessageFor(m => m.CurrentPage.OtherPlace)
+        </div>
+    </div>
+    <div class="leftCol">
+        @Model.CurrentPage.PriceHeader
+        @if (@Model.CurrentPage.PriceHelp != null)
+        {
+            <a class="infoPopup">!</a>
+            <div>@Model.CurrentPage.PriceHelp</div>
+        }
+    </div>
+    <div class="rightCol">
+        @Html.TextBoxFor(m => m.CurrentPage.Price, new { Name = "Price", @Value = @ViewBag.Price})
+        @Html.ValidationMessageFor(m => m.CurrentPage.Price)
+    </div>
+    <div class="leftCol">
+        @Model.CurrentPage.AccessHeader
+        @if (@Model.CurrentPage.AccessHelp != null)
+        {
+            <a class="infoPopup">!</a>
+            <div>@Model.CurrentPage.AccessHelp</div>
+        }
+    </div>
+    <div class="rightCol">
+        @Html.TextAreaFor(m => m.CurrentPage.Access, new { Id = "Access", Name = "Access", @cols = 99, @rows = 3})
+        <span class="ViewbagAccess hidden">@ViewBag.Access</span>
+        @Html.ValidationMessageFor(m => m.CurrentPage.Access)
+    </div>
+    <div class="leftCol">
+        @Model.CurrentPage.OrganizerHeader
+        @if (@Model.CurrentPage.OrganizerHelp != null)
+        {
+            <a class="infoPopup">!</a>
+            <div>@Model.CurrentPage.OrganizerHelp</div>
+        }
+    </div>
+    <div class="rightCol">
+        @Html.TextBoxFor(m => m.CurrentPage.Organizer, new { Name = "Organizer", @Value = @ViewBag.Organizer})
+        @Html.ValidationMessageFor(m => m.CurrentPage.Organizer)
+    </div>
+    <div class="leftCol">
+        @Model.CurrentPage.OrganizerUrlHeader
+        @if (@Model.CurrentPage.OrganizerUrlHelp != null)
+        {
+            <a class="infoPopup">!</a>
+            <div>@Model.CurrentPage.OrganizerUrlHelp</div>
+        }
+    </div>
+    <div class="rightCol">
+        @Html.TextBoxFor(m => m.CurrentPage.OrganizerUrl, new { Name = "OrganizerUrl", @Value = @ViewBag.OrganizerUrl})
+        @Html.ValidationMessageFor(m => m.CurrentPage.OrganizerUrl)
+    </div>
+    <div class="leftCol">
+        @Model.CurrentPage.BookingUrlHeader
+        @if (@Model.CurrentPage.BookingUrlHelp != null)
+        {
+            <a class="infoPopup">!</a>
+            <div>@Model.CurrentPage.BookingUrlHelp</div>
+        }
+    </div>
+    <div class="rightCol">
+        @Html.TextBoxFor(m => m.CurrentPage.BookingUrl, new { Name = "BookingUrl", @Value = @ViewBag.BookingUrl})
+        @Html.ValidationMessageFor(m => m.CurrentPage.BookingUrl)
+    </div>
+    <div class="leftCol">
+        @Model.CurrentPage.Image1Header
+        @if (@Model.CurrentPage.Image1Help != null)
+        {
+            <a class="infoPopup">!</a>
+            <div>@Model.CurrentPage.Image1Help</div>
+        }
+    </div>
+    <div class="rightCol">
+
+        <div class="cropper" id="cropperimage1">
+            <div class="container">
+                <div class="imageBox">
+                    <div class="thumbBox"></div>
+                    <div class="spinner" style="display: none">Loading...</div>
+                </div>
+                <div class="action">
+                    <input id="file1" style="float: left; width: 250px" type="file" accept="image/*">
+                    <a class="btnCrop btn-text" id="btnCrop1" style="float: right; line-height: 6px;">Ok</a>
+                    <input id="btnZoomIn" value="+" style="float: right; width: 25px;" type="button">
+                    <input id="btnZoomOut" value="-" style="float: right; width: 25px;" type="button">
+                </div>
+                <div class="cropped">
+
+                </div>
+            </div>
+        </div>
+        <a class="imageUpload" id="image1">Ladda upp bild</a>
+        <input type="hidden" name="imagefile1" id="imagefile1" class="imagefile">
+        <div id="image1Div"></div>
+        @if (eventPage.Image1 != null)
+        {
+            <img src="@UrlResolver.Current.GetUrl(eventPage.Image1)" alt="@eventPage.Header" class="eventEditImage"/>
+        }
+    </div>
+
+    <div class="leftCol">
+        @Model.CurrentPage.DocumentHeader
+        @if (@Model.CurrentPage.DocumentHelp != null)
+        {
+            <a class="infoPopup">!</a>
+            <div>@Model.CurrentPage.DocumentHelp</div>
+        }
+    </div>
+    <div class="rightCol">
+        <input type="file" name="file1">
+        @if (eventPage.Document != null)
+        {
+            var doc = contentRepository.Get<MediaData>(eventPage.Document);
+            var fileName = doc.Name;
+
+            <a href="@UrlResolver.Current.GetUrl(eventPage.Document)">@fileName</a>
+        }
+    </div>
+    <br/>
+
+    <div class="leftCol">
+        @Model.CurrentPage.FacebookPageHeader
+        @if (@Model.CurrentPage.FacebookpageHelp != null)
+        {
+            <a class="infoPopup">!</a>
+            <div>@Model.CurrentPage.FacebookpageHelp</div>
+        }
+    </div>
+    <div class="rightCol">
+        @Html.TextBoxFor(m => m.CurrentPage.Facebook, new { Name = "Facebook", @Value = @ViewBag.Facebook})
+    </div>
+
+    <br/>
+
+    <div class="leftCol">
+        @Model.CurrentPage.EmailHeader
+        @if (@Model.CurrentPage.EmailHelp != null)
+        {
+            <a class="infoPopup">!</a>
+            <div>@Model.CurrentPage.EmailHelp</div>
+        }
+    </div>
+    <div class="rightCol">
+        @Html.TextBoxFor(m => m.CurrentPage.Email, new { Name = "Email", @Value = @ViewBag.Email})
+    </div>
+
+    <br/>
+
+    <div class="leftCol">
+        @Model.CurrentPage.MapHeader
+        @if (@Model.CurrentPage.MapHelp != null)
+        {
+            <a class="infoPopup">!</a>
+            <div>@Model.CurrentPage.MapHelp</div>
+        }
+    </div>
+    <div class="rightCol">
+        <fieldset class="gllpLatlonPicker">
+            <div class="gllpMap">Google Maps</div>
+            <br/>
+            <span>
+                                    lat/lon:
+                                </span>
+            <p>
+                @Html.TextBoxFor(m => m.CurrentPage.Latitude, new { Name = "Latitude", @Value = @ViewBag.Latitude, @class = "gllpLatitude"})
+                <p>/</p>
+                @Html.TextBoxFor(m => m.CurrentPage.Longitude, new { Name = "Longitude", @Value = @ViewBag.Longitude, @class = "gllpLongitude"})
+                <input type="text" class="gllpZoom" value="11" hidden="hidden"/>
+            </p>
+        </fieldset>
+    </div>
+
+    <div class="leftCol">
+        <input type="submit" name="command" value="Spara" class="btn-text"/>
+    </div>
+    <div class="rightCol">
+        <input type="submit" name="command" value="Spara och publicera" class="btn-text"/>
+    </div>
+    </fieldset>
+
+    <script type="text/javascript">
+        window.onload = function() {
+
+            var strPlace = $(".PlaceString").html();
+            if (strPlace == "Annan") {
+                $(".hidePlace").css("display", "block");
+            }
+
+            var strCompany = $(".CompanyString").html();
+ 
+            $("#Places").val(strPlace);
+            $("#Companies").val(strCompany);
+
+            var strEvent = $(".EventCategoryString").html();
+            var eventarray = strEvent.split(",");
+            $("#EventCategory").val(eventarray);
+
+            var strAttractions = $(".AttractionsCategoryString").html();
+            var attractionsarray = strAttractions.split(",");
+            $("#AttractionsCategory").val(attractionsarray);
+
+            var cropper;
+            document.querySelector('#file1').addEventListener('change', function() {
+
+                var options = {
+                    imageBox: '#cropperimage1 .imageBox',
+                    thumbBox: '#cropperimage1 .thumbBox',
+                    spinner: '#cropperimage1 .spinner',
+                    imgSrc: 'avatar.png'
+                }
+
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    options.imgSrc = e.target.result;
+                    cropper = new cropbox(options);
+                }
+                if (this.files.length > 0) {
+                    reader.readAsDataURL(this.files[0]);
+                }
+                this.files = [];
+            });
+
+            //document.querySelector('#btnCrop').addEventListener('click', function() {
+            $('.btnCrop').click(function() {
+                var img = cropper.getDataURL();
+                var imagecropper = $(this).closest(".cropper");
+                var cropperid = imagecropper.attr('id');
+                var id = cropperid.substring(cropperid.length - 1);
+                document.getElementById('imagefile' + id).value = img;
+                //var imgFile = $(this).closest('.imagefile');
+                //imgFile.value = img;
+                $("#image" + id + "Div").html("<img src='" + img + "' style='width:150px;' />");
+                $(".cropper").css("display", "none");
+                $(".overlay").css("display", "none");
+            });
+            document.querySelector('#cropperimage1 #btnZoomIn').addEventListener('click', function() {
+                cropper.zoomIn();
+            });
+            document.querySelector('#cropperimage1 #btnZoomOut').addEventListener('click', function() {
+                cropper.zoomOut();
+            });
+        };
+    </script>
+
+    @Model.CurrentPage.LowerSecondMainBody
+    </div>
+    </div>
+    </section>
+
+    </section>
+}

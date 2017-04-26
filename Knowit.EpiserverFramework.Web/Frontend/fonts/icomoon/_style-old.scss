@@ -1,0 +1,124 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon/fonts/icomoon.eot?dvsws1');
+  src:  url('../fonts/icomoon/fonts/icomoon.eot?dvsws1#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon/fonts/icomoon.woff2?dvsws1') format('woff2'),
+    url('../fonts/icomoon/fonts/icomoon.ttf?dvsws1') format('truetype'),
+    url('../fonts/icomoon/fonts/icomoon.woff?dvsws1') format('woff'),
+    url('../fonts/icomoon/fonts/icomoon.svg?dvsws1#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-plus3:before {
+  content: "\ed5d";
+}
+.icon-minus3:before {
+  content: "\ed5e";
+}
+.icon-cart:before {
+  content: "\e9fe";
+}
+.icon-Arbetsbredd:before {
+  content: "\e900";
+}
+.icon-Arbetsdjup-pinne:before {
+  content: "\e901";
+}
+.icon-Arbetsdjup-tallrik:before {
+  content: "\e902";
+}
+.icon-Gödningssavstånd:before {
+  content: "\e903";
+}
+.icon-Hästkrafter:before {
+  content: "\e904";
+}
+.icon-Lådvolym:before {
+  content: "\e905";
+}
+.icon-Pinnavstånd:before {
+  content: "\e906";
+}
+.icon-Radavstånd-sådd:before {
+  content: "\e907";
+}
+.icon-Tallriksavstånd:before {
+  content: "\e908";
+}
+.icon-Tallriksdiameter:before {
+  content: "\e909";
+}
+.icon-Transportbredd:before {
+  content: "\e90a";
+}
+.icon-Vikt:before {
+  content: "\e90b";
+}
+.icon-Volym-radenhet:before {
+  content: "\e90c";
+}
+.icon-arrow-up:before {
+  content: "\edb7";
+}
+.icon-arrow-up2:before {
+  content: "\edb8";
+}
+.icon-arrow-right:before {
+  content: "\edbb";
+}
+.icon-arrow-right2:before {
+  content: "\edbc";
+}
+.icon-arrow-down:before {
+  content: "\edbf";
+}
+.icon-arrow-down2:before {
+  content: "\edc0";
+}
+.icon-arrow-left:before {
+  content: "\edc3";
+}
+.icon-arrow-left2:before {
+  content: "\edc4";
+}
+.icon-home3:before {
+  content: "\e90d";
+}
+.icon-cart4:before {
+  content: "\ea01";
+}
+.icon-lock4:before {
+  content: "\eb53";
+}
+.icon-facebook:before {
+  content: "\eeef";
+}
+.icon-instagram:before {
+  content: "\eef1";
+}
+.icon-twitter:before {
+  content: "\eef5";
+}
+.icon-youtube:before {
+  content: "\eefc";
+}
+.icon-linkedin:before {
+  content: "\ef28";
+}
+

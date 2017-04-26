@@ -1,0 +1,259 @@
+﻿@using EPiServer
+@using EPiServer.Core
+@using EPiServer.Editor
+@using EPiServer.Filters
+@using EPiServer.ServiceLocation
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Web.Routing
+@using Knowit.EpiserverFramework.Models.Media
+@using Knowit.EpiserverFramework.Utilities.EpiserverUtilities;
+@using Knowit.EpiserverFramework.Web.Features.Pages.CampaignPage
+
+@model CampaignPageViewModel
+
+@{
+    Layout = "~/Features/Layouts/_Layout.cshtml";
+
+    var pageRouteHelper = ServiceLocator.Current.GetInstance<IPageRouteHelper>();
+
+    PageReference currentPageLink = pageRouteHelper.PageLink;
+    PageData currentPage = currentPageLink.GetPage();
+    var t = currentPage.GetPropertyValueRecursive<bool>("Menu");
+    var s = currentPage.GetPagereferenceRecursive<bool>("Menu");
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+}
+
+@if (Model.CurrentPage.ImageSlidesArea != null && Model.CurrentPage.ImageSlidesArea.Count > 0)
+{
+    if (PageEditing.PageIsInEditMode)
+    {
+        for (var i = 0; i < Model.CurrentPage.ImageSlidesArea.Count; i++)
+        {
+            var sliderImage = contentLoader.Get<IContentData>(Model.CurrentPage.ImageSlidesArea.Items[i].ContentLink) as ImageMediaModel;
+
+            <img src="@Url.ContentUrl(sliderImage.ContentLink)" alt="@sliderImage.Alt" style="width: 300px !important; margin-bottom: 2px; margin-right: 2px;" />
+        }
+    }
+    else
+    {
+        <section id="ps-themes" class="push-section">
+            <div class="inner-wrap">
+                <div id="theme-slider" class="slider big-slider wide-slider" data-sliderautoplayinterval="5000">
+
+                    @for (var i = 0; i < Model.CurrentPage.ImageSlidesArea.Count; i++)
+                    {
+                        var sliderImage = contentLoader.Get<IContentData>(Model.CurrentPage.ImageSlidesArea.Items[i].ContentLink) as ImageMediaModel;
+
+                        <div class="push segora">
+                            <img src="@Url.ContentUrl(sliderImage.ContentLink)" alt="@sliderImage.Alt" @(PageEditing.PageIsInEditMode ? "style=width:300px!important;" : string.Empty) />
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+    }
+}
+
+<div id="content">
+
+    @Html.Partial("Nykopingsguiden/_breadcrumbs-menu")
+
+    <div id="sub-content">
+        <section class="sub-content-section">
+            <div class="inner-wrap">
+                <main class="main-column">
+                    <div class="sub-main">
+                        <h1>@Model.CurrentPage.Heading</h1>
+                        <h5>
+                            @Model.CurrentPage.Extract
+                        </h5>
+                        @{
+                            var currentItem = "";
+                            if (t)
+                            {
+                                <nav class="sub-nav">
+                                    <ul>
+                                        @if (s.ID == currentPage.PageLink.ID)
+                                        {
+                                            currentItem = "current-menu-item";
+                                        }
+                                        <li class="@currentItem">
+                                            <a href="@DataFactory.Instance.GetPage(s).LinkURL">@DataFactory.Instance.GetPage(s).PageName</a>
+                                            @{
+                                                PageDataCollection allChilds = DataFactory.Instance.GetChildren(s);
+                                                IEnumerable<PageData> filteredChilds = FilterForVisitor.Filter(allChilds).Where(p => p.IsVisibleOnSite() && p.VisibleInMenu);
+                                                foreach (PageData item in filteredChilds)
+                                                {
+                                                    PageDataCollection children = DataFactory.Instance.GetChildren(item.PageLink);
+                                                    IEnumerable<PageData>
+                                                        filteredChildren = FilterForVisitor.Filter(children).Where(p => p.IsVisibleOnSite() && p.VisibleInMenu);
+
+                                                    <ul>
+                                                        @if (item.PageLink.ID == currentPage.PageLink.ID)
+                                                        {
+                                                            currentItem = "current-menu-item";
+                                                        }
+                                                        <li class="@currentItem">
+                                                            <a href="@item.LinkURL">@item.PageName</a>
+                                                            @foreach (PageData seconditem in filteredChildren)
+                                                            {
+                                                                PageDataCollection secondchildren = DataFactory.Instance.GetChildren(seconditem.PageLink);
+                                                                IEnumerable<PageData>
+                                                                    filteredsecondChildren = FilterForVisitor.Filter(secondchildren).Where(p => p.IsVisibleOnSite() && p.VisibleInMenu);
+                                                                var currentsecondItem = "";
+                                                                <ul>
+                                                                    @if (item.PageLink.ID == currentPage.PageLink.ID)
+                                                                    {
+                                                                        currentsecondItem = "current-menu-item";
+                                                                    }
+                                                                    <li class="@currentsecondItem">
+                                                                        <a href="@seconditem.LinkURL">@item.PageName</a>
+                                                                        @foreach (PageData thirditem in filteredsecondChildren)
+                                                                        {
+                                                                            var currentthirdItem = "";
+                                                                            <ul>
+                                                                                @if (item.PageLink.ID == currentPage.PageLink.ID)
+                                                                                {
+                                                                                    currentthirdItem = "current-menu-item";
+                                                                                }
+                                                                                <li class="@currentthirdItem">
+                                                                                    <a href="@thirditem.LinkURL">@item.PageName</a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        }
+                                                                    </li>
+                                                                </ul>
+                                                            }
+                                                        </li>
+                                                    </ul>
+                                                }
+                                            }
+                                        </li>
+                                    </ul>
+                                </nav>
+                                                }
+                        }
+                        @Model.CurrentPage.MainBody
+                    </div>
+                </main>
+                <aside class="side-column">
+                    @{
+                        currentItem = "";
+                        if (t)
+                        {
+                            <nav class="sub-nav">
+                                <ul>
+                                    @if (s.ID == currentPage.PageLink.ID)
+                                    {
+                                        currentItem = "current-menu-item";
+                                    }
+                                    <li class="@currentItem">
+                                        <a href="@UrlResolver.Current.GetUrl(DataFactory.Instance.GetPage(s).LinkURL)">@DataFactory.Instance.GetPage(s).PageName</a>
+                                        @{
+                                            PageDataCollection allChilds = DataFactory.Instance.GetChildren(s);
+                                            IEnumerable<PageData> filteredChilds = FilterForVisitor.Filter(allChilds).Where(p => p.IsVisibleOnSite() && p.VisibleInMenu);
+                                            foreach (PageData item in filteredChilds)
+                                            {
+                                                PageDataCollection children = DataFactory.Instance.GetChildren(item.PageLink);
+                                                IEnumerable<PageData>
+                                                    filteredChildren = FilterForVisitor.Filter(children).Where(p => p.IsVisibleOnSite() && p.VisibleInMenu);
+
+                                                <ul>
+                                                    @if (item.PageLink.ID == currentPage.PageLink.ID)
+                                                    {
+                                                        currentItem = "current-menu-item";
+                                                    }
+                                                    <li class="@currentItem">
+                                                        <a href="@UrlResolver.Current.GetUrl(item.LinkURL)">@item.PageName</a>
+                                                        @foreach (PageData seconditem in filteredChildren)
+                                                        {
+                                                            PageDataCollection secondchildren = DataFactory.Instance.GetChildren(seconditem.PageLink);
+                                                            IEnumerable<PageData>
+                                                                filteredsecondChildren = FilterForVisitor.Filter(secondchildren).Where(p => p.IsVisibleOnSite() && p.VisibleInMenu);
+                                                            var currentsecondItem = "";
+                                                            <ul>
+                                                                @if (item.PageLink.ID == currentPage.PageLink.ID)
+                                                                {
+                                                                    currentsecondItem = "current-menu-item";
+                                                                }
+                                                                <li class="@currentsecondItem">
+                                                                    <a href="@UrlResolver.Current.GetUrl(seconditem.LinkURL)">@item.PageName</a>
+                                                                    @foreach (PageData thirditem in filteredsecondChildren)
+                                                                    {
+                                                                        var currentthirdItem = "";
+                                                                        <ul>
+                                                                            @if (item.PageLink.ID == currentPage.PageLink.ID)
+                                                                            {
+                                                                                currentthirdItem = "current-menu-item";
+                                                                            }
+                                                                            <li class="@currentthirdItem">
+                                                                                <a href="@UrlResolver.Current.GetUrl(thirditem.LinkURL)">@item.PageName</a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    }
+                                                                </li>
+                                                            </ul>
+                                                        }
+                                                    </li>
+                                                </ul>
+                                            }
+                                        }
+                                    </li>
+                                </ul>
+                            </nav>
+                                            }
+                    }
+                    @Html.PropertyFor(m => m.CurrentPage.RightColumn)
+                </aside>
+            </div>
+        </section>
+        <section class="sub-content-section">
+            <div class="inner-wrap">
+                @Html.PropertyFor(m => m.CurrentPage.MainColumn)
+            </div>
+        </section>
+        <section class="sub-content-section">
+            <div class="inner-wrap">
+                <main class="main-column">
+                    <div class="sub-content-footer">
+                        <ul class="icons">
+                            <li>
+                                <a class="addthis_button_facebook" href="#" title="Dela sidan på Facebook">
+                                    <div class="icon facebook"></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="addthis_button_twitter" href="#" title="Dela sidan på Twitter">
+                                    <div class="icon twitter"></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="addthis_button_email" href="#" title="Dela sidan via mail">
+                                    <div class="icon email"></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="addthis addthis_button" href="#" title="Dela sidan">
+                                    <div class="icon addthis"></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="print-button" onclick="printContent( &  # 39;sub - content &  # 39;)" title="Skriv ut">
+                                    <div class="icon print"></div>
+                                </a>
+                            </li>
+                        </ul>
+                        <script type="text/javascript">
+                            var addthis_config = {
+                                "data_track_addressbar": false,
+                                ui_click: true,
+                                ui_offset_top: 40
+                            };
+                        </script>
+                        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e123d080fe1776d"></script>
+                    </div>
+                </main>
+            </div>
+        </section>
+    </div>
+</div>    

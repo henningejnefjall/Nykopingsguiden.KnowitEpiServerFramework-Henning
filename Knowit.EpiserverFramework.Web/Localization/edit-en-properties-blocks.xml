@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<languages>
+  <language name="English" id="en">
+    <contenttypes>
+      <!--Local blocks properties-->
+
+      <!--Icon block model-->
+      <iconblockmodel>
+        <properties>
+          <icon>
+            <caption>Icon</caption>
+          </icon>
+          <title>
+            <caption>Title</caption>
+          </title>
+          <icontext>
+            <caption>Icon text</caption>
+          </icontext>
+        </properties>
+      </iconblockmodel>
+      
+      <!--Link block model-->
+      <linkblockmodel>
+        <properties>
+          <linktext>
+            <caption>Link text</caption>
+          </linktext>
+          <linktitle>
+            <caption>Link title</caption>
+          </linktitle>
+          <linkurl>
+            <caption>Link URL</caption>
+          </linkurl>
+          <newwindow>
+            <caption>New window</caption>
+          </newwindow>
+        </properties>
+      </linkblockmodel>
+      
+      <!--Image block model-->
+      <responsiveimageblockmodel>
+        <properties>
+          <image>
+            <caption>Image</caption>
+          </image>
+          <mobileimage>
+            <caption>Mobile image</caption>
+          </mobileimage>
+          <alt>
+            <caption>Alt</caption>
+          </alt>
+          <title>
+            <caption>Title</caption>
+          </title>
+        </properties>
+      </responsiveimageblockmodel>
+    </contenttypes>
+  </language>
+</languages>

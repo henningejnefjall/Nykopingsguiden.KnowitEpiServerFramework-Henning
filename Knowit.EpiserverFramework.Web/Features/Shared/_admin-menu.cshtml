@@ -1,0 +1,45 @@
+﻿@using EPiServer.Security
+@using EPiServer.Web.Routing
+@using Knowit.EpiserverFramework.Business;
+@model Knowit.EpiserverFramework.Models.ViewModels.IPageViewModel<Knowit.EpiserverFramework.Models.Core.SitePageData>
+
+@{ 
+    var user = EPiServer.Personalization.EPiServerProfile.Current;
+    if (user.IsAnonymous != true)
+    {
+        var p = new UserProfileHelper.Profile();
+        p.FirstName = user.FirstName;
+        p.LastName = user.LastName;
+        p.Email = user.UserName;
+        p.Address = user["Address"] as string;
+        p.ZipCode = user["ZipCode"] as string;
+        p.Locality = user["Locality"] as string;
+
+        ViewBag.Profile = p;
+    }
+    else
+    {
+        var p = new UserProfileHelper.Profile();
+        p.Email = "";
+        ViewBag.Profile = p;
+        //Redirect("/login/");
+    }
+}
+
+@if (PrincipalInfo.CurrentPrincipal.Identity.IsAuthenticated)
+{
+    <div class="adminlinks">
+        
+        @{
+            if (Model.CurrentPage.Settings != null)
+            {
+                foreach (var linkItem in Model.CurrentPage.Settings.AdminMenu ?? Enumerable.Empty<EPiServer.SpecializedProperties.LinkItem>())
+                {
+                    <a href="@UrlResolver.Current.GetUrl(linkItem.Href)" class="adminlink">@linkItem.Text</a>
+                }
+            }
+        }
+        <a href="/login/logout" class="adminlink">Logga ut</a>
+        <div class="inloggadinfo"><b>Inloggad som:</b> @ViewBag.Profile.Email</div>
+    </div>
+}

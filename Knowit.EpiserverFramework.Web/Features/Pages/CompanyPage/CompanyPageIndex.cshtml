@@ -1,0 +1,253 @@
+﻿@using EPiServer
+@using EPiServer.Core
+@using EPiServer.ServiceLocation
+@using EPiServer.Web
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Web.Routing
+@using Knowit.EpiserverFramework.Models.Pages
+@using Knowit.EpiserverFramework.Utilities.EpiserverUtilities
+@using Knowit.EpiserverFramework.Web.Features.Pages.CompanyPage
+
+@model CompanyPageViewModel
+
+@{
+    Layout = "~/Features/Layouts/_Layout.cshtml";
+}
+
+@Html.Partial("~/Features/Shared/Nykopingsguiden/_breadcrumbs-menu.cshtml")
+
+<script src="~/Frontend/js/modules/slick.min.js"></script>
+<style>
+    #karta {
+        width: 864px;
+        height: 432px;
+    }
+</style>
+    <div id="content">
+
+    @{
+        var repository = ServiceLocator.Current.GetInstance<IContentRepository>();
+        var currentPage = repository.Get<CompanyPageModel>(Request.RequestContext.GetContentLink());
+        var image = new ContentReference();
+        var guid = PermanentLinkUtility.GetGuid(currentPage.LinkURL);
+        image = ContentExtensions.GetImageFromLink(guid);
+
+        }
+    <div id="sub-content">
+
+            <section class="sub-content-section">
+
+                <div class="inner-wrap">
+
+                    <main class="col main-column">
+
+                        <div class="slider main-slider">
+                            @if (Model.CurrentPage.Image1 != null)
+                            {
+                                <div>
+                                    <img src="@Url.ContentUrl(Model.CurrentPage.Image1)" alt="@currentPage.PageName">
+                                </div>
+                            }
+                            else if (image != null)
+                            {
+                                <img src="@UrlResolver.Current.GetUrl(image)" alt="@currentPage.PageName">
+                            }
+                            @if (Model.CurrentPage.Image2 != null)
+                            {
+                                <div>
+                                    <img src="@Url.ContentUrl(Model.CurrentPage.Image2)" alt="@currentPage.PageName">
+                                </div>
+                            }
+                            @if (Model.CurrentPage.Image3 != null)
+                            {
+                                <div>
+                                    <img src="@Url.ContentUrl(Model.CurrentPage.Image3)" alt="@currentPage.PageName">
+                                </div>
+                            }
+                        </div>
+
+                        <div class="main-article-info">
+                            <ul>
+                                @if (!string.IsNullOrEmpty(Model.CurrentPage.Address))
+                                {
+                                    <li><span>Adress:</span> @Model.CurrentPage.Address</li>
+                                }
+                                @if (!string.IsNullOrEmpty(Model.CurrentPage.Phone))
+                                {
+                                    <li><span>Telefon:</span> @Model.CurrentPage.Phone</li>
+                                }
+
+                                @*<li><span>E-post:</span> <a href="mailto:info@elixirfitness.se">info@elixirfitness.se</a></li>*@
+                                @if (!string.IsNullOrEmpty(Model.CurrentPage.WebPage))
+                                {
+                                    <li><span>Webbsida:</span> <a href="@Model.CurrentPage.WebPage" target="_blank">@Model.CurrentPage.WebPage.Replace("http://", "")</a></li>
+                                }
+                                @if (!string.IsNullOrEmpty(Model.CurrentPage.FacebookPage))
+                                {
+                                    <li><span>Facebook:</span> <a href="@Model.CurrentPage.FacebookPage" target="_blank">@Model.CurrentPage.FacebookPage.Replace("http://", "")</a></li>
+                                }
+                            </ul>
+                        </div>
+
+                        <div class="sub-main">
+
+                            <h1>@Model.CurrentPage.Name</h1>
+                            @if (Model.CurrentPage.MainBody != null)
+                            {
+                                @Html.Raw(Model.CurrentPage.MainBody.ToHtmlString().Replace("\r\n", "<br/>"));
+                            }
+
+                            @if (Model.CurrentPage.Opening != null)
+                            {
+                                <h3>Öppettider</h3>
+                                @Html.Raw(Model.CurrentPage.Opening.ToHtmlString().Replace("\r\n", "<br/>"));
+                            }
+
+                            @if (Model.CurrentPage.Access != null)
+                            {
+                                <h3>Tillgänglighet</h3>
+                                @Html.Raw(Model.CurrentPage.Access.ToHtmlString().Replace("\r\n", "<br/>"));
+                            }
+                        </div>
+
+                        <div class="map">
+                            <div id="karta"></div>
+
+
+                            @*<iframe src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d8274.3137549563!2d17.0098798690096!3d58.77070267786552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d58.771561!2d17.0148032!4m5!1s0x465f2d98562ceeab%3A0xdbff96cdb07c9bbc!2selixir+fitness+nyk%C3%B6ping!3m2!1d58.771035!2d17.0147753!5e0!3m2!1ssv!2sse!4v1467643307784" width="864" height="432" frameborder="0" style="border:0" allowfullscreen></iframe>*@
+                        </div>
+
+                        <div class="tripadvisor">
+                            <div class="responsivebox">
+                                @*<div id="TA_selfserveprop472" class="TA_selfserveprop"><ul id="1o7YI0mKmn" class="TA_links ZgzdDl1Hfn"><li id="Y2Fmzk8DFK" class="Qj7Eqw"><a target="_blank" href="https://www.tripadvisor.se/"><img src="https://www.tripadvisor.se/img/cdsi/img2/branding/150_logo-11900-2.png" alt="TripAdvisor" /></a></li></ul></div>
+                                    <script src="https://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=472&amp;locationId=231816&amp;lang=sv&amp;rating=true&amp;nreviews=4&amp;writereviewlink=true&amp;popIdx=true&amp;iswide=true&amp;border=false&amp;display_version=2"></script>
+                                    *@
+
+                                @Html.Raw(Model.CurrentPage.Tripadvisor)
+                            </div >
+                        </div >
+
+
+                        <div class="sub-content-footer">
+                            <ul class="icons">
+                                <li>
+                                    <a class="addthis_button_facebook" href="#" title="Dela sidan på Facebook">
+                                        <div class="icon facebook"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="addthis_button_twitter" href="#" title="Dela sidan på Twitter">
+                                        <div class="icon twitter"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="addthis_button_email" href="#" title="Dela sidan via mail">
+                                        <div class="icon email"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="addthis addthis_button" href="#" title="Dela sidan">
+                                        <div class="icon addthis"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="print-button" onclick="printContent(&#39;sub-content&#39;)" title="Skriv ut">
+                                        <div class="icon print"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <script type = "text/javascript" > var addthis_config = { "data_track_addressbar": false, ui_click: true, ui_offset_top: 40 };</script>
+                            <script type = "text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e123d080fe1776d"></script>
+                        </div>
+
+                    </main>
+
+                    @*<aside class="side-column">
+
+                            <div id="side-tips" class="side-section">
+
+                                <h4>Många gillar också</h4>
+
+                                <div class="side-pushes">
+
+                                    <a class="main-push event" href="event-elixir.aspx">
+                                        <div class="text">
+                                            <div class="meta"><div class="date">15/12-18/12</div><div class="location">Elixir Fitness</div></div>
+                                            <div class="box">
+                                                <h3>Gratis prova på dagar på Elixir Fitness</h3>
+                                                <div class="more">
+                                                    <p>
+                                                        <!-- 200 tecken -->
+                                                        Duis autem veleum iriure dolor in hendrerit in velit esse melina consequat. Dolores eu feugiat ellam facilisis at vero eros et accumsan et iusto odio dignisim qui blandit. Lorum ipsum dolores delenida.
+                                                    </p>
+                                                    <div class="arrow"></div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <img src="img/content/864x486-gym.jpg" alt="">
+                                    </a>                           <a class="main-push event" href="#">
+                                        <div class="text">
+                                            <div class="meta"><div class="date">11/6</div><div class="location">Uppsa Kulle</div></div>
+                                            <div class="box">
+                                                <h3>Mindfulness på Uppsa Kulle</h3>
+                                                <div class="more">
+                                                    <p>
+                                                        <!-- 200 tecken -->
+                                                        Duis autem veleum iriure dolor in hendrerit in velit esse melina consequat. Dolores eu feugiat ellam facilisis at vero eros et accumsan et iusto odio dignisim qui blandit. Lorum ipsum dolores delenida.
+                                                    </p>
+                                                    <div class="arrow"></div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <img src="img/content/864x486-mindfulness.jpg" alt="">
+                                    </a>                           <a class="main-push event" href="#">
+                                        <div class="icons"><div class="icon pod"></div></div>
+                                        <div class="text">
+                                            <div class="meta"><div class="date">14/6</div><div class="location">Rosvalla stadion</div></div>
+                                            <div class="box">
+                                                <h3>Nyköpings BIS - IK Sleipner</h3>
+                                                <div class="more">
+                                                    <p>
+                                                        <!-- 200 tecken -->
+                                                        Duis autem veleum iriure dolor in hendrerit in velit esse melina consequat. Dolores eu feugiat ellam facilisis at vero eros et accumsan et iusto odio dignisim qui blandit. Lorum ipsum dolores delenida.
+                                                    </p>
+                                                    <div class="arrow"></div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <img src="img/content/864x486-fotboll-nykoping-bis.jpg" alt="">
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </aside>*@
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+    @if (!string.IsNullOrEmpty(Model.CurrentPage.Latitude) && !string.IsNullOrEmpty(Model.CurrentPage.Longitude))
+    {
+        <script>
+            function initMap() {
+                var marker = { lat: @Model.CurrentPage.Latitude, lng: @Model.CurrentPage.Longitude };
+                var map = new google.maps.Map(document.getElementById('karta'), {
+                    zoom: 14,
+                    center: marker
+                });
+                var marker = new google.maps.Marker({
+                    position: marker,
+                    map: map
+                });
+            }
+        </script>
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBMQqXaCB6RZXhJMnHleQb9vMJtOK0lZWE&callback=initMap"></script>
+    }

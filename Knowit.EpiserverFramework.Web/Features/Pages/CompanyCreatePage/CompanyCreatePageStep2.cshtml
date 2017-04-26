@@ -1,0 +1,405 @@
+﻿@using EPiServer
+@using EPiServer.Core
+@using EPiServer.ServiceLocation
+@using EPiServer.Web.Mvc.Html
+@using EPiServer.Web.Routing
+@using Knowit.EpiserverFramework.Models.Pages
+@using Knowit.EpiserverFramework.Web.Features.Pages.CompanyCreatePage
+
+@model CompanyCreatePageViewModel
+
+@{
+    Layout = "~/Features/Layouts/_LayoutAdmin.cshtml";
+    var contentRepository = ServiceLocator.Current.GetInstance<IContentRepository>();
+}
+@section xtrahead{
+    <link href="@Url.Content("~/Frontend/css/adminstyles.css")" rel="stylesheet" />
+}
+
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBMQqXaCB6RZXhJMnHleQb9vMJtOK0lZWE"></script>
+<script src="/Frontend/js/pages/admin/jquery-gmaps-latlon-picker.js"></script>
+<script src="/Frontend/js/pages/admin/Cropbox.js"></script>
+<style>
+    .container {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .action {
+        width: 400px;
+        height: 30px;
+        margin: 10px 20px;
+    }
+
+    .cropped > img {
+        margin-right: 10px;
+    }
+</style>
+<div class="inner-wrap">
+    <h1>Verksamhet - steg 2</h1>
+    @Model.CurrentPage.UpperSecondMainBody
+    @{
+        //var contentRepository = ServiceLocator.Current.GetInstance<IContentRepository>();
+        CompanyPageModel companyPage = contentRepository.Get<CompanyPageModel>(new PageReference(ViewBag.PageId));
+    }
+    <div>
+        @*<a href="@UrlResolver.Current.GetUrl(settingsPage.CompanyCreateContainer)?companyid=@ViewBag.PageId" class="admin-stepnav-btn">
+            < Tillbaka
+        </a>*@
+        <a href="@Url.PageUrl(Model.CurrentPage.LinkURL)?companyid=@ViewBag.PageId" class="admin-stepnav-btn">
+            < Tillbaka
+        </a>
+</div>
+    <div class="form-step">
+        @using (Html.BeginForm("SubmitStep2", "CompanyCreatePage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <fieldset>
+                @Html.TextBoxFor(m => m.CurrentPage.PageId, new { Name= "PageId", @Value = ViewBag.PageId, Style = "display:none" })
+                <div class="image-section">
+                    <h3 class="form-section-headline" style="float:left;">Bilder</h3>
+                    <div class="infoCol">
+                        @if (@Model.CurrentPage.Image1Help != null)
+                        {
+                            <a class="infoPopup">i</a>
+                                <div class="helptext">@Model.CurrentPage.Image1Help</div>
+                        }
+                    </div>
+
+
+
+                    <div class="row">
+                        @*<div class="leftCol">
+                                @Model.Image1Header
+                                @if (@Model.Image1Help != null)
+                                {
+                                    <a class="infoPopup">!</a>
+                                    <div>@Model.Image1Help</div>
+                                }
+                            </div>*@
+                        <div class="imgCol">
+                            <div class="cropper" id="cropperimage1">
+                                <div class="container">
+                                    <div class="imageBox">
+                                        <div class="thumbBox"></div>
+                                        <div class="spinner" style="display: none">Loading...</div>
+                                    </div>
+                                    <div class="action">
+                                        <input id="file1" style="float:left; width: 250px" type="file" accept="image/*">
+                                        <a class="btnCrop" id="btnCrop1" style="">Ok</a>
+                                        <input id="btnZoomIn" value="+" style="float: right; width:25px;" type="button">
+                                        <input id="btnZoomOut" value="-" style="float: right; width:25px;" type="button">
+                                        
+                                    </div>
+                                    <div class="cropinfo">Justera bilden så att den täcker hela ytan inom den blåa ramen. För bästa bildkvalitet bör den uppladdade bilden vara minst 866x488 bildpunkter. Använd -/+ för att ändra storlek på bilden.</div>
+                                    <div class="cropped">
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="imageUpload" id="image1">Ladda upp huvudbild</a>
+                            <input type="hidden" name="imagefile1" id="imagefile1" class="imagefile">
+                            <div id="image1Div"></div>
+                            @if (companyPage.Image1 != null)
+                            {
+                                <img src="@UrlResolver.Current.GetUrl(companyPage.Image1)" alt="@companyPage.Header" class="companyEditImage" />
+                            }
+                        </div>
+
+                        @*<div class="leftCol">
+                                @Model.Image2Header
+                                @if (@Model.Image2Help != null)
+                                {
+                                    <a class="infoPopup">!</a>
+                                    <div>@Model.Image2Help</div>
+                                }
+                            </div>*@
+                        <div class="imgCol">
+                            @*<input type="file" name="image2">*@
+
+                            <div class="cropper" id="cropperimage2">
+                                <div class="container">
+                                    <div class="imageBox">
+                                        <div class="thumbBox"></div>
+                                        <div class="spinner" style="display: none">Loading...</div>
+                                    </div>
+                                    <div class="action">
+                                        <input id="file2" style="float:left; width: 250px" type="file" accept="image/*">
+                                        <a class="btnCrop" id="btnCrop2">Ok</a>
+                                        <input id="btnZoomIn" value="+" type="button">
+                                        <input id="btnZoomOut" value="-" type="button">
+                                    </div>
+                                    <div class="cropinfo">Justera bilden så att den täcker hela ytan inom den blåa ramen. För bästa bildkvalitet bör den uppladdade bilden vara minst 866x488 bildpunkter. Använd -/+ för att ändra storlek på bilden.</div>
+                                    <div class="cropped">
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="imageUpload" id="image2">Ladda upp bild #2</a>
+                            <input type="hidden" name="imagefile2" id="imagefile2" class="imagefile">
+                            <div id="image2Div"></div>
+                            @if (companyPage.Image2 != null)
+                            {
+                                <img src="@UrlResolver.Current.GetUrl(companyPage.Image2)" alt="@companyPage.Header" class="companyEditImage" />
+                            }
+                        </div>
+
+                        @*<div class="leftCol">
+                                @Model.Image3Header
+                                @if (@Model.Image3Help != null)
+                                {
+                                    <a class="infoPopup">!</a>
+                                    <div>@Model.Image3Help</div>
+                                }
+                            </div>*@
+                        <div class="imgCol">
+                            @*<input type="file" name="image3">*@
+                            <div class="cropper" id="cropperimage3" data-cropperoptions="options3">
+                                <div class="container">
+                                    <div class="imageBox">
+                                        <div class="thumbBox"></div>
+                                        <div class="spinner" style="display: none">Loading...</div>
+                                    </div>
+                                    <div class="action">
+                                        <input id="file3" style="float:left; width: 250px" type="file" accept="image/*">
+                                        <a class="btnCrop" id="btnCrop3">Ok</a>
+                                        <input id="btnZoomIn" value="+" type="button">
+                                        <input id="btnZoomOut" value="-" type="button">
+                                    </div>
+                                    <div class="cropinfo">Justera bilden så att den täcker hela ytan inom den blåa ramen. För bästa bildkvalitet bör den uppladdade bilden vara minst 866x488 bildpunkter. Använd -/+ för att ändra storlek på bilden.</div>
+                                    <div class="cropped">
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="imageUpload" id="image3">Ladda upp bild #3</a>
+                            <input type="hidden" name="imagefile3" id="imagefile3" class="imagefile">
+                            <div id="image3Div"></div>
+                            @if (companyPage.Image3 != null)
+                            {
+
+                                <img src="@UrlResolver.Current.GetUrl(companyPage.Image3)" alt="@companyPage.Header" class="companyEditImage" />
+                            }
+                        </div>
+
+                        @*<div class="infoCol" astyle="padding-left:142px">
+                            @if (@Model.Image1Help != null)
+                            {
+                                <a class="infoPopup">i</a>
+                                <div class="helptext">@Model.Image1Help</div>
+                            }
+                        </div>*@
+                    </div>
+                </div>
+                <h3 class="form-section-headline" style="float:left;">@Model.CurrentPage.DocumentHeader</h3>
+                @*<span class="fheader">@Model.DocumentHeader</span>*@
+                <div class="infoCol">
+                    @if (@Model.CurrentPage.DocumentHelp != null)
+                    {
+                        <a class="infoPopup">i</a>
+                            <div class="helptext">@Model.CurrentPage.DocumentHelp</div>
+                    }
+                </div>
+
+                <div class="rightCol">
+                    <input type="file" name="file1">
+                    @if (companyPage.Document != null)
+                    {
+                        var doc = contentRepository.Get<MediaData>(companyPage.Document);
+                        var fileName = doc.Name;
+
+                        @:Uppladdad fil: <a href="@UrlResolver.Current.GetUrl(companyPage.Document)" class="file">@fileName</a>
+                    }
+                </div>
+
+                <div class="row"></div>
+                <h3 class="form-section-headline">Länkar och plats</h3>
+
+                <div class="leftCol">
+                    <span class="fheader">@Model.CurrentPage.WebPageHeader</span>
+                    <div class="infoCol">
+                        @if (@Model.CurrentPage.WebpageHelp != null)
+                        {
+                            <a class="infoPopup">i</a>
+                            <div>@Model.CurrentPage.WebpageHelp</div>
+                        }
+                    </div>
+                </div>
+                <div class="rightCol">
+                    @Html.TextBoxFor(m => m.CurrentPage.WebPage, new { Name = "WebPage", @Value = @ViewBag.WebPage })
+                </div>
+
+                <br />
+
+                <div class="ffield">
+                    <span class="fheader">@Model.CurrentPage.BookingPageHeader</span>
+                    <div class="infoCol">
+                        @if (@Model.CurrentPage.BookingpageHelp != null)
+                        {
+                            <a class="infoPopup">i</a>
+                            <div class="helptext">@Model.CurrentPage.BookingpageHelp</div>
+                        }
+                    </div>
+
+                    <div class="rightCol">
+                        @Html.TextBoxFor(m => m.CurrentPage.BookingPage, new { Name = "BookingPage", @Value = @ViewBag.BookingPage })
+                    </div>
+                </div>
+
+
+                <div class="ffield">
+                    <span class="fheader">@Model.CurrentPage.FacebookPageHeader</span>
+                    <div class="infoCol">
+                        @if (@Model.CurrentPage.FacebookpageHelp != null)
+                        {
+                            <a class="infoPopup">i</a>
+                            <div class="helptext">@Model.CurrentPage.FacebookpageHelp</div>
+                        }
+                    </div>
+
+                    <div class="rightCol">
+                        @Html.TextBoxFor(m => m.CurrentPage.Facebook, new { Name = "Facebook", @Value = @ViewBag.Facebook })
+                    </div>
+                </div>
+
+                <div class="ffield">
+
+                    <span class="fheader">@Model.CurrentPage.TripadvisorHeader</span>
+                    <div class="infoCol">
+                        @if (@Model.CurrentPage.TripadvisorHelp != null)
+                        {
+                            <a class="infoPopup">i</a>
+                                <div class="helptext">@Model.CurrentPage.TripadvisorHelp</div>
+                        }
+                    </div>
+
+                    <div class="rightCol">
+                        @Html.TextAreaFor(m => m.CurrentPage.Tripadvisor, new { Id = "Tripadvisor", Name = "Tripadvisor", @cols = 99, @rows = 5 })
+                        <span class="ViewbagTripadvisor">@ViewBag.Tripadvisor</span>
+                    </div>
+                </div>
+
+
+                <span class="fheader">@Model.CurrentPage.MapHeader</span>
+                <div class="infoCol">
+                    @if (@Model.CurrentPage.MapHelp != null)
+                    {
+                        <a class="infoPopup">i</a>
+                            <div class="helptext">@Model.CurrentPage.MapHelp</div>
+                    }
+                </div>
+
+                <div class="rightCol">
+                    <fieldset class="gllpLatlonPicker">
+                        <div class="gllpMap">Google Maps</div>
+                        <br />
+                        <span class="fheader">Latitud / longitud</span>
+                        @Html.TextBoxFor(m => m.CurrentPage.Latitude, new {Id="Latitude", Name = "Latitude", @Value = @ViewBag.Latitude, @class = "gllpLatitude" })
+                        /
+                        @Html.TextBoxFor(m => m.CurrentPage.Longitude, new {Id="Longitude", Name = "Longitude", @Value = @ViewBag.Longitude, @class = "gllpLongitude" })
+                        <input type="text" class="gllpZoom" value="11" hidden="hidden" />
+                    </fieldset>
+                </div>
+                <div class="leftCol">
+                    <input type="submit" value="Spara verksamhet" class="adm-btn" />
+                </div>
+
+            </fieldset>
+
+        }
+    </div>
+    <script type="text/javascript">
+            window.onload = function () {
+
+                var cropper;
+                document.querySelector('#file1').addEventListener('change', function () {
+
+                    var options = {
+                        imageBox: '#cropperimage1 .imageBox',
+                        thumbBox: '#cropperimage1 .thumbBox',
+                        spinner: '#cropperimage1 .spinner',
+                        imgSrc: 'avatar.png'
+                    }
+
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        options.imgSrc = e.target.result;
+                        cropper = new cropbox(options);
+                    }
+                    if (this.files.length > 0) {
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                    this.files = [];
+                });
+                document.querySelector('#file2').addEventListener('change', function () {
+
+                    var options = {
+                        imageBox: '#cropperimage2 .imageBox',
+                        thumbBox: '#cropperimage2 .thumbBox',
+                        spinner: '#cropperimage2 .spinner',
+                        imgSrc: 'avatar.png'
+                    }
+
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        options.imgSrc = e.target.result;
+                        cropper = new cropbox(options);
+                    }
+                    if (this.files.length > 0) {
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                    this.files = [];
+                });
+                document.querySelector('#file3').addEventListener('change', function () {
+
+                    var options = {
+                        imageBox: '#cropperimage3 .imageBox',
+                        thumbBox: '#cropperimage3 .thumbBox',
+                        spinner: '#cropperimage3 .spinner',
+                        imgSrc: 'avatar.png'
+                    }
+
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        options.imgSrc = e.target.result;
+                        cropper = new cropbox(options);
+                    }
+                    if (this.files.length > 0) {
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                    this.files = [];
+                });
+                //document.querySelector('#btnCrop').addEventListener('click', function() {
+                $('.btnCrop').click(function () {
+                    var img = cropper.getDataURL();
+                    var imagecropper = $(this).closest(".cropper");
+                    var cropperid = imagecropper.attr('id');
+                    var id = cropperid.substring(cropperid.length - 1);
+                    document.getElementById('imagefile' + id).value = img;
+                    //var imgFile = $(this).closest('.imagefile');
+                    //imgFile.value = img;
+                    $("#image" + id + "Div").html("<img src='" + img + "' style='width:150px;' />");
+                    $(".cropper").css("display", "none");
+                    $(".overlay").css("display", "none");
+                });
+                document.querySelector('#cropperimage1 #btnZoomIn').addEventListener('click', function () {
+                    cropper.zoomIn();
+                });
+                document.querySelector('#cropperimage1 #btnZoomOut').addEventListener('click', function () {
+                    cropper.zoomOut();
+                });
+                document.querySelector('#cropperimage2 #btnZoomIn').addEventListener('click', function () {
+                    cropper.zoomIn();
+                });
+                document.querySelector('#cropperimage2 #btnZoomOut').addEventListener('click', function () {
+                    cropper.zoomOut();
+                });
+                document.querySelector('#cropperimage3 #btnZoomIn').addEventListener('click', function () {
+                    cropper.zoomIn();
+                });
+                document.querySelector('#cropperimage3 #btnZoomOut').addEventListener('click', function () {
+                    cropper.zoomOut();
+                });
+            };
+    </script>
+    @Model.CurrentPage.LowerSecondMainBody
+</div>

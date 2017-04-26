@@ -1,0 +1,253 @@
+﻿@using EPiServer.Web.Mvc.Html
+@using EPiServer
+@using EPiServer.Core
+@using EPiServer.Editor
+@using EPiServer.Filters
+@using EPiServer.Forms.Helpers.Internal
+@using EPiServer.Security
+@using EPiServer.ServiceLocation
+@using EPiServer.Web.Routing
+@using Knowit.EpiserverFramework.Models.Pages
+@model Knowit.EpiserverFramework.Models.ViewModels.IPageViewModel<Knowit.EpiserverFramework.Models.Core.SitePageData>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="@Html.ViewContext.RequestContext.RouteData.Values["lang"]">
+<head>
+
+    @Html.Partial("~/Features/Shared/Nykopingsguiden/Head.cshtml")
+    @RenderSection("xtrahead", false)
+
+    <meta name="robots" content="noindex, follow">
+</head>
+@{
+    var cssClass = string.Empty;
+    var pageClass = string.Empty;
+    var subClass = string.Empty;
+
+    var iPageRouteHelper = ServiceLocator.Current.GetInstance<IPageRouteHelper>();
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+
+    var mainMenu1 = Model.CurrentPage.Settings?.MainMenuItem1?.ID ?? 0;
+    var mainMenu2 = Model.CurrentPage.Settings?.MainMenuItem2?.ID ?? 0;
+    var mainMenu3 = Model.CurrentPage.Settings?.MainMenuItem3?.ID ?? 0;
+    var mainMenu4 = Model.CurrentPage.Settings?.MainMenuItem4?.ID ?? 0;
+
+    if (!PageEditing.PageIsInEditMode)
+    {
+        if (Model.CurrentPage is StartPageModel)
+        {
+            pageClass = "home";
+            subClass = "sub";
+        }
+        else if (Model.CurrentPage is SubPageListPageModel)
+        {
+            pageClass = "archive";
+            subClass = "sub";
+        }
+        else if (Model.CurrentPage is SubPageCategoryPageModel)
+        {
+            pageClass = "archive";
+            subClass = "sub";
+        }
+        else if (Model.CurrentPage is ThemePageModel)
+        {
+            pageClass = "theme";
+            subClass = "sub";
+        }
+        else if (Model.CurrentPage is CampaignPageModel)
+        {
+            pageClass = "campaign";
+            subClass = "sub";
+        }
+        else
+        {
+            pageClass = "article";
+        }
+    }
+
+    if (Model.CurrentPage is CompanyPageModel)
+    {
+        var companyPage = iPageRouteHelper.Page as CompanyPageModel;
+
+        if (companyPage != null)
+        {
+            CompanyPageModel.SectionChoice sectionChoice = companyPage.SiteSection;
+
+            cssClass = sectionChoice.ToString().ToLower();
+        }
+    }
+    else if (Model.CurrentPage is ThemePageModel)
+    {
+        var themePage = iPageRouteHelper.Page as ThemePageModel;
+
+        if (themePage != null)
+        {
+            ThemePageModel.SectionChoice sectionChoice = themePage.SiteSection;
+
+            cssClass = sectionChoice.ToString().ToLower();
+        }
+    }
+    else if (Model.CurrentPage is CampaignPageModel)
+    {
+        var campaignPageModel = iPageRouteHelper.Page as CampaignPageModel;
+
+        if (campaignPageModel != null)
+        {
+            CampaignPageModel.SectionChoice sectionChoice = campaignPageModel.SiteSection;
+
+            cssClass = sectionChoice.ToString().ToLower();
+        }
+    }
+    else
+    {
+        var parents = contentLoader.GetAncestors(iPageRouteHelper.Page.PageLink).Reverse().Cast<PageData>().Filter(new FilterAccess(AccessLevel.Read)).Filter(new FilterPublished());
+
+        foreach (PageData page in parents)
+        {
+            if (page.PageLink.ID == mainMenu1)
+            {
+                cssClass = "segora";
+            }
+            else if (page.PageLink.ID == mainMenu2)
+            {
+                cssClass = "event";
+            }
+            else if (page.PageLink.ID == mainMenu3)
+            {
+                cssClass = "ata";
+            }
+            else if (page.PageLink.ID == mainMenu4)
+            {
+                cssClass = "bo";
+            }
+            else
+            {
+                cssClass = "segora";
+            }
+        }
+    }
+}
+<body class="ng @subClass @pageClass @cssClass @RenderSection("xtrabodycss", false)">
+<div id="port-menu" class="lb">
+    <a class="lb-overlay"></a>
+    <div class="port-menu-box">
+        <div class="head">
+            <a class="btn close" title="Stäng"></a>
+        </div>
+        <ul class="port-main-menu">
+            <li>
+            @{
+                IContent startPage = ContentReference.StartPage.GetContent();
+                PageDataCollection allChilds = DataFactory.Instance.GetChildren(((PageData)startPage).PageLink);
+                IEnumerable<PageData> filteredChilds = FilterForVisitor.Filter(allChilds).Where(p => p.IsVisibleOnSite() && p.VisibleInMenu);
+                var category = "pmma-segora";
+            }
+            <a href="/">Startsidan</a>
+            <ul class="port-main-menu-a">
+                @foreach (PageData item in filteredChilds)
+                {
+                    PageDataCollection children = DataFactory.Instance.GetChildren(item.PageLink);
+                    IEnumerable<PageData>
+                        filteredChildren = FilterForVisitor.Filter(children).Where(p => p.IsVisibleOnSite() && p.VisibleInMenu);
+                    var firstitem = string.Empty;
+
+                    if (item.PageLink.ID == mainMenu1)
+                    {
+                        category = "pmma-segora";
+                    }
+                    else if (item.PageLink.ID == mainMenu2)
+                    {
+                        category = "pmma-event";
+                    }
+                    else if (item.PageLink.ID == mainMenu3)
+                    {
+                        category = "pmma-ata";
+                    }
+                    else if (item.PageLink.ID == mainMenu4)
+                    {
+                        category = "pmma-bo";
+                    }
+                    else
+                    {
+                        category = string.Empty;
+                    }
+
+                    <li class="@category @firstitem">
+                        <a href="@Url.ContentUrl(item.LinkURL)">
+                            @item.Name
+                        </a>
+                        @if (children.Count > 0)
+                        {
+                            <ul>
+                                @foreach (PageData seconditem in filteredChildren)
+                                {
+                                    PageDataCollection secondchildren = DataFactory.Instance.GetChildren(seconditem.PageLink);
+                                    IEnumerable<PageData>
+                                        filteredSecondChildren = FilterForVisitor.Filter(secondchildren).Where(p => p.IsVisibleOnSite() && p.VisibleInMenu);
+                                    var secondCurrent = string.Empty;
+                                    if (seconditem.PageLink.ID == iPageRouteHelper.Page.PageLink.ID)
+                                    {
+                                        secondCurrent = "current-menu-item";
+                                    }
+                                    <li class="@secondCurrent">
+                                        <a href="@Url.ContentUrl(seconditem.LinkURL)">
+                                            @seconditem.Name
+                                        </a>
+                                        @if (secondchildren.Count > 0)
+                                        {
+                                            <ul>
+                                                @foreach (PageData thirditem in filteredSecondChildren)
+                                                {
+                                                    var thirdCurrent = "";
+                                                    if (thirditem.PageLink.ID == iPageRouteHelper.Page.PageLink.ID)
+                                                    {
+                                                        thirdCurrent = "current-menu-item";
+                                                    }
+                                                    <li class="@thirdCurrent">
+                                                        <a href="@Url.ContentUrl(thirditem.LinkURL)">
+                                                            @thirditem.Name
+                                                        </a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        }
+                                    </li>
+
+                                }
+
+                            </ul>
+                        }
+                    </li>
+                }
+            </ul>
+        </ul>
+
+        <ul class="port-plus-menu">
+            @{
+                if (Model.CurrentPage.Settings != null)
+                {
+                    foreach (var linkItem in Model.CurrentPage.Settings.PortPlusMenu ?? Enumerable.Empty<EPiServer.SpecializedProperties.LinkItem>())
+                    {
+                        <li><a href="@UrlResolver.Current.GetUrl(linkItem.Href)" title="@linkItem.Text">@linkItem.Text</a></li>
+                    }
+                }
+            }
+        </ul>
+    </div>
+</div>
+
+    <div id="site">
+        @Html.RenderEPiServerQuickNavigator()
+        
+        @Html.Partial("_Header")
+
+        @RenderBody()
+
+        @Html.Partial("_Footer")
+
+        <div class="overlay"></div>
+    </div>
+    <div class="scroll-up-btn"></div>
+    <script src="@Url.Content("~/frontend/js/components/Script.js")" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿@using Knowit.EpiserverFramework.Web.Features.Pages.LoginPage
+
+@model LoginPageViewModel
+
+@{
+    ViewBag.Title = "Återställ lösenord";
+    Layout = "~/Features/Layouts/_Layout.cshtml";
+}
+@section xtrahead{
+    <link href="@Url.Content("~/Frontend/css/adminstyles.css")" rel="stylesheet" />
+}
+@*<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>*@
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js" type="text/javascript"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+@{Html.EnableClientValidation();}
+@{Html.EnableUnobtrusiveJavaScript();}
+
+<section id="content">
+
+    <section id="firstRow" class="section">
+        <div class="inner-wrap">
+            <h2>Ange din epost för att återställa lösenord.</h2>
+
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
+                @Html.AntiForgeryToken()
+
+                <div>
+                    <fieldset>
+                        <div class="editor-label">
+                            Epostadress:
+                        </div>
+                        <div class="editor-field inner">
+                            @Html.TextBoxFor(m => m.CurrentPage.Email, new { Name = "Email" })
+                            @Html.ValidationMessageFor(m => m.CurrentPage.Email)
+                        </div>
+                        <br />
+                        <input class="btn-text" type="submit" value="Återställ" />
+                    </fieldset>
+                </div>
+                <br />
+                <p class="successText">@ViewBag.Message</p>
+            }
+        </div>
+    </section>
+
+</section>

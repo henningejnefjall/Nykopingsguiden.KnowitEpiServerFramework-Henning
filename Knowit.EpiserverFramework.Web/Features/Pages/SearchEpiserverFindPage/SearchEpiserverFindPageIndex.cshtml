@@ -1,0 +1,115 @@
+﻿@using EPiServer.Find.UnifiedSearch
+@using EPiServer.ServiceLocation
+@model Knowit.EpiserverFramework.Web.Features.Pages.SearchEpiserverFindPage.SearchEpiserverFindPageViewModel
+@{
+    var urlHelper = ServiceLocator.Current.GetInstance<UrlHelper>();
+    var friendlyUrl = urlHelper.ContentUrl(Model.CurrentPage.LinkURL);
+}
+
+<div id="content">
+
+<h1></h1>
+
+    <div id="sub-content">
+        <section class="sub-content-section">
+            <div class="inner-wrap">
+                <main class="main-column">
+
+@if (Model.Results != null)
+{
+    if (!string.IsNullOrEmpty(Model.SearchQuery))
+    {
+                            <p class="search-info">
+                                Din sökning: <i>@Model.SearchQuery</i> resulterade i @Model.Results.TotalMatching träffar
+                            </p>
+                            <div class="search-form search-page">
+                                <span class="screen-reader-text">Sök efter:</span>
+                                <form action="@friendlyUrl" method="post">
+                                    <input id="q" class="search-field" placeholder="Sök &hellip;" value="" name="q" type="text">
+                                    <input class="search-btn" value="" type="submit">
+                                </form>
+                            </div>
+                            <div class="search-result">
+                                <ul>
+                                    @foreach (var hit in Model.Results)
+                                    {
+                                        if (hit.TypeName == "File")
+                                        {
+                                            <li>
+                                                <h2>
+                                                    <a href="@hit.Url">@Html.Raw(hit.Title)</a>
+                                                </h2>
+                                                <span class="SearchFile">Fil</span>
+                                            </li>
+                                        }
+                                        else if (hit.OriginalObjectType.Name.Contains("MeetInNykg"))
+                                        {
+                                            <li>
+                                                <h2>
+                                                    <a href="@hit.Url">@Html.Raw(hit.Title)</a>
+                                                </h2>
+                                                <p>@Html.Raw(hit.Excerpt)</p>
+                                                <span class="MeetInNykg">Mötesplats Nyköping</span>
+                                            </li>
+    }
+                                        else if (hit.OriginalObjectType.Name == "EventPage")
+    {
+                                            <li>
+                                                <h2>
+                                                    <a href="@hit.Url">@Html.Raw(hit.Title)</a>
+                                                </h2>
+                                                <p>@Html.Raw(hit.Excerpt)</p>
+                                                <span class="Event">Evenemang</span>
+                                            </li>
+    }
+                                        else
+            {
+                <li>
+                                                <h2>
+                                                    <a href="@hit.Url">@Html.Raw(hit.Title)</a>
+                                                </h2>
+                                                <p>@Html.Raw(hit.Excerpt)</p>
+                </li>
+            }
+
+                                        <hr />
+                                    }
+                                </ul>
+
+        <nav>
+            <ul class="pagination">
+                @foreach (var pagerLink in @Model.PagerLinks)
+                {
+                    if (pagerLink.IsActivePage)
+                    {
+                        <li class="active"><a href="#">@pagerLink.LinkText</a></li>
+                    }
+                    else
+                    {
+                        <li>@Html.RouteLink(pagerLink.LinkText, pagerLink.Route)</li>
+                    }
+                }
+            </ul>
+        </nav>
+    </div>
+}
+                        else
+                        {
+                            <div class="search-form search-page">
+                                <span class="screen-reader-text">Sök efter:</span>
+                                <form action="@friendlyUrl" method="post">
+                                    <input id="q" class="search-field" placeholder="Sök &hellip;" value="" name="q" type="text">
+                                    <input class="search-btn" value="" type="submit">
+                                </form>
+                            </div>
+                        }
+
+                    }
+                </main>
+                <aside class="side-column">
+                    @Html.PropertyFor(m => m.CurrentPage.RightColumn)
+                </aside>
+            </div>
+        </section>
+    </div>
+</div>

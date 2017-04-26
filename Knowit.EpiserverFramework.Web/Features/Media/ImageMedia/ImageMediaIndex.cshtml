@@ -1,0 +1,10 @@
+﻿@using EPiServer.Web.Mvc.Html
+@using Knowit.EpiserverFramework.Web.Helpers
+
+@model Knowit.EpiserverFramework.Web.Features.Media.ImageMedia.ImageMediaViewModel
+
+<div>
+    @Html.Raw(Html.RenderImageTag(Model.ImageMedia.ContentLink, null, null, null, null))
+
+    <p>@Model.ImageMedia.Heading | @Model.ImageMedia.MainIntro | @Model.ImageMedia.Title | @Model.ImageMedia.Alt | @Model.ImageMedia.Copyright</p>
+</div>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+  <language name="English" id="en">
+    <contenttypes>
+      <!--Media-->
+
+      <!--Default media-->
+      <defaultmediamodel>
+        <properties>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+        </properties>
+      </defaultmediamodel>
+      
+      <!--Excel media-->
+      <excelmediamodel>
+        <properties>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+        </properties>
+      </excelmediamodel>
+      
+      <!--Image media-->
+      <imagemediamodel>
+        <properties>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+        </properties>
+      </imagemediamodel>
+      
+      <!--Pdf media-->
+      <pdfmediamodel>
+        <properties>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+        </properties>  
+      </pdfmediamodel>
+      
+      <!--Video media-->
+      <videomediamodel>
+        <properties>
+          <heading>
+            <caption>Heading</caption>
+          </heading>
+          <mainintro>
+            <caption>Ingress</caption>
+          </mainintro>
+          <previewimage>
+            <caption>Preview image</caption>
+          </previewimage>
+          <copyright>
+            <caption>Copyright</caption>
+          </copyright>
+        </properties>
+      </videomediamodel>
+
+    </contenttypes>
+  </language>
+</languages>

@@ -1,0 +1,408 @@
+header {
+    .navbar {
+        margin-bottom: 0px;
+        border: 0;
+        width: 100%;
+    }
+
+    .navbar-bg {
+        background-color: $gray-light;
+        border-bottom: 1px solid #dfdede;
+
+        &.bg-100 {
+            background-color: rgba(253,253,253, 1);
+        }
+
+        &.bg-80 {
+            background-color: rgba(253,253,253, 0.8);
+        }
+
+        &.bg-60 {
+            background-color: rgba(253,253,253, 0.6);
+        }
+
+        &.bg-40 {
+            background-color: rgba(253,253,253, 0.4);
+        }
+
+        &.bg-20 {
+            background-color: rgba(253,253,253, 0.2);
+        }
+    }
+
+    a {
+        color: $vad-black;
+    }
+
+    .navbar-header {
+        margin: 0 !important; /*!important can be taken away after bootstrap is referred properly*/
+        width: 100%;
+        padding: 2px 0px !important; /*!important can be taken away after bootstrap is referred properly*/
+        @include respond-to(small) {
+            padding: 10px 0px !important;
+        }
+
+        .navbar-brand {
+            padding: 9px 10px;
+
+            @include respond-to(small) {
+                width: 100%;
+                padding: 20px;
+                margin-left: 0px !important; /*!important can be taken away after bootstrap is referred properly*/
+            }
+
+            img {
+                height: 36px;
+
+                @include respond-to(small) {
+                    margin: 0px auto;
+                    height: 44px;
+                }
+            }
+        }
+
+        .navbar-toggle, .navbar-toggle:hover, .navbar-toggle:focus {
+            background-color: rgba(0,0,0,0);
+            border: none;
+            margin: 0;
+
+            .icon-bar {
+                display: block;
+                width: 34px;
+                height: 3px;
+                border-radius: 1px;
+                margin: 7px 0px;
+                background-color: $vad-black;
+            }
+        }
+
+        .navbar-toggle .icon-bar {
+            transition: all 0.5s;
+        }
+
+        .navbar-toggle .top-bar {
+            transform: rotate(45deg);
+            transform-origin: 7% 10%;
+        }
+
+        .navbar-toggle .middle-bar {
+            opacity: 0;
+        }
+
+        .navbar-toggle .bottom-bar {
+            transform: rotate(-45deg);
+            transform-origin: 5% 90%;
+        }
+
+        .navbar-toggle.collapsed .top-bar {
+            transform: rotate(0);
+        }
+
+        .navbar-toggle.collapsed .middle-bar {
+            opacity: 1;
+        }
+
+        .navbar-toggle.collapsed .bottom-bar {
+            transform: rotate(0);
+        }
+    }
+
+    .top-header {
+        position: relative;
+        margin-top: 15px;
+
+        @include respond-to(small) {
+            margin-top: 0px;
+        }
+
+        a {
+            margin-right: 10px;
+
+            @include respond-to(small) {
+                margin-right: 0;
+            }
+        }
+
+        .language-menu {
+            float: left;
+
+            @include respond-to(small) {
+                position: absolute;
+                top: 15px;
+                left: 0;
+            }
+
+            a {
+                color: $gray-dark;
+
+                &:hover, &:focus, &:active {
+                    color: $vad-red;
+                }
+
+                span.close {
+                    display: none;
+                }
+
+                &[aria-expanded=true] {
+                    color: $vad-red;
+
+                    span.close {
+                        display: block;
+                    }
+                }
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .extra-links {
+            float: left;
+
+            @include respond-to(small) {
+                position: absolute;
+                top: 15px;
+                right: 0;
+
+                a {
+                    text-align: right;
+                    display: block;
+                    margin-bottom: 5px;
+                    color: $gray-dark;
+
+                    &:hover, &:focus, &:active {
+                        color: $vad-red;
+                    }
+                }
+            }
+        }
+    }
+
+    .navbar-collapse {
+        text-align: center;
+
+        .main-menu {
+
+            .navbar-nav {
+                float: left;
+                width: 100%;
+                text-align: left;
+
+                @include respond-to(small) {
+                    display: inline-block;
+                    float: none;
+                    width: auto;
+                    margin-top: 25px;
+                    margin-bottom: 3px;
+                }
+
+                a {
+                    color: $vad-black;
+                }
+
+                li {
+                    padding: 15px 0px;
+                    border-bottom: 1px solid black;
+                    margin-left: 15px;
+                    cursor:pointer;
+
+                    @include respond-to(small) {
+                        border-bottom: 0;
+                        margin-left: 0;
+                        padding: 15px 20px;
+                        font-size: $font-size-main-nav;
+                        position: inherit;
+                    }
+
+                    a {
+                        padding: 0;
+
+
+                        &:hover {
+                            background-color: rgba(0,0,0,0);
+                            color: $vad-red;
+                        }
+
+                        @include respond-to(small) {
+                            &:hover {
+                                opacity: 1;
+                            }
+
+                            &:after {
+                                position: absolute;
+                                left: 0px;
+                                content: '';
+                                bottom: -5px;
+                                width: 100%;
+                                border-bottom: solid 2px $vad-red;
+                                transition: all 400ms ease-in-out;
+                                opacity: 0;
+                            }
+
+                            &:hover:after {
+                                opacity: 1;
+                            }
+                        }
+                    }
+
+                    &.active a, &.active a:hover, &.active a:focus {
+                        color: $vad-red;
+                        background-color: rgba(0,0,0,0);
+
+                        @include respond-to(small) {
+                            color: $vad-black;
+                        }
+
+                        &:after {
+                            opacity: 0;
+
+                            @include respond-to(small) {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+
+                li.search-icon {
+                    display: none;
+
+                    @include respond-to(small) {
+                        a {
+                            cursor: pointer;
+
+                            span {
+                                font-size: 19px;
+                            }
+                        }
+
+                        display: block;
+                    }
+                }
+
+                .dropdown {
+                    &.open {
+                        background-color: $vad-red;
+
+                        > a, a:focus {
+                            color: $vad-white;
+                            background-color: $vad-red;
+                        }
+                    }
+                }
+
+                .dropdown-menu {
+                    left: 7%;
+                    right: 7%;
+                    padding: 15px 30px 30px;
+
+                    .second-level {
+                        padding-left: 10px;
+                        font-size: $font-size-h3;
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+
+                        .third-level {
+                            padding-left: 20px;
+                            font-size: $font-size-h4;
+                            padding-top: 3px;
+                            padding-bottom: 3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .search-form {
+        width: 100%;
+        height: 56px;
+        background-color: $gray-light;
+        border-bottom: 0px;
+
+        input.form-control {
+            width: 100%;
+            height: 40px;
+        }
+
+        .form-group {
+            padding-left: 0px;
+        }
+
+        @include respond-to(small) {
+            border-bottom: 1px solid #dfdede;
+
+            .form-group {
+                padding-left: auto;
+            }
+        }
+    }
+}
+
+header {
+    .affix {
+        background-color: $gray-light;
+        border-bottom: 1px solid #dfdede;
+        animation: affixFadeIn 1s ease-in;
+        -webkit-animation: affixFadeIn 1s;
+        z-index: 1;
+
+        @keyframes affixFadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes affixFadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @include respond-to(small) {
+            animation: affixFadeIn 0.5s ease-in;
+            -webkit-animation: affixFadeIn 0.5s;
+
+            .top-header {
+                display: none;
+            }
+
+            .navbar-brand {
+                padding: 7px 0px !important;
+
+                img {
+                    height: 36px !important;
+                    margin: 0px !important;
+                }
+            }
+
+            .navbar-header {
+                float: left;
+                width: auto;
+            }
+
+            .navbar-collapse {
+                float: left;
+                padding: 7px 7px 7px 27px !important;
+            }
+
+            .navbar-nav {
+                margin-top: 0 !important;
+                margin-bottom: 0px !important;
+
+                li {
+                    font-size: floor(($font-size-main-nav * 0.9)) !important;
+                    padding: 17px 20px 12px !important;
+                }
+            }
+        }
+    }
+}

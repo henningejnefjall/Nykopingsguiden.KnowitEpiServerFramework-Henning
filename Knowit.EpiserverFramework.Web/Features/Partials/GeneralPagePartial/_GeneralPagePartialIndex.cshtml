@@ -1,0 +1,25 @@
+﻿@using EPiServer.Web.Routing
+@using Knowit.EpiserverFramework.Web.Helpers
+@model Knowit.EpiserverFramework.Web.Features.Pages.GeneralPage.GeneralPageViewModel
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>@Html.PropertyFor(m => m.CurrentPage.Heading)</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            @Html.Raw(Html.RenderImageTag(Model.CurrentPage.Image.Image, Model.CurrentPage.Image.Alt, Model.CurrentPage.Image.Title, "img-responsive"))
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            @Html.PropertyFor(m => m.CurrentPage.MainIntro)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <a href="@UrlResolver.Current.GetUrl(Model.CurrentPage.ContentLink)">Read more</a>
+        </div>
+    </div>
+</div>

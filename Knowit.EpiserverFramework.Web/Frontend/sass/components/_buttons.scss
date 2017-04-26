@@ -1,0 +1,22 @@
+.btn {
+    padding:9px 14px;
+    border-radius: 2px;
+    padding: 9px 16px;
+}
+
+.btn-primary {
+    background-color: $vad-red;
+    color: $vad-white;
+    border-color: rgba(0,0,0,0);
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    color: $vad-white;
+    background-color: darken($vad-red, 6%);
+    border-color: rgba(0,0,0,0);
+}
+
+.btn-100{
+    width:100%;
+    margin-top: 10px;
+}

@@ -1,0 +1,96 @@
+﻿@using EPiServer
+@using EPiServer.ServiceLocation
+@using Knowit.EpiserverFramework.Models.Core
+@model Knowit.EpiserverFramework.Models.ViewModels.IPageViewModel<Knowit.EpiserverFramework.Models.Core.SitePageData>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" /><!-- Disable Skype Addon -->
+
+@{
+    if (Request.RequestContext.GetType() == typeof(SitePageData))
+    {
+        if (!string.IsNullOrEmpty(Model.CurrentPage.Seo.MetaDescription))
+        {
+            <meta name="description" content='@Model.CurrentPage.Seo.MetaDescription'>
+        }
+        else if (!string.IsNullOrEmpty(Model.CurrentPage.Seo.MetaDescription))
+        {
+            <meta name="description" content='@Model.CurrentPage.Seo.MetaDescription'>
+        }
+
+        if (!string.IsNullOrEmpty(Model.CurrentPage.Seo.MetaKeywords))
+        {
+            <meta name="keywords" content='@Model.CurrentPage.Seo.MetaKeywords'>
+        }
+        else if (!string.IsNullOrEmpty(Model.CurrentPage.Seo.MetaKeywords))
+        {
+            <meta name="keywords" content='@Model.CurrentPage.Seo.MetaKeywords'>
+        }
+
+        if (!string.IsNullOrEmpty(Model.CurrentPage.Seo.MetaAuthor))
+        {
+            <meta name="author" content='@Model.CurrentPage.Seo.MetaAuthor'>
+        }
+        else if (!string.IsNullOrEmpty(Model.CurrentPage.Seo.MetaAuthor))
+        {
+            <meta name="author" content='@Model.CurrentPage.Seo.MetaAuthor'>
+        }
+
+        if (!string.IsNullOrEmpty(Model.CurrentPage.Seo.MetaCopyright))
+        {
+            <meta name="copyright" content='@Model.CurrentPage.Seo.MetaCopyright'>
+        }
+        else if (!string.IsNullOrEmpty(Model.CurrentPage.Seo.MetaCopyright))
+        {
+            <meta name="copyright" content='@Model.CurrentPage.Seo.MetaCopyright'>
+        }
+
+        if (Model.CurrentPage.Seo.NoFollow)
+        {
+            if (Model.CurrentPage.Seo.NoIndex)
+            {
+                <meta name="robots" content="noindex, nofollow">
+            }
+            else
+            {
+                <meta name="robots" content="index, nofollow">
+            }
+        }
+        else
+        {
+            <meta name="robots" content="noindex, follow">
+        }
+
+        if (!string.IsNullOrEmpty(Model.CurrentPage.Seo.MetaTitle))
+        {
+            <title>@Model.CurrentPage.Seo.MetaTitle</title>
+        }
+        else
+        {
+            <title>@Model.CurrentPage.PageName - Nyköpingsguiden</title>
+        }
+    }
+}
+
+<link rel="shortcut icon" type="image/x-icon" href="img/favicon-moten-arenor.ico" />
+
+<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic">
+
+<link rel="stylesheet" type="text/css" media="all" href="~/Frontend/css//global.css">
+<link rel="stylesheet" type="text/css" media="all" href="~/Frontend/css//fontawesome.css">
+<link rel="stylesheet" type="text/css" media="all" href="~/Frontend/css//layout.css">
+<link rel="stylesheet" type="text/css" media="all" href="~/Frontend/css//lightbox.css">
+<link rel="stylesheet" type="text/css" media="all" href="~/Frontend/css//responsive.css">
+<link rel="stylesheet" type="text/css" media="all" href="~/Frontend/css//grid.css">
+<link rel="stylesheet" type="text/css" media="all" href="~/Frontend/css//print.css">
+<link rel="stylesheet" type="text/css" media="all" href="~/Frontend/css//motenarenor.css">
+
+<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.2.1.min.js"></script>
+<script src="/Frontend/js/modules/slick.min.js"></script>
+<script src="/Frontend/js/components/Global.js"></script>
+<!--[if lt IE 9]>
+<script src="js/html5.min.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->

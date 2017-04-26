@@ -1,0 +1,53 @@
+﻿.image-media{
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.blockquote {
+  padding: 0 30px;
+  margin: 40px 0px;
+  border-left: 15px solid #ce0058;
+  border-right: 15px solid #ce0058;
+  color: #ce0058;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 36px;
+  line-height: 48px;
+}
+
+.dijitTextBox {
+  border: 1px solid #000000;
+  vertical-align: middle;
+  width: 25em;
+}
+
+.Sleek .epi-previewableTextBox-text {
+  max-width: 25em;
+  vertical-align: baseline;
+  width: auto;
+}
+.Sleek .epi-dialog-landscape, .Sleek .epi-dialog-portrait {
+  width: 650px;
+}
+
+.keyvalueitems-button {
+    vertical-align: top !Important;
+}
+.keyvalueitems-button-no-margin {
+    margin-left: 0;
+}
+.keyValueItemContainer
+{
+    margin-bottom: 5px;
+}
+
+.Sleek .dijitValidationTextBox
+{
+    margin-right: 10px;
+}
+
+.Sleek .icon-calendar-view {
+    background: url('../Images/Icons/calendar24x24.png') no-repeat;
+    height: 24px;
+    width: 24px;
+}
+

@@ -1,0 +1,69 @@
+﻿@using EPiServer.Web.Routing
+@model Knowit.EpiserverFramework.Models.ViewModels.IPageViewModel<Knowit.EpiserverFramework.Models.Core.SitePageData>
+
+<div id="lb-search" class="lb">
+    <a class="lb-overlay"></a>
+    <div class="inner-wrap">
+        <div class="box">
+            <a class="close" title="Stäng"></a>
+            <div class="search-form">
+                <span class="screen-reader-text">Sök efter:</span>
+                <form action="@UrlResolver.Current.GetUrl(Model.CurrentPage.Settings.SearchReference)" method="post">
+                    <input id="q" class="search-field" placeholder="Sök &hellip;" value="" name="q" type="text">
+                    <input class="search-btn" value="Sök" type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<header id="header">
+    
+    <div class="inner-wrap">
+        <div class="header-logo">
+            <a href="/" rel="home"><img src="@Href(Url.Content("~/Frontend/images/logo-nykopingsguiden@2x.png"))" alt="Nyköpingsguiden"></a>
+        </div>
+        <div class="header-menu">
+
+            <ul class="header-top-menu">
+                <li class="links">
+                    @{
+                        if (Model.CurrentPage.Settings != null)
+                        {
+                            foreach (var linkItem in Model.CurrentPage.Settings.TopMenu ?? Enumerable.Empty<EPiServer.SpecializedProperties.LinkItem>())
+                            {
+                                <a href="@UrlResolver.Current.GetUrl(linkItem.Href)" title="@linkItem.Text" class="toplink">@linkItem.Text</a>
+                            }
+                        }
+                    }
+
+                    <div class="language">
+                        <a href="#">Translate</a>
+
+                        <ul style="width:200px; text-align:center;">
+                            <li style="padding:4px;">
+                                <div id="google_translate_element"></div>
+                                <script type="text/javascript">
+                                    function googleTranslateElementInit() {
+                                        new google.translate.TranslateElement({ pageLanguage: 'sv', gaTrack: true, gaId: 'UA-21957491-9' }, 'google_translate_element');
+                                    }
+                                </script>
+                                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+                <li class="buttons">
+                    <a class="header-search-btn" title="Sök">
+                        <div>Sök</div></a>
+                    <a class="header-port-menu-btn" title="Visa meny">
+                        <div>Meny</div></a>
+                </li>
+            </ul>
+
+            @Html.Partial("Nykopingsguiden/_main-menu")
+
+        </div>
+    </div>
+
+</header>

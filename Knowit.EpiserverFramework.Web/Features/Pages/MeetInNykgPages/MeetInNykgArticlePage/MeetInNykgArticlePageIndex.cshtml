@@ -1,0 +1,156 @@
+﻿@using EPiServer.Web.Mvc.Html
+@using Knowit.EpiserverFramework.Web.Features.Pages.MeetInNykgPages.MeetInNykgArticlePage
+
+@model MeetInNykgArticlePageViewModel
+@{
+    Layout = "~/Features/Layouts/_MeetInNykg.cshtml";
+
+}
+@Html.Partial("~/Features/Shared/Motesplats/_ma_breadcrumbs-menu.cshtml")
+
+<div id="content">
+
+    <div id="sub-content">
+
+        <div class="inner-wrap">
+
+            <div class="sub-content-row">
+                @if (Model.CurrentPage.TopImage != null)
+                {
+                <img src="@Url.ContentUrl(Model.CurrentPage.TopImage)" alt="Toppbild">
+                }
+            </div>
+
+            <div class="sub-content-row">
+
+                @if (Model.CurrentPage.OneColumnOnly)
+                {
+                <main class="main-column centered">
+
+                    <div class="sub-main">
+
+                        <h1>@Html.PropertyFor(m => m.CurrentPage.Header)</h1>
+
+                        <h5>@Html.PropertyFor(m => m.CurrentPage.Extract)</h5>
+
+                        @Html.PropertyFor(m => m.CurrentPage.MainBody)
+
+                        
+                    </div>
+
+
+
+
+                    <div class="sub-content-footer">
+                        <ul class="icons">
+                            <li><a class="addthis_button_facebook at300b" href="#" title="Dela sidan på Facebook"><div class="icon facebook"></div></a></li>
+                            <li><a class="addthis_button_twitter at300b" href="#" title="Dela sidan på Twitter"><div class="icon twitter"></div></a></li>
+                            <li><a class="addthis_button_email at300b" href="#" title="Dela sidan via mail" target="_blank"><div class="icon email"></div></a></li>
+                            <li><a class="addthis addthis_button" href="#" title="Dela sidan"><div class="icon addthis"></div></a></li>
+                            <li><a class="print-button" onclick="printContent('sub-content')" title="Skriv ut"><div class="icon print"></div></a></li>
+                        </ul>
+                        <script type="text/javascript">var addthis_config = { "data_track_addressbar": false, ui_click: true, ui_offset_top: 40 };</script>
+                        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e123d080fe1776d"></script>
+                    </div>
+
+                </main>
+                }
+                else
+                {
+                    <main class="main-column">
+
+                        <div class="sub-main">
+
+                            <h1>@Html.PropertyFor(m => m.CurrentPage.Header)</h1>
+
+                            <h5>@Html.PropertyFor(m => m.CurrentPage.Extract)</h5>
+
+                           @Html.PropertyFor(m => m.CurrentPage.MainBody)
+
+                        </div>
+
+                        <div class="sub-content-footer">
+                            <ul class="icons">
+                                <li><a class="addthis_button_facebook at300b" href="#" title="Dela sidan på Facebook"><div class="icon facebook"></div></a></li>
+                                <li><a class="addthis_button_twitter at300b" href="#" title="Dela sidan på Twitter"><div class="icon twitter"></div></a></li>
+                                <li><a class="addthis_button_email at300b" href="#" title="Dela sidan via mail" target="_blank"><div class="icon email"></div></a></li>
+                                <li><a class="addthis addthis_button" href="#" title="Dela sidan"><div class="icon addthis"></div></a></li>
+                                <li><a class="print-button" onclick="printContent('sub-content')" title="Skriv ut"><div class="icon print"></div></a></li>
+                            </ul>
+                            <script type="text/javascript">var addthis_config = { "data_track_addressbar": false, ui_click: true, ui_offset_top: 40 };</script>
+                            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e123d080fe1776d"></script>
+                        </div>
+
+                    </main>
+
+                    <aside class="side-column">
+
+                       @Html.Partial("~/Features/Shared/_rightsub-menu.cshtml")
+
+                        <div class="side-section">
+
+                            <h4>Många gillar också</h4>
+
+                            <a class="main-push event" href="event-elixir.aspx">
+                                <div class="text">
+                                    <div class="meta"><div class="date">15/12-18/12</div><div class="location">Elixir Fitness</div></div>
+                                    <div class="box">
+                                        <h3>Gratis prova på dagar på Elixir Fitness</h3>
+                                        <div class="more">
+                                            <p>
+                                                <!-- 200 tecken -->
+                                                Duis autem veleum iriure dolor in hendrerit in velit esse melina consequat. Dolores eu feugiat ellam facilisis at vero eros et accumsan et iusto odio dignisim qui blandit. Lorum ipsum dolores delenida.
+                                            </p>
+                                            <div class="arrow"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <img src="img/content/864x486-gym.jpg" alt="">
+                            </a>                           <a class="main-push event" href="#">
+                                <div class="text">
+                                    <div class="meta"><div class="date">11/6</div><div class="location">Uppsa Kulle</div></div>
+                                    <div class="box">
+                                        <h3>Mindfulness på Uppsa Kulle</h3>
+                                        <div class="more">
+                                            <p>
+                                                <!-- 200 tecken -->
+                                                Duis autem veleum iriure dolor in hendrerit in velit esse melina consequat. Dolores eu feugiat ellam facilisis at vero eros et accumsan et iusto odio dignisim qui blandit. Lorum ipsum dolores delenida.
+                                            </p>
+                                            <div class="arrow"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <img src="img/content/864x486-mindfulness.jpg" alt="">
+                            </a>                           <a class="main-push event" href="#">
+                                <div class="icons"><div class="icon pod"></div></div>
+                                <div class="text">
+                                    <div class="meta"><div class="date">14/6</div><div class="location">Rosvalla stadion</div></div>
+                                    <div class="box">
+                                        <h3>Nyköpings BIS - IK Sleipner</h3>
+                                        <div class="more">
+                                            <p>
+                                                <!-- 200 tecken -->
+                                                Duis autem veleum iriure dolor in hendrerit in velit esse melina consequat. Dolores eu feugiat ellam facilisis at vero eros et accumsan et iusto odio dignisim qui blandit. Lorum ipsum dolores delenida.
+                                            </p>
+                                            <div class="arrow"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <img src="img/content/864x486-fotboll-nykoping-bis.jpg" alt="">
+                            </a>
+
+                        </div>
+
+                    </aside>
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+  <language name="Svenska" id="sv">
+    <blocks>
+      <defaultblockcontrol>
+        <message>
+          Blocket kan inte visas i denna innehållsyta
+        </message>
+      </defaultblockcontrol>
+    </blocks>
+
+    <!--Display options for block-->
+    <displayoptions>
+      <full>Fullbredd</full>
+      <threequarters>Tre fjärdedelar</threequarters>
+      <twothirds>Två tredjedelar</twothirds>
+      <half>Halv</half>
+      <third>Tredjedel</third>
+      <quarter>Fjärdedel</quarter>
+      <sixth>Sjättedel</sixth>
+    </displayoptions>
+
+    <preview>
+      <heading>Blocket '{0}' visat som {1}</heading>
+      <norenderer>Blocket '{0}' kan inte visas som {1}</norenderer>
+      <norendereratall>Ingen renderare funnen för '{0}'</norendereratall>
+    </preview>
+  </language>
+</languages>

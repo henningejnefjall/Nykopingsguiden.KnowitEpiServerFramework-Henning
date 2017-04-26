@@ -1,0 +1,53 @@
+﻿@using System.Text.RegularExpressions
+
+@model Knowit.EpiserverFramework.Web.Features.Blocks.RssReaderBlock.RssReaderBlockViewModel
+
+<div class="container-fluid">
+    <div class="col-md-12">
+        <h2>@Model.RssReaderBlock.Heading</h2>
+    </div>
+    @if (Model.RssReaderBlock.MainIntro != null)
+    {
+        <div class="col-md-12">
+            <p>@Model.RssReaderBlock.MainIntro</p>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-lg-12 rss-reader">
+            <ul class="list-unstyled">
+                @if (Model.RssFeed != null)
+            {
+                foreach (var item in Model.RssFeed.Items)
+                {
+                        <li>
+                            <div class="listResult">
+                                <h3>
+                                    <a href="@item.Links[0].Uri" title="@item.Title.Text">@item.Title.Text</a>
+                                </h3>
+
+                                @if (Model.RssReaderBlock.IncludeSummary)
+                                {
+                                    if (!Model.RssReaderBlock.StripHtml)
+                                    {
+                                        @Html.Raw(item.Summary.Text)
+                                    }
+                                    else
+                                    {
+                                        @HttpUtility.HtmlDecode(Regex.Replace(item.Summary.Text, @"<!--[\S\s]*?-->|<(?:"".*?""|'.*?'|[\S\s])*?>", ""));
+                                    }
+                                }
+
+                                @if (Model.RssReaderBlock.IncludePublishDate)
+                                {
+                                    <p class="date">@item.PublishDate.Date.ToShortDateString()</p>
+                                }
+                                <hr />
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+
+/*Tools,Variables mixins etc*/ 
+@import "/tools/_variables.scss";
+@import "/tools/_mixins-responsive.scss";
+@import "/tools/_mixins.scss";
+@import "/tools/_helpclasses.scss";
+
+/*Base*/ /*styling which affects the whole site*/ 
+@import "/base/_base.scss";
+
+/*Icons*/
+@import "../fonts/icomoon/_style.scss";
+
+/*Components*/ /*styling which affects parts of the site (Header.scss, footer.scss etc)*/
+@import "/components/_fontawesome.scss";
+@import "/components/_layout.scss";
+@import "/components/_lightbox.scss";
+@import "/components/_responsive.scss";
+@import "/components/_grid.scss"; 
+@import "/components/_print.scss";
+@import "/components/_site.scss";
+
+/*Pages*/ /*styling of different pages*/ 
+@import "/pages/adminpages/_chosen.min.scss";
+
+/*Overrides*/ /*If we need to override bootstrap*/ 
+@import "/overrides/_overrides.scss";

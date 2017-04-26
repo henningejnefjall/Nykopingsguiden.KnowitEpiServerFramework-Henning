@@ -1,0 +1,105 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web
+@using EPiServer.Web.Routing
+@using Knowit.EpiserverFramework.Models.Pages.MeetInNykgPages
+@using Knowit.EpiserverFramework.Utilities.EpiserverUtilities
+@using Knowit.EpiserverFramework.Web.Features.Pages.MeetInNykgPages.MeetInNykgSubPageCategoryPage
+
+@model MeetInNykgSubPageCategoryPageViewModel
+@{
+    Layout = "~/Features/Layouts/_MeetInNykg.cshtml";
+}
+<div id="content">
+
+    @Html.Partial("Motesplats/_ma_breadcrumbs-menu")
+
+    <div id="sub-content">
+        <section class="sub-content-section">
+            <div class="inner-wrap">
+                <main class="main-column">
+
+                    @Html.PropertyFor(m => m.CurrentPage.MainColumnTop)
+
+                    <div class="main-pushes">
+                        @{
+                            var image = new ContentReference();
+                            foreach (PageData item in Model.CategoryPages)
+                            {
+                                if (item.LinkURL != null)
+                                {
+                                    var guid = PermanentLinkUtility.GetGuid(item.LinkURL);
+                                    image = ContentExtensions.GetImageFromLink(guid);
+                                }
+                                <div class="col w_1-2 w9_1-3 w6_1-2 w2_1">
+                                    <a class="main-push" href="@UrlResolver.Current.GetUrl(item.LinkURL)">
+                                        <div class="text">
+                                            <div class="box">
+                                                <h3>@item.PageName</h3>
+                                                <div class="more">
+                                                    <p>@item["Extract"]</p>
+                                                    <div class="arrow"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @if (item["thumbnail"] != null)
+                                        {
+                                            <img src="@UrlResolver.Current.GetUrl(item["Thumbnail"] as ContentReference)" alt="@item.PageName">
+                                        }
+                                        else if (item["Image1"] != null)
+                                        {
+                                            <img src="@UrlResolver.Current.GetUrl(item["Image1"] as ContentReference)" alt="@item.PageName">
+                                        }
+                                        else if (image != null)
+                                        {
+                                            <img src="@UrlResolver.Current.GetUrl(image)" alt="@item.PageName">
+                                        }
+                                        else if (item.PageTypeName == "MeetInNykgFacilityPageModel" && item["ImageSlider"] != null)
+                                        {
+                                            MeetInNykgFacilityPageModel facilityItem = item as MeetInNykgFacilityPageModel;
+                                            if (facilityItem.ImageSlider.Count > 0)
+                                            {
+                                                foreach (var imageItem in facilityItem.ImageSlider.FilteredItems)
+                                                {
+                                                    var slideLink = (ContentReference)imageItem.ContentLink;
+                                                    if (Url.ContentUrl(slideLink).IsNullOrEmpty())
+                                                    {
+                                                        var slider = (ImageSlideStandardBlockModel)imageItem.GetContent();
+                                                        if (slider != null)
+                                                        {
+                                                            if (slider.ImageSlides != null)
+                                                            {
+                                                                foreach (var slide in slider.ImageSlides.FilteredItems.Take(1))
+                                                                {
+                                                                    <img src="@Url.ContentUrl(slide.ContentLink)" alt="@Model.CurrentPage.PageName">
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="@Url.ContentUrl(slideLink)" alt="@Model.CurrentPage.PageName">
+                                                    }
+                                                }
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            <img src="~/Frontend/images/company.jpg" alt="No image">
+                                        }
+
+                                    </a>
+                                </div>
+                            }
+                        }
+                    </div>
+                </main>
+
+                <aside class="side-column">
+                    @Html.PropertyFor(m => m.CurrentPage.RightColumn)
+                </aside>
+            </div>
+        </section>
+    </div>
+</div>

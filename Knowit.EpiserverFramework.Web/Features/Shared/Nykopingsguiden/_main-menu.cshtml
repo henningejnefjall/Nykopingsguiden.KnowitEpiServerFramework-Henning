@@ -1,0 +1,67 @@
+﻿@using EPiServer.Web.Routing
+@using Knowit.EpiserverFramework.Utilities.EpiserverUtilities
+@model Knowit.EpiserverFramework.Models.ViewModels.IPageViewModel<Knowit.EpiserverFramework.Models.Core.SitePageData>
+
+@{
+    if (Model.CurrentPage.Settings != null)
+    {
+        <nav class="main-menu">
+            
+                @if(Model.CurrentPage.Settings.MainMenuItem1 != null)
+                { 
+                    var segoraActive = "";
+
+                    if (Model.CurrentPage.Settings.MainMenuItem1 == Model.CurrentPage.Settings.PageLink)
+                    {
+                        segoraActive = "active";
+                    }
+
+                    <a class="btn segora @segoraActive" href="@UrlResolver.Current.GetUrl(Model.CurrentPage.Settings.MainMenuItem1)">
+                        <div class="arrow"></div>@Model.CurrentPage.Settings.MainMenuItem1.GetPage().PageName
+                    </a>
+                }
+
+                @if (Model.CurrentPage.Settings.MainMenuItem2 != null)
+                {
+                    var eventActive = "";
+
+                    if (Model.CurrentPage.Settings.MainMenuItem2 == Model.CurrentPage.Settings.PageLink)
+                    {
+                        eventActive = "active";
+                    }
+
+                    <a class="btn event @eventActive" href="@UrlResolver.Current.GetUrl(Model.CurrentPage.Settings.MainMenuItem2)">
+                        <div class="arrow"></div>@Model.CurrentPage.Settings.MainMenuItem2.GetPage().PageName
+                    </a>
+                }
+
+                @if (Model.CurrentPage.Settings.MainMenuItem3 != null)
+                {
+                    var ataActive = "";
+
+                    if (Model.CurrentPage.Settings.MainMenuItem3 == Model.CurrentPage.Settings.PageLink)
+                    {
+                        ataActive = "active";
+                    }
+
+                    <a class="btn ata @ataActive" href="@UrlResolver.Current.GetUrl(Model.CurrentPage.Settings.MainMenuItem3)">
+                        <div class="arrow"></div>@Model.CurrentPage.Settings.MainMenuItem3.GetPage().PageName
+                    </a>
+                }
+
+                @if (Model.CurrentPage.Settings.MainMenuItem4 != null)
+                {
+                    var boActive = "";
+
+                    if (Model.CurrentPage.Settings.MainMenuItem4 == Model.CurrentPage.Settings.PageLink)
+                    {
+                        boActive = "active";
+                    }
+
+                    <a class="btn bo @boActive" href="@UrlResolver.Current.GetUrl(Model.CurrentPage.Settings.MainMenuItem4)">
+                        <div class="arrow"></div>@Model.CurrentPage.Settings.MainMenuItem4.GetPage().PageName
+                    </a>
+                }
+        </nav>
+    }
+}
